@@ -5,7 +5,7 @@
  * Displays all of the <head> section and everything up till <div id="main">
  *
  * @package WordPress
- * @subpackage Starkers
+ * @subpackage SPLOST
  * @since Starkers 3.0
  */
 ?><!DOCTYPE html>

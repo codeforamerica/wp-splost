@@ -9,8 +9,8 @@
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
  * @package WordPress
- * @subpackage Starkers
- * @since Starkers 3.0
+ * @subpackage SPLOST
+ * @since SPLOST 
  */
 
 get_header(); ?>
