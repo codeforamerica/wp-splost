@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Overview
+Template Name: SPLOST Overview
 */
 ?>
 
