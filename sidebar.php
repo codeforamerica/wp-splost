@@ -1,5 +1,5 @@
 <div id="sidebar">
-   <div class="button"><a href="http://splost.codeforamerica.org/">SPLOST Overview</a></div>
+   <div class="button"><a href="/overview/">SPLOST Overview</a></div>
    <div style="clear:both;"></div>
    <h5>SPLOST CATEGORIES & PROJECTS</h5>
    

@@ -301,14 +301,7 @@ h4 {font-size: 22px; font-weight: 400; }
 #stats p {margin-bottom: 9px;}
 #map {height: 300px; width: 100%; margin: 20px 0px;}
 .intro a {border-bottom: 1px dotted #acacac; padding-bottom: 2px;}
-
 #stats {margin-bottom: 15px;}
-
-#holder {
-    border: 1px dotted #acacac;
-    margin: 0 auto;
-    width: 640px;
-    height: 480px;
-}
+#holder {margin: 0 auto; width: 640px; height: 480px;}
 small {line-height: .5em;}
 ul.linkList, li.linkList {list-style: circle; margin-bottom: 8px; margin-left: 10px;}
