@@ -1,5 +1,5 @@
 <div id="sidebar">
-   <div class="button"><a href="#">SPLOST Overview</a></div>
+   <div class="button"><a href="http://splost.codeforamerica.org/">SPLOST Overview</a></div>
    <div style="clear:both;"></div>
    <h5>SPLOST CATEGORIES & PROJECTS</h5>
    
@@ -30,12 +30,12 @@
      
    <div class="menu">
      <ul class="menu_cat">
-     <li class="category ed"><a href=" http://127.0.0.1:8888/economic-development">Economic Development Overview</a></li>
+     <li class="category ed"><a href=" /economic-development/">Economic Development Overview</a></li>
      </ul>
 
      <ul>
-     <li class="ed first"><a href="http://127.0.0.1:8888/overview/economic-development/centreplex/">Centreplex</a></li>
-     <li class="ed second"><a href="http://127.0.0.1:8888/downtown-corridor/">Downtown Corridor</a></li>
+     <li class="ed first"><a href="/overview/economic-development/centreplex/">Centreplex</a></li>
+     <li class="ed second"><a href="/downtown-corridor/">Downtown Corridor</a></li>
      </ul>
    </div><!-- #menu END -->
      

@@ -62,7 +62,7 @@
   <div id="pagewrapper">
 
     <div id="header">
-      <p class="top-menu"><a href="http://127.0.0.1:8888/">HOME</a> / <a href="http://127.0.0.1:8888/about/">ABOUT THIS SITE</a> / <a href="http://127.0.0.1:8888/contact/">CONTACT</a> / <a href="http://127.0.0.1:8888/news/">NEWS</a> </p> 
+      <p class="top-menu"><a href="http://splost.codeforamerica.org">HOME</a> / <a href="/about/">ABOUT THIS SITE</a> / <a href="/contact/">CONTACT</a> / <a href="/news/">NEWS</a> </p> 
       <div id="title_container">
       <h1 class="tright">MACON CHANGE</h1>
       <p class="subtitle">Track Macon's SPLOST Project Funding</p>
