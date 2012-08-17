@@ -27,13 +27,19 @@
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-<link rel="stylesheet" href="/wp-content/themes/wp-splost/style2.css">
+<link rel="stylesheet" href="/wp-content/themes/wp-splost/leaflet.css" />
+
+
+
  <script src="/wp-content/themes/wp-splost/tabletop.js" type="text/javascript"></script> 
  <script src="/wp-content/themes/wp-splost/ICanHaz.js" type="text/javascript"></script> 
  <script src="/wp-content/themes/wp-splost/accounting.js" type="text/javascript"></script>
- <link rel="stylesheet" href="/wp-content/themes/wp-splost/leaflet.css" />
  <script src="/wp-content/themes/wp-splost/leaflet.js"></script>
-  <script src="/wp-content/themes/wp-splost/sheetsee.js"></script>
+ <script src="/wp-content/themes/wp-splost/sheetsee.js"></script>
+ <script src="/wp-content/themes/wp-splost/raphael.js" type="text/javascript"></script>  
+ <script src="/wp-content/themes/wp-splost/g.raphael.js"></script>
+ <script src="/wp-content/themes/wp-splost/g.pie.js"></script>
+
  
  
 <?php

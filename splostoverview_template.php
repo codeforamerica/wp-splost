@@ -87,7 +87,7 @@ Template Name: Overview
           var values = []
           var labels = []
           var hexcolors = []
-              edProjects.forEach(pushBits)
+              data.forEach(pushBits)
 
                    
           pie = r.piechart(230, 230, 170, values, { 
@@ -122,12 +122,12 @@ Template Name: Overview
           
           
          var numberActive = getActiveProjects(edProjects).length
-         var numberTotalProjects = 2
+         var numberTotalProjects = 14
          var numberCompletedProjects = completedProjects(edProjects)
          var totalSpent = amountSpent(edProjects)
 
          var schedule = ich.schedule({
-           "rows": turnCurrency(edProjects)
+           "rows": turnCurrency(data)
          })
 
          var stats = ich.stats({

@@ -30,7 +30,7 @@
      
    <div class="menu">
      <ul class="menu_cat">
-     <li class="ed"><a href=" http://127.0.0.1:8888/economic-development">Economic Development Overview</a></li>
+     <li class="category ed"><a href=" http://127.0.0.1:8888/economic-development">Economic Development Overview</a></li>
      </ul>
 
      <ul>
