@@ -12,6 +12,17 @@ function getCurrentYear() {
   return new Date().getFullYear()  
 }
 
+function getCatTotal(projects) {
+	var catTotal = 0
+  projects.forEach(function (element) {
+    var projectTotal = element["total"]
+	  catTotal += parseInt(projectTotal)
+  })
+  return catTotal
+}
+
+
+
 function completedProjects(projects) {
   var completed = 0
   projects.forEach(function (project) {
@@ -51,6 +62,39 @@ function amountSpent(projects) {
   })
   return filteredProjects
   }
+  
+  function getProject(projects, projectFilter){
+	  var oneProject = []
+	  projects.forEach(function (element) {
+		  var proj = "project"
+		  var projName = element[proj]
+		  if (projName === projectFilter) oneProject.push(element)
+  })
+  return oneProject
+  }
+	
+	// function getProjectTotal(element) {
+	// 		var tot = "total"
+	// 		var projectTotal = element[tot]
+	// 		if (projectTotal > 0)	return projectTotal
+	// 	}
+	
+  // why no workie 
+  
+  // function getTotal(projects){
+  // 	  var totalFunds = projectz
+  // 	  projects.forEach(function (element) {
+  // 		  var tot = "total"
+  // 		  var projTot = element[tot]
+  // 		  if (projTot > 0) return projTot
+  // 	  })
+  // }
+  
+  // function getTotal(element){
+  // 	  var totalFunds = element[total]
+  // 	  if (totalFunds > 0) return accounting.formatMoney(totalFunds)  
+  // 	
+  // }
 
  
  function getMoney(value) {
@@ -69,12 +113,21 @@ function amountSpent(projects) {
     })
     return projects
   }
+  
+ function comboArrays(projectsA, projectsB) {
+	 var arrayA = projectsA
+	 var arrayB = projectsB
+	 var comboArray = arrayA.concat(arrayB)
+	 return comboArray
+ } 
+
+ 
 
 function isComplete(element) {
   var currentYear = "year" + getCurrentYear()
   var dollars = element[currentYear]
-  if (dollars > 0) return true
-  return false
+  if (dollars > 0) return "completed"
+  return "active"
 }
 
 function getPreviousYears() {

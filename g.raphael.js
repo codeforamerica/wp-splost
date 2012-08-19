@@ -721,7 +721,7 @@ Raphael.g = {
      > Default value
      | { font: '12px Arial, sans-serif', fill: '#fff' }
      \*/  
-    txtattr: { font: '12px Arial, sans-serif', fill: '#fff' },
+    txtattr: { font: '12px Arvo, sans-serif', fill: '#fff' },
 
     /*\
      * g.colors

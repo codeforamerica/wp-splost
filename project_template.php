@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Project
+Template Name: Project Template
 */
 ?>
 
@@ -38,9 +38,8 @@ Template Name: Project
     
     
     <script id="stats" type="text/html">
-       <p><span class="statHighlight">{{numberActive}} of {{numberTotalProjects}}</span> projects are active</p>
-       <p><span class="statHighlight">{{numberCompletedProjects}}</span> projects are completed</p>
-       <p><span class="statHighlight">{{totalSpent}}</span> has been spent as of {{currentDate}} </p>
+       <p>Project Status: <span class="statHighlight">{{isCompleted}}</span></p>
+       <p><span class="statHighlight">{{totalSpent}}</span> of a total <span class="statHighlight">{{categoryTotal}}</span> has been spent as of {{currentDate}} </p>
      </script>
     
    <script id="schedule" type="text/html">
@@ -71,10 +70,23 @@ Template Name: Project
          var drProjects = getType(data, "Debt Retirement")
          var raProjects = getType(data, "Rec & Cultural Arts")
          var psProjects = getType(data, "Public Safety")
+		 		 var downtownC  = getProject(data, "Downtown Corridor")
+				 
+			 	function getProjectTotal(project) {
+			 		var tot = "total"
+			 		var projectTotal = project[tot]
+			 		return projectTotal
+			 	}
+				 
+				console.log(getProjectTotal(downtownC))
+		 
+		 		var theCombo = comboArrays(downtownC, edProjects)
+
+
 
          var map = loadMap()
-         edProjects.forEach(function (edProject){
-           displayAddress(map, edProject)
+         downtownC.forEach(function (downtownC){
+           displayAddress(map, downtownC)
          })
 
          function pushBits(element) {
@@ -87,7 +99,7 @@ Template Name: Project
           var values = []
           var labels = []
           var hexcolors = []
-              data.forEach(pushBits)
+              theCombo.forEach(pushBits)
 
                    
           pie = r.piechart(230, 230, 170, values, { 
@@ -117,22 +129,27 @@ Template Name: Project
           });
           
               
-               
-         var numberActive = getActiveProjects(edProjects).length
+          
+         var numberActive = getActiveProjects(downtownC).length
          var numberTotalProjects = 14
-         var numberCompletedProjects = completedProjects(edProjects)
-         var totalSpent = amountSpent(edProjects)
-
+         var numberCompletedProjects = completedProjects(downtownC)
+         var totalSpent = amountSpent(downtownC)
+		 		 var catTotal = getCatTotal(edProjects)
+		 
          var schedule = ich.schedule({
-           "rows": turnCurrency(data)
+           "rows": turnCurrency(downtownC)
          })
 
          var stats = ich.stats({
-           "numberActive": numberActive,
-           "numberTotalProjects": numberTotalProjects,
-           "numberCompletedProjects": numberCompletedProjects,
-           "totalSpent": accounting.formatMoney(totalSpent),
-           "currentDate": getCurrentYear()
+			 		 "projectTotal":		accounting.formatMoney(),
+		  		 "categoryTotal": 			accounting.formatMoney(catTotal),
+		  		 "isCompleted": 				isComplete(downtownC),
+           "numberActive": 				numberActive,
+           "numberTotalProjects": 		numberTotalProjects,
+           "numberCompletedProjects": 	numberCompletedProjects,
+           "totalSpent": 				accounting.formatMoney(totalSpent),
+           "currentDate": 				getCurrentYear()
+		   
          })
 
          document.getElementById('table').innerHTML = schedule;
