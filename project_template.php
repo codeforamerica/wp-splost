@@ -17,12 +17,7 @@ Template Name: Project Template
 
    						<?php the_content(); ?>
    						<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'twentyten' ), 'after' => '' ) ); ?>
-   						<span class="button wpedit">
-   						<?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?></span>
-
-   				<?php comments_template( '', true ); ?>
-
-   <?php endwhile; ?>
+ 
    <h3>Economic Development Quick Stats</h3>
    <div id="stats"></div>
    <h3>Project Locations</h3>
@@ -34,6 +29,13 @@ Template Name: Project Template
     <h3>Project Funding Schedule</h3>
     
   <div id="table"></div><!-- end #table -->
+
+                <span class="button wpedit">
+              <?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?></span>
+
+          <?php comments_template( '', true ); ?>
+
+   <?php endwhile; ?>
     </div><!-- end #maincontainer -->
     
     

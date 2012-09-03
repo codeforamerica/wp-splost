@@ -1,5 +1,10 @@
 <div id="sidebar">
-   <div class="button"><a href="/overview/">SPLOST Overview</a></div>
+  <h5>OVERVIEW & REPORTS</h5>
+  <div class="menu">
+   <div class="button"><a href="/overview/">SPLOST Overview</a></div>   
+   <div class="button"><a href="/overview/">Montly Revenue</a></div>
+  </div>
+   
    <div style="clear:both;"></div>
    <h5>SPLOST CATEGORIES & PROJECTS</h5>
    
@@ -11,9 +16,8 @@
      <ul>
      <li class="ps first"><a href="#">Storm Drainage</a></li>
      <li class="ps second"><a href="#">Street Maintenance</a></li>
-     <li class="ps first"><a href="#">GMA Lease Pool</a></li>
-     <li class="ps second"><a href="#">Public Safety Equipment</a></li>
-     <li class="ps first"><a href="#">Public Safety Other</a></li>
+     <li class="ps first"><a href="#">Public Safety Equipment</a></li>
+     <li class="ps second"><a href="#">Public Safety Other</a></li>
      </ul>
   </div><!-- #menu END -->
      
@@ -25,6 +29,8 @@
      <ul>
      <li class="dr first"><a href="#">Debt Retirement</a></li>
      <li class="dr second"><a href="#">Bond Repayment</a></li>
+     <li class="dr first"><a href="#">GMA Lease Pool</a></li>
+	 
      </ul>
    </div><!-- #menu END -->
      
@@ -50,7 +56,15 @@
      <li class="ra first"><a href="#">Rose Hill Cemetery</a></li>
      <li class="ra second"><a href="#">Ft. Hawkins</a></li>
      </ul>
+	 
    </div><!-- #menu END -->
+
+   <div style="clear:both;"></div>
+   <h5>PRESS & DOCUMENTS</h5>
+   <div class="menu">
+    <div class="button"><a href="/overview/">Recent Press</a></div>   
+   </div><!-- #menu END -->
+
    <div class="searcher">
  			<?php get_search_form(); ?>
  		</div>

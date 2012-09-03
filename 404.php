@@ -23,5 +23,6 @@ get_header(); ?>
 		// focus on search field after it has loaded
 		document.getElementById('s') && document.getElementById('s').focus();
 	</script>
+<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

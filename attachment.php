@@ -8,7 +8,7 @@
  */
 
 get_header(); ?>
-
+<div id="maincontainer" >
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
 				<p><a href="<?php echo get_permalink( $post->post_parent ); ?>" title="<?php esc_attr( printf( __( 'Return to %s', 'twentyten' ), get_the_title( $post->post_parent ) ) ); ?>" rel="gallery"><?php
@@ -51,7 +51,6 @@ get_header(); ?>
 							}
 						?>
 						<?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?>
-					</div><!-- .entry-meta -->
 
 <?php if ( wp_attachment_is_image() ) :
 	$attachments = array_values( get_children( array( 'post_parent' => $post->post_parent, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'ASC', 'orderby' => 'menu_order ID' ) ) );
@@ -94,5 +93,6 @@ get_header(); ?>
 <?php comments_template(); ?>
 
 <?php endwhile; ?>
-
+</div>
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>
