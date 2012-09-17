@@ -24,6 +24,7 @@
 	?></title>
 
 <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700,900' rel='stylesheet' type='text/css'>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); echo '?' . filemtime( get_stylesheet_directory() . '/style.css'); ?>" type="text/css" media="screen" />
 
@@ -66,8 +67,9 @@
     <div id="header">
       <p class="top-menu"><a href="http://splost.codeforamerica.org">HOME</a> / <a href="/about/">ABOUT THIS SITE</a> / <a href="/contact/">CONTACT</a> / <a href="/news/">NEWS</a> </p> 
       <div id="title_container">
-      <h1 class="tright">MACON CHANGE</h1>
-      <p class="subtitle">Track Macon's SPLOST Project Funding</p>
+        <p class="subtitle">Your Pennies at W<img src="/wp-content/uploads/2012/07/penny_icon_sml.png" width="17px" />rk</p><div style="clear:both;"></div>
+      <h1 class="tright">Macon's 2012 SPLOST</h1>
+      
       </div>
 
     </div><!-- #header END -->

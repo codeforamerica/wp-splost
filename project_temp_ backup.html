@@ -5,64 +5,48 @@ Template Name: Project Template
 ?>
 
 <?php get_header(); ?>
-
- <div id="maincontainer" class="projectPage" >
-
-   <?php the_post_thumbnail(); ?>
+ <div id="maincontainer" class="overview" >
+   <h3>Project Description</h3>
    <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-   					
-    <?php
-      $posttext = $post->post_content;
-      $regex = '~<img [^\>]*\ />~';
-      preg_match_all($regex, $posttext, $images);
-      $posttext = preg_replace($regex, '', $posttext); 
-      $noOfImgs = count($images[0]); ?>
 
-      <div id="thePostText">
-      <?php echo $posttext; ?>
-      </div>
+   					<?php if ( is_front_page() ) { ?>
+   						<!-- ><h2><?php the_title(); ?></h2> -->
+   					<?php } else { ?>	
+   					<!--	<h1><?php the_title(); ?></h1> -->
+   					<?php } ?>				
 
-      <?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'twentyten' ), 'after' => '' ) ); ?>
+   						<?php the_content(); ?>
+   						<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'twentyten' ), 'after' => '' ) ); ?>
  
-      <h3>Quick Stats & Location</h3>
-        <div id="map" class="halfmap"></div>
-        <div id="stats" class="halfstats"></div>
-        <div class="clear"></div>
-
-     <?php 
-        if ( $noOfImgs > 0 ) {
-          echo '<h3>Project Photos</h3>'; 
-          echo '<div id="thePostImages">';
-          foreach ( $images[0] as $image ) {
-          echo '<p class="aPostImage">' . $image . '</p>'; 
-          } 
-          echo '</div>';
-        }
-    ?>
+   <h3>Economic Development Quick Stats</h3>
+   <div id="stats"></div>
+   <h3>Project Locations</h3>
+   <?php the_post_thumbnail(); ?>
 
 
-      <h3>Category Funding Comparison</h3>
-        <p>Below, a funds comparison between this category's projects.</p>
+    <div id="map"></div>
+    <h3>Category Funding Comparison</h3>
+      <p>Below, a funds comparison between this category's projects.</p>
+	  <div id="holder"></div>
+    <h3>Project Funding Schedule</h3>
+    
+  <div id="table"></div><!-- end #table -->
 
-    	 <div id="holder"></div>
+                <span class="button wpedit">
+              <?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?></span>
 
-      <h3>Project Funding Schedule</h3>
-        <div id="table"></div>
-
-      <span class="button wpedit">
-      <?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?></span>
-
-      <?php comments_template( '', true ); ?>
+          <?php comments_template( '', true ); ?>
 
    <?php endwhile; ?>
 
-  </div><!-- end #maincontainer -->
+
+    </div><!-- end #maincontainer -->
     
     
-  <script id="stats" type="text/html">
-     <p>Project Status: <span class="statHighlight">{{isCompleted}}</span></p>
-     <p><span class="statHighlight">{{totalSpent}}</span> of a total <span class="statHighlight">{{categoryTotal}}</span> has been spent as of {{currentDate}} </p>
-   </script>
+    <script id="stats" type="text/html">
+       <p>Project Status: <span class="statHighlight">{{isCompleted}}</span></p>
+       <p><span class="statHighlight">{{totalSpent}}</span> of a total <span class="statHighlight">{{categoryTotal}}</span> has been spent as of {{currentDate}} </p>
+     </script>
     
    <script id="schedule" type="text/html">
       <table>
@@ -76,13 +60,15 @@ Template Name: Project Template
       {{/rows}}
       </table>
     </script>
-  
+    
+    
     <script type="text/javascript">    
       document.addEventListener('DOMContentLoaded', function() {
          loadSpreadsheet(showInfo)
        })    
 
        function showInfo(data, tabletop) {
+               
                
          accounting.settings.currency.precision = 0
 
@@ -102,6 +88,8 @@ Template Name: Project Template
 		 
 		 		var theCombo = comboArrays(downtownC, edProjects)
 
+
+
          var map = loadMap()
          downtownC.forEach(function (downtownC){
            displayAddress(map, downtownC)
@@ -118,6 +106,7 @@ Template Name: Project Template
           var labels = []
           var hexcolors = []
               theCombo.forEach(pushBits)
+
                    
           pie = r.piechart(230, 230, 170, values, { 
             legend: labels, 
@@ -143,7 +132,9 @@ Template Name: Project Template
                   this.label[0].animate({ r: 5 }, 500, "bounce");
                   this.label[1].attr({ "font-weight": 400 });
               }
-          });    
+          });
+          
+              
           
          var numberActive = getActiveProjects(downtownC).length
          var numberTotalProjects = 14
@@ -172,6 +163,8 @@ Template Name: Project Template
 
        }
     </script>
+
+
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

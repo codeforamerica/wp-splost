@@ -126,8 +126,8 @@ h6 {font-size: 18px;}/* Body Section Titles*/
 
 
 .tright {text-align: right;}
-.fleft  {position: relative; float: left;}
-
+.fleft  {float: left;}
+.fright  {float: right;}
 /* Link/Category colors */
 .pslink {color: #2DF7AA;}
 .drlink {color: #4FC6C6;}
@@ -143,7 +143,7 @@ h6 {font-size: 18px;}/* Body Section Titles*/
 #title_container {positon: relative; float: right;}	
 #header   {position: relative; height: 110px; width: 100%; padding-top: 20px; overflow: auto;
 		   background-image: url('http://127.0.0.1:8888/wp-content/uploads/2012/07/rainbowtop.png'); background-position: top; background-repeat: repeat-x;}
-p.subtitle {position: relative; font-family: 'Arvo', serif; font-size: 13px; color: #333; line-height: 21px; 
+p.subtitle {position: relative; font-family: 'Arvo', serif; font-size: 18px; color: #333; line-height: 21px; 
 		   margin: 0px 2px 4px 0px; float: right; text-align: right;}		
 
 #maincontainer {position: relative; float: right; width: 780px; overflow: auto; margin-left: 10px; }
@@ -283,6 +283,10 @@ input, input[type="password"], input[type="search"], isindex {
   font-size: 13px;
 } 
 
+#thePostText {margin-top: 15px;}
+#thePostImages {}
+.aPostImage {}
+
 
 body {font-family: 'Arvo';}
 thead {padding-bottom: 20px;}
@@ -296,10 +300,18 @@ tr {border-bottom: 1px dotted #acacac;}
 .tableheader {border: none;} 
 h4 {font-size: 22px; font-weight: 400; }
 .statHighlight {background-color: #BCEDDC; padding: 4px; margin-right: 3px;}
-#stats p {margin-bottom: 9px;}
-#map {height: 300px; width: 100%; margin: 20px 0px;}
+#stats p {margin: 0px 0px 9px 0px;}
+#stats.halfstats {width: 40%; float: left; height: 300px; margin: 0px;}
+#stats.halfstats p {margin: 0px 0px 0px 15px;}
+.clear {clear: both;}
+#map.halfmap {width: 60%; float: left; height: 300px;}
 .intro a {border-bottom: 1px dotted #acacac; padding-bottom: 2px;}
 #stats {margin-bottom: 15px;}
 #holder {margin: 0 auto; width: 640px; height: 480px;}
 small {line-height: .5em;}
 ul.linkList, li.linkList {list-style: circle; margin-bottom: 8px; margin-left: 10px;}
+
+
+.pressPage li {line-height: 2em;}
+.pressPage ul {margin: 15px;}
+
