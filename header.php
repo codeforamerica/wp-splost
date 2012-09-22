@@ -67,7 +67,7 @@
     <div id="header">
       <p class="top-menu"><a href="http://splost.codeforamerica.org">HOME</a> / <a href="/about-splost/">ABOUT SPLOST</a> / <a href="/about/">ABOUT THIS SITE</a> / <a href="/contact/">CONTACT</a> / <a href="/news/">NEWS</a> </p> 
       <div id="title_container">
-        <p class="subtitle">Your Pennies at W<img src="/wp-content/uploads/2012/07/penny_icon_sml.png" width="17px" />rk</p><div style="clear:both;"></div>
+        <p class="subtitle">Your Pennies at W<img src="http://splost.codeforamerica.org/wp-content/uploads/2012/09/penny_icon_sml.png" width="17px" />rk</p><div style="clear:both;"></div>
       <h1 class="tright">Macon's 2012 SPLOST</h1>
       
       </div>
