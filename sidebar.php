@@ -62,7 +62,7 @@
    <div style="clear:both;"></div>
    <h5>PRESS & DOCUMENTS</h5>
    <div class="menu">
-    <div class="button"><a href="/overview/">Recent Press</a></div>   
+    <div class="button"><a href="/press/">Recent Press</a></div>   
    </div><!-- #menu END -->
 
    <div class="searcher">

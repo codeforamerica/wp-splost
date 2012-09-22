@@ -1,0 +1,85 @@
+  <div class="content-text">
+  <?php
+  ob_start();
+  the_content('Read the full post',true);
+  $postOutput = preg_replace('/<img[^>]+./','', ob_get_contents());
+  ob_end_clean();
+  echo $postOutput;
+  ?>
+</div>
+<div class="content-img">
+  <?php
+  preg_match_all("/(<img [^>]*>)/",get_the_content(),$matches,PREG_PATTERN_ORDER);
+  for( $i=0; isset($matches[1]) && $i < count($matches[1]); $i++ ) {
+    echo $beforeEachImage . $matches[1][$i] . $afterEachImage;}?>
+</div>
+
+
+
+  <div class="content-text">
+  <?php
+  ob_start();
+  the_content('Read the full post',true);
+  $postOutput = preg_replace('/<img[^>]+./','', ob_get_contents());
+  ob_end_clean();
+  echo $postOutput;
+  ?>
+</div>
+<div class="content-img">
+  <?php
+  preg_match_all("/(<img [^>]*>)/",get_the_content(),$matches,PREG_PATTERN_ORDER);
+  for( $i=0; isset($matches[1]) && $i < count($matches[1]); $i++ ) {
+    $beforeEachImage = '<a href="#">';
+    $afterEachImage = '</a>';
+    echo $beforeEachImage . $matches[1][$i] . $afterEachImage;}?>
+
+</div>
+
+'#<div[^>]*>(.*?)</div>#'
+
+/(<div [^>]*>)/
+
+
+   <?php echo do_shortcode('[gallery option1="value1"]'); ?>
+
+
+       <?php 
+
+       if (strpos($post->post_content,'[gallery') === false){
+  $gallery = 0;
+}else{
+  $gallery = 1;
+}
+     echo $gallery;
+
+      if ($gallery = 1) {
+      echo "<h3>Project Photos</h3>";
+      echo do_shortcode('[gallery option1="value1"]'); }
+      else echo "";
+       ?>
+
+<?php 
+
+       if (strpos(get_the_content(),'[gallery') === true){
+        $gallery = 1
+        echo $gallery;
+      echo "<h3>Project Photos</h3>";
+      echo do_shortcode('[gallery option1="value1"]');
+}
+       ?>
+
+
+              if (strpos($post->post_content,'[gallery') === false){
+  $gallery = 0;
+}else{
+  $gallery = 1;
+
+  
+}
+     echo $gallery;
+
+      if ($gallery = 1) {
+      echo "<h3>Project Photos</h3>";
+      echo do_shortcode('[gallery option1="value1"]'); }
+      else echo "";
+       ?>

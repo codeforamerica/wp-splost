@@ -6,7 +6,7 @@ Template Name: Overview
 
 <?php get_header(); ?>
  <div id="maincontainer" class="overview" >
-   <h3>Project Description</h3>
+   <h3>Overview Description</h3>
    <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
    					<?php if ( is_front_page() ) { ?>
@@ -16,27 +16,23 @@ Template Name: Overview
    					<?php } ?>				
 
    						<?php the_content(); ?>
-   						<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'twentyten' ), 'after' => '' ) ); ?>
 
-   <h3>Economic Development Quick Stats</h3>
-   <div id="stats"></div>
-   <h3>Project Locations</h3>
-   
-    <div id="map"></div>
-    <h3>Category Funding Comparison</h3>
-      <p>Below, a funds comparison between this category's projects.</p>
+  <h3>Economic Development Quick Stats</h3>
+    <div id="stats"></div>
+  <h3>Project Locations</h3>
+    <div id="map" class="fullmap"></div>
+  <h3>Category Funding Comparison</h3>
+    <p>Below, a funds comparison between this category's projects.</p>
 	  <div id="holder"></div>
-    <h3>Project Funding Schedule</h3>
-    
-  <div id="table"></div><!-- end #table -->
+  <h3>Project Funding Schedule</h3>
+    <div id="table"></div><!-- end #table -->
 
-                <span class="button wpedit">
-              <?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?></span>
-
-          <?php comments_template( '', true ); ?>
+  <span class="button wpedit">
+    <?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?></span>
+    <?php comments_template( '', true ); ?>
 
    <?php endwhile; ?>
-    </div><!-- end #maincontainer -->
+</div><!-- end #maincontainer -->
     
     
     <script id="stats" type="text/html">

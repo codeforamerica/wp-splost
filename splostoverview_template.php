@@ -16,24 +16,25 @@ Template Name: SPLOST Overview
    					<?php } ?>				
 
    						<?php the_content(); ?>
-   						<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'twentyten' ), 'after' => '' ) ); ?>
-   						<span class="button wpedit">
-   						<?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?></span>
 
-   				<?php comments_template( '', true ); ?>
-
-   <?php endwhile; ?>
-   <h3>Economic Development Quick Stats</h3>
+   <h3>Quick Stats</h3>
    <div id="stats"></div>
    <h3>Project Locations</h3>
    
-    <div id="map"></div>
+    <div id="map" class="fullmap"></div>
     <h3>Category Funding Comparison</h3>
       <p>Below, a funds comparison between this category's projects.</p>
 	  <div id="holder"></div>
     <h3>Project Funding Schedule</h3>
     
   <div id="table"></div><!-- end #table -->
+
+                <span class="button wpedit">
+              <?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?></span>
+
+          <?php comments_template( '', true ); ?>
+
+   <?php endwhile; ?>
     </div><!-- end #maincontainer -->
     
     
@@ -73,8 +74,8 @@ Template Name: SPLOST Overview
          var psProjects = getType(data, "Public Safety")
 
          var map = loadMap()
-         edProjects.forEach(function (edProject){
-           displayAddress(map, edProject)
+         data.forEach(function (data){
+           displayAddress(map, data)
          })
 
          function pushBits(element) {

@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Project Template
+Template Name: Displays gallery, assumes there is a gallery.
 */
 ?>
 
@@ -10,26 +10,26 @@ Template Name: Project Template
 
    <?php the_post_thumbnail(); ?>
    <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-            
-    <?php
-      $posttext = $post->post_content;
-      $regex = '~<img [^\>]*\ />~';
-      preg_match_all($regex, $posttext, $images);
-      $posttext = preg_replace($regex, '', $posttext); 
-      $noOfImgs = count($images[0]); 
-    ?>
+   					
+  <div class="content-text">
+  <?php
+  ob_start();
+  the_content('Read the full post',true);
+  $postOutput = preg_replace('/<img[^>]+./','', ob_get_contents());
+  ob_end_clean();
+  echo $postOutput;
+  ?>
+</div>
+<div class="content-img">
+  <?php
+  preg_match_all("/(<img [^>]*>)/",get_the_content(),$matches,PREG_PATTERN_ORDER);
+  for( $i=0; isset($matches[1]) && $i < count($matches[1]); $i++ ) {
+    $beforeEachImage = '<a href="#">';
+    $afterEachImage = '</a>';
+    echo $beforeEachImage . $matches[1][$i] . $afterEachImage;}?>
 
-      <div id="thePostText">
-      <?php echo $posttext; ?>
-
-<!--      $count = substr_count(file_get_contents($posttext), "\r"|"\n"|"\r\n");
-      echo $count; was counting to see if it picked up on new lines in the text. nope -->
-
-
-
-      </div>
-             
- 
+</div>
+              
       <h3>Project Location & Quick Stats</h3>
         <div id="map" class="halfmap"></div>
         <div id="stats" class="halfstats"></div>
@@ -38,7 +38,7 @@ Template Name: Project Template
       <h3>Category Funding Comparison</h3>
         <p>Below, a funds comparison between this category's projects.</p>
 
-       <div id="holder"></div>
+    	 <div id="holder"></div>
 
       <h3>Project Funding Schedule</h3>
         <div id="table"></div>
@@ -54,17 +54,17 @@ Template Name: Project Template
         }
     ?>
 
-    <?php 
-        if ( $noOfGals > 0 ) {
-          echo '<h3>Project Gallery</h3>'; 
-          echo '<div id="thePostImages">';
-          echo '</div>';
-          foreach ( $gallery[0] as $agallery ) {
-          echo '[' . $agallery . ']'; 
-          } 
-          
-        }
-    ?>
+       <?php 
+
+       if (strpos($post->post_content,'[gallery') === false){
+  $gallery = 0;
+}else{
+  $gallery = 1;
+}
+      if ($gallery = 1) {
+      echo "<h3>Project Photos</h3>";
+       echo do_shortcode('[gallery option1="value1"]'); }?>
+
 
     <h3>Related News Posts</h3>
     <h3>Relevant Documents</h3>
@@ -99,17 +99,15 @@ if ($tags) {
 ?>
 
 <div id="sharing">
-<p>Share this page: </p>
-
-<a href="https://twitter.com/share" class="twitter-share-button" data-via="MayorReichert" data-hashtags="MaconSPLOST">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
-  if(!d.getElementById(id)){js=d.createElement(s);
-  js.id=id; js.src="//platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js,fjs);}
-  }(document,"script","twitter-wjs");</script>
-<g:plusone size="medium"></g:plusone>
-<div class="fb-like" data-send="true" data-layout="button_count" data-width="100" data-show-faces="false"></div>
-
+  <p>Share this page: </p>
+  <a href="https://twitter.com/share" class="twitter-share-button" data-via="MayorReichert" data-hashtags="MaconSPLOST">Tweet</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
+    if(!d.getElementById(id)){js=d.createElement(s);
+    js.id=id; js.src="//platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js,fjs);}
+    }(document,"script","twitter-wjs");</script>
+  <g:plusone size="medium"></g:plusone>
+  <div class="fb-like" data-send="true" data-layout="button_count" data-width="100" data-show-faces="false"></div>
 </div>
 
 <!--nextpage-->
@@ -170,17 +168,17 @@ if ($tags) {
          var drProjects = getType(data, "Debt Retirement")
          var raProjects = getType(data, "Rec & Cultural Arts")
          var psProjects = getType(data, "Public Safety")
-         var downtownC  = getProject(data, "Downtown Corridor")
-         
-        function getProjectTotal(project) {
-          var tot = "total"
-          var projectTotal = project[tot]
-          return projectTotal
-        }
-         
-        console.log(getProjectTotal(downtownC))
-     
-        var theCombo = comboArrays(downtownC, edProjects)
+		 		 var downtownC  = getProject(data, "Downtown Corridor")
+				 
+			 	function getProjectTotal(project) {
+			 		var tot = "total"
+			 		var projectTotal = project[tot]
+			 		return projectTotal
+			 	}
+				 
+				console.log(getProjectTotal(downtownC))
+		 
+		 		var theCombo = comboArrays(downtownC, edProjects)
 
          var map = loadMap()
          downtownC.forEach(function (downtownC){
@@ -229,22 +227,22 @@ if ($tags) {
          var numberTotalProjects = 14
          var numberCompletedProjects = completedProjects(downtownC)
          var totalSpent = amountSpent(downtownC)
-         var catTotal = getCatTotal(edProjects)
-     
+		 		 var catTotal = getCatTotal(edProjects)
+		 
          var schedule = ich.schedule({
            "rows": turnCurrency(downtownC)
          })
 
          var stats = ich.stats({
-           "projectTotal":    accounting.formatMoney(),
-           "categoryTotal":       accounting.formatMoney(catTotal),
-           "isCompleted":         isComplete(downtownC),
-           "numberActive":        numberActive,
-           "numberTotalProjects":     numberTotalProjects,
-           "numberCompletedProjects":   numberCompletedProjects,
-           "totalSpent":        accounting.formatMoney(totalSpent),
-           "currentDate":         getCurrentYear()
-       
+			 		 "projectTotal":		accounting.formatMoney(),
+		  		 "categoryTotal": 			accounting.formatMoney(catTotal),
+		  		 "isCompleted": 				isComplete(downtownC),
+           "numberActive": 				numberActive,
+           "numberTotalProjects": 		numberTotalProjects,
+           "numberCompletedProjects": 	numberCompletedProjects,
+           "totalSpent": 				accounting.formatMoney(totalSpent),
+           "currentDate": 				getCurrentYear()
+		   
          })
 
          document.getElementById('table').innerHTML = schedule;

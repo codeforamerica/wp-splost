@@ -502,3 +502,6 @@ add_action( 'wp_head', 'ilc_favicon');
 function ilc_favicon(){
 	echo "<link rel='shortcut icon' href='" . get_stylesheet_directory_uri() . "/favicon.png' />" . "\n";
 }
+
+add_image_size( 'half_img', 384, 450 );
+

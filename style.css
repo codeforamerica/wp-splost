@@ -61,59 +61,28 @@ p.top-menu {
 #maincontainer.fourOh img {
   padding-bottom: 30px;
 }
-/* -------------------------------------------- PAGE POST */ 
-
 
 /* -------------------------------------------- PAGE LOOP */ 
 
 
 /* ------------------------------------- PAGE (INCL WELCOME, ABOUT, CONTACT)*/
 
-a, a:visited      {text-decoration: none; color: #333;}
+body {font-family: 'Arvo';}
+
+a, a:visited      {text-decoration: none; color: #333; padding-bottom: 2px; border-bottom: 1px solid #BCEDDC;}
 a:hover, a:active {color: #777;}
-p {
-  font-size: 16px;
-  line-height: 1.5em;
-  color: #333; 
-  font-family: 'Arvo', serif;	
-  font-weight: 400; 
-}	
+a:hover img, a:active img, a:visited img {border: none;}
 
-p.post-date, p.loop-meta, p.single-meta {
-  
-  text-transform: uppercase;
-  color: #acacac;
-  margin: 3px 0px;
-}
-p.post-date {
-  font-size: 10px;
-}
+p {font-size: 16px; line-height: 1.5em; color: #333; font-family: 'Arvo', serif; font-weight: 400;}	
+p.post-date, p.loop-meta, p.single-meta {text-transform: uppercase; color: #acacac; margin: 3px 0px;}
+p.post-date {font-size: 10px;}
+p.loop-meta {font-size: 12px; padding: 20px 0px; border-bottom: 3px solid #BCEDDC;}
+p.single-meta {font-size: 12px; padding: 20px 0px;}
+p.post-date a, p.loop-meta a, p.single-meta a {padding-bottom: 2px; border-bottom: 1px dotted #333;}
 
-p.loop-meta {
-  font-size: 12px;
-  padding: 20px 0px;
-  border-bottom: 3px solid #BCEDDC;
-}
-
-p.single-meta {
-  font-size: 12px;
-  padding: 20px 0px;
-}
-p.post-date a, p.loop-meta a, p.single-meta a {
-  padding-bottom: 2px; border-bottom: 1px dotted #333;
-}
-#maincontainer .loop p, #maincontainer.single p, .page p {
-  margin-bottom: 10px;
-}
-#post-to-fro {
-  float: left;
-  width: 100%;
-}
-
-#full {
-  float: left;
-  width: 100%;
-}
+#maincontainer .loop p, #maincontainer.single p, .page p {margin-bottom: 10px;}
+#post-to-fro {float: left; width: 100%;}
+#full {float: left; width: 100%;}
 
 h1, h2, h3, h5, h6 {font-family: 'Arvo', serif;	font-weight: 400; color: #333; margin: 0px; padding: 0px;}	
 h1 {font-size: 46px; letter-spacing: 1px}/* Main page title header */
@@ -121,9 +90,15 @@ h2 {font-size: 26px; margin-top: 15px;}/* Post titles in Loop and Single pages *
 h2:first-child {margin-top: 0px;}
 h3 {font-size: 20px; margin: 20px 0px;}/* Body Section Titles*/
 h3:first-child {margin-top: 0px;}
+h4 {font-size: 22px; font-weight: 400; }
 h5 {font-size: 16px;}/* Sidebar header */
 h6 {font-size: 18px;}/* Body Section Titles*/
 
+.clear {clear: both;}
+
+.wholemilk {width: 780px; overflow: auto; padding-bottom: 12px;}
+.halfmilk {width: 380px; overflow: auto; float: left; margin-right: 20px;}
+.halfmilk:last-child {margin-right: 0px;}
 
 .tright {text-align: right;}
 .fleft  {float: left;}
@@ -200,7 +175,7 @@ p.subtitle {position: relative; font-family: 'Arvo', serif; font-size: 18px; col
 #sidebar    {position: relative; float: left; width: 360px; margin-right: 10px; overflow: auto;}
 #sidebar h5 {margin-top: 10px;}
 .button   {position: relative; font-family: 'Arvo', serif; font-size: 13px; color: #333; line-height: 21px;}
-.button a {display: block; float: left; height: 22px; color: #333; background: #BCEDDC; padding: 0px 10px 0px 10px; margin: 5px 10px 0px 0px;}	
+.button a {display: block; float: left; height: 22px; color: #333; background: #BCEDDC; padding: 0px 10px 0px 10px; margin: 5px 10px 0px 0px; border: none;}	
 .button a:hover {display: block; background: #e6e6e6; color: #777;}
 
 /* The menu */
@@ -208,12 +183,14 @@ p.subtitle {position: relative; font-family: 'Arvo', serif; font-size: 18px; col
 .menu ul, .welcome_menu ul {position: relative; float: left; margin: 0; padding: 0;}
 .menu li, .welcome_menu li {float: left; list-style: none; font-family: 'Arvo', serif; font-size: 13px; color: #333;
                             line-height: 21px; margin: 4px 2px 4px 0px;}
-.menu li a, .welcome_menu li a {display: block; float: left; height: 22px; color: #333; padding: 0px 10px;}
+.menu li a, .welcome_menu li a {display: block; float: left; height: 22px; color: #333; padding: 0px 10px; border: none;}
 .menu li a:hover, .welcome_menu li a:hover {display: block; background: #e6e6e6; color: #777;}
 
 
 .welcome_menu    {width: 30%;}
 .welcome_menu li {padding-right: 7px;}
+
+.searcher {position: relative; float: left;}
 
 /* Spacing for first and second items */
 .second a {margin-left: 7px;}	
@@ -224,6 +201,8 @@ p.subtitle {position: relative; font-family: 'Arvo', serif; font-size: 18px; col
 .dr a {background: #4FC6C6;}
 .ed a {background: #BCFF52;}
 .ra a {background: #66E224;}
+
+.attachImg * {border: none;}
 
 /* Triangles */
 .category.ps::after {border-left: 11px solid #2DF7AA;}
@@ -238,19 +217,35 @@ p.subtitle {position: relative; font-family: 'Arvo', serif; font-size: 18px; col
 						border-top: 11px solid transparent; border-bottom: 11px solid transparent; 
 						border-left: 11px solid #e6e6e6;}
 
+
+/* ------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------- */
+/* ---------------------------    Posts      ------------------------------- */  
+
+#thePostText {margin-top: 15px;}
+#thePostImages {}
+.aPostImage {}
+
+
 /* ------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------- */
 /* ---------------------------     Footer    ------------------------------- */
-#footer {position: relative; float: left; width: 100%; height: 50px; border-top: 1px dotted #333; 
+#footer {position: relative; float: left; width: 100%; height: 300px; border-top: 1px dotted #333; 
          padding-top: 15px; margin-top: 10px;}
 #footer p {font-size: 12px;}
+.footerThird {width: 31%; height: 180px; float: left; margin-right: 20px; border-right: 1px dotted #333; padding-right: 19px; overflow: auto;}
+.footerThird:last-child {margin-right: 0px; padding-right: 0px; border: none;}
 
+.footerThird h5 {font-size: 14px; margin: 4px 0px;}
+.footerThird h6 {font-size: 12px; text-transform: uppercase; margin: 5px 0px; letter-spacing: .1em; color: #acacac;}
+.footerThird h4 {font-size: 16px; margin-bottom: 10px;}
+.oneLatestPost {margin: 8px 0px;}
 
 button, input[type="button"], input[type="reset"], input[type="submit"] {
   cursor: pointer;
   background: #e6e6e6;
   color: #333;
-  border: 0px;
+  border: none;
   font-family: 'Arvo';
   line-height: 21px; 
   font-size: 13px;
@@ -258,37 +253,11 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   padding: 0px 10px 0px 10px;
 }      
 
-.wpedit a {
-  margin: 20px 0px;
-  background: #ff00ff;
-  color: #fff;
-  float: right;
-}
+.wpedit a {margin: 20px 0px; background: #ff00ff; color: #fff; float: right; border: none;}
+input, input[type="password"], input[type="search"], isindex {border: 0px; border-bottom: 1px dotted #333; font-family: 'Arvo'; font-size: 13px;}
+.screen-reader-text {font-family: 'Arvo'; font-size: 13px;} 
 
-input, input[type="password"], input[type="search"], isindex {
-  border: 0px;
-  border-bottom: 1px dotted #333;
-  font-family: 'Arvo';
-  font-size: 13px;
-}
-
-.searcher {
-  position: relative;
-  float: left;
-}
-
-
-.screen-reader-text {
-  font-family: 'Arvo';
-  font-size: 13px;
-} 
-
-#thePostText {margin-top: 15px;}
-#thePostImages {}
-.aPostImage {}
-
-
-body {font-family: 'Arvo';}
+/* **** Handlebars.js Content, Table ***** */
 thead {padding-bottom: 20px;}
 th {background-color: #DDDDDD; font-size: 16px; font-weight: 400; padding: 6px; text-align: center;}
 tbody {padding: 15px 4px;}
@@ -298,20 +267,80 @@ td {min-width: 64px; vertical-align: middle; height: 28px; padding: 3px;}
 .total {font-weight: 700; font-size: 12px;}
 tr {border-bottom: 1px dotted #acacac;}
 .tableheader {border: none;} 
-h4 {font-size: 22px; font-weight: 400; }
+
+/* **** Stats ***** */
 .statHighlight {background-color: #BCEDDC; padding: 4px; margin-right: 3px;}
 #stats p {margin: 0px 0px 9px 0px;}
 #stats.halfstats {width: 40%; float: left; height: 300px; margin: 0px;}
 #stats.halfstats p {margin: 0px 0px 0px 15px;}
-.clear {clear: both;}
-#map.halfmap {width: 60%; float: left; height: 300px;}
-.intro a {border-bottom: 1px dotted #acacac; padding-bottom: 2px;}
 #stats {margin-bottom: 15px;}
+#stats h5 {margin: 0px 0px 6px 15px;}
+#stats p {line-height: 2em;}
+
+
+/* **** Map ***** */
+#map.halfmap {width: 60%; float: left; height: 300px;}
+#map.fullmap {width: 100%; height: 300px;}
+/*#map {overflow: auto;}
+*/
+.intro a {border-bottom: 1px dotted #acacac; padding-bottom: 2px;}
+
+/* **** Charts ***** */
 #holder {margin: 0 auto; width: 640px; height: 480px;}
+
 small {line-height: .5em;}
 ul.linkList, li.linkList {list-style: circle; margin-bottom: 8px; margin-left: 10px;}
 
-
+/* **** Press Page ***** */
 .pressPage li {line-height: 2em;}
 .pressPage ul {margin: 15px;}
+/*#thePostText.pressPage a {padding-bottom: 2px; border-bottom: 1px solid #2DF7AA;}
+#thePostText.pressPage a:hover {padding-bottom: 2px; border-bottom: 1px solid #acacac;}
+*/
+
+/* **** Bottom Navagation between Pages ***** */
+#post-nav {background: #fff; color: #333; height: 50px; border-top: 1px dotted #acacac; padding-top: 15px;}
+.nextPageNav a {float: right;}
+.prevPageNav a {float: left;}
+
+.nextPageNav, .prevPageNav   {position: relative; font-family: 'Arvo', serif; font-size: 13px; color: #333; line-height: 21px;}
+.nextPageNav a, .prevPageNav a {display: block;height: 22px; color: #333; background: #E6E6E6; padding: 0px 10px 0px 10px; border: none; }  
+.nextPageNav a:hover, .prevPageNav a:hover {display: block; background: #e6e6e6; color: #777;}
+
+
+.nextPageNav::before {border-left: 11px solid #E6E6E6;}
+.nextPageNav::before {content: " "; position: relative; float: right; width: 0; height: 0; 
+          border-top: 11px solid transparent; border-bottom: 11px solid transparent;} 
+/* When hovering over div, generate new triangle to match div hover conditions */
+.nextPageNav:hover::before {content: " "; position: relative; float: right; width: 0; height: 0; 
+            border-top: 11px solid transparent; border-bottom: 11px solid transparent; 
+            border-left: 11px solid #e6e6e6;}
+
+.prevPageNav::before {border-right: 11px solid #E6E6E6;}
+.prevPageNav::before {content: " "; position: relative; float: left; width: 0; height: 0; 
+          border-top: 11px solid transparent; border-bottom: 11px solid transparent;} 
+/* When hovering over div, generate new triangle to match div hover conditions */
+.prevPageNav:hover::before {content: " "; position: relative; float: left; width: 0; height: 0; 
+            border-top: 11px solid transparent; border-bottom: 11px solid transparent; 
+            border-right: 11px solid #e6e6e6;}
+
+/* **** Sharing Social Icons ***** */
+#sharing {margin-top: 10px; height: 71px; border-top: 1px dotted #ACACAC; padding-top: 12px;}
+.shareButton {padding: 0px 15px;}
+
+/* **** Page Text ***** */
+.content-text {}
+.content-img  {background: #ff00ff;}
+/* **** Page Galleries ***** */
+#gallery-1 {display: none;}
+#gallery-2 {margin: 15px 0px;}
+#gallery-2 img {float: left; margin-right: 8px;}
+
+/* **** Relevant Posts ***** */
+#relevantPosts {}
+#relevantPosts h5 {font-size: 16x; margin: 4px 0px;}
+#relevantPosts h6 {font-size: 13px; text-transform: uppercase; margin: 5px 0px; letter-spacing: .1em; color: #acacac;}
+
+.attachPage li {padding: 5px 0px;}
+.attachPage ul {padding: 5px 0px;}
 
