@@ -21,15 +21,6 @@ Template Name: THE Project Template.
     echo $postOutput;
     ?>
   </div>
-
-  <div class="content-img">
-    <?php
-    preg_match_all("/(<img [^>]*>)/",get_the_content(),$matches,PREG_PATTERN_ORDER);
-    for( $i=0; isset($matches[1]) && $i < count($matches[1]); $i++ ) {
-      $beforeEachImage = '<a href="#">';
-      $afterEachImage = '</a>';
-      echo $beforeEachImage . $matches[1][$i] . $afterEachImage;}?>
-  </div>
               
   <h3>Project Location & Quick Stats</h3>
     <div id="map" class="halfmap"></div>
@@ -53,7 +44,15 @@ Template Name: THE Project Template.
     echo "<h3>Project Photos</h3>";
     echo do_shortcode('[gallery option1="value1"]'); }
   ?>
-
+  
+  <div class="content-img">
+    <?php
+    preg_match_all("/(<img [^>]*>)/",get_the_content(),$matches,PREG_PATTERN_ORDER);
+    for( $i=0; isset($matches[1]) && $i < count($matches[1]); $i++ ) {
+      $beforeEachImage = '<a href="#">';
+      $afterEachImage = '</a>';
+      echo $beforeEachImage . $matches[1][$i] . $afterEachImage;}?>
+  </div>
                   
   <div class="wholemilk">
     <div class="halfmilk">
