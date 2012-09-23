@@ -344,3 +344,5 @@ ul.linkList, li.linkList {list-style: circle; margin-bottom: 8px; margin-left: 1
 .attachPage li {padding: 5px 0px;}
 .attachPage ul {padding: 5px 0px;}
 
+.fb_edge_widget_with_comment {position: relative; top: -4px;}
+

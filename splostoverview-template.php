@@ -41,11 +41,11 @@ Template Name: SPLOST Overview
   <div id="post-nav">
     <span class="prevPageNav">
       <?php 
-      //echo previous_page_not_post('', true, ''); ?> 
+    echo previous_page_not_post('', true, ''); ?> 
     </span>  
     <span class="nextPageNav">
       <?php 
-      //echo next_page_not_post('', true, '' );  ?> 
+    echo next_page_not_post('', true, '' );  ?> 
     </span>
   </div>
 
