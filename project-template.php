@@ -8,7 +8,8 @@ Template Name: THE Project Template.
 
  <div id="maincontainer" class="projectPage" >
 
- <?php the_post_thumbnail(); ?>
+<!-- save if city decides it wants photo php the_post_thumbnail();  -->
+<h3>Project Description</h3>
  <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
   <div class="content-text">

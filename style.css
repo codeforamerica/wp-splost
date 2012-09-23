@@ -73,7 +73,7 @@ a, a:visited      {text-decoration: none; color: #333; padding-bottom: 2px; bord
 a:hover, a:active {color: #777;}
 a:hover img, a:active img, a:visited img {border: none;}
 
-p {font-size: 16px; line-height: 1.5em; color: #333; font-family: 'Arvo', serif; font-weight: 400;}	
+p {font-size: 16px; line-height: 1.5em; color: #333; font-family: 'Open Sans', Arial, sans-serif; font-weight: 400;}	
 p.post-date, p.loop-meta, p.single-meta {text-transform: uppercase; color: #acacac; margin: 3px 0px;}
 p.post-date {font-size: 10px;}
 p.loop-meta {font-size: 12px; padding: 20px 0px; border-bottom: 3px solid #BCEDDC;}
@@ -176,6 +176,7 @@ p.subtitle {position: relative; font-family: 'Arvo', serif; font-size: 18px; col
 #sidebar .searcher {margin-top: 50px;}
 #sidebar    {position: relative; float: left; width: 360px; margin-right: 10px; overflow: auto;}
 #sidebar h5 {margin-top: 10px;}
+#sidebar h5:first-child {margin-top: 0px;}
 .button   {position: relative; font-family: 'Arvo', serif; font-size: 13px; color: #333; line-height: 21px;}
 .button a {display: block; float: left; height: 22px; color: #333; background: #BCEDDC; padding: 0px 10px 0px 10px; margin: 5px 10px 0px 0px; border: none;}	
 .button a:hover {display: block; background: #e6e6e6; color: #777;}
@@ -234,14 +235,16 @@ p.subtitle {position: relative; font-family: 'Arvo', serif; font-size: 18px; col
 /* ---------------------------     Footer    ------------------------------- */
 #footer {position: relative; float: left; width: 100%; height: 300px; border-top: 1px dotted #333; 
          padding-top: 15px; margin-top: 10px;}
-#footer p {font-size: 12px;}
+#footer p {font-size: 14px;}
 .footerThird {width: 31%; height: 180px; float: left; margin-right: 20px; border-right: 1px dotted #333; padding-right: 19px; overflow: auto;}
 .footerThird:last-child {margin-right: 0px; padding-right: 0px; border: none;}
 
 .footerThird h5 {font-size: 14px; margin: 4px 0px;}
-.footerThird h6 {font-size: 12px; text-transform: uppercase; margin: 5px 0px; letter-spacing: .1em; color: #acacac;}
+.footerThird h6 {font-size: 10px; font-family: 'Open Sans', Arial, sans-serif; font-weight: 300; text-transform: uppercase; margin: 5px 0px; letter-spacing: .1em; color: #acacac;}
 .footerThird h4 {font-size: 16px; margin-bottom: 10px;}
 .oneLatestPost {margin: 8px 0px;}
+#tweet {background: #e6e6e6; padding: 15px 20px;  }
+#tweet a {border-color: #fff;}
 
 button, input[type="button"], input[type="reset"], input[type="submit"] {
   cursor: pointer;
@@ -341,7 +344,7 @@ ul.linkList, li.linkList {list-style: circle; margin-bottom: 8px; margin-left: 1
 /* **** Relevant Posts ***** */
 #relevantPosts {}
 #relevantPosts h5 {font-size: 16x; margin: 4px 0px;}
-#relevantPosts h6 {font-size: 13px; text-transform: uppercase; margin: 5px 0px; letter-spacing: .1em; color: #acacac;}
+#relevantPosts h6 {font-size: 10px; font-family: 'Open Sans', Arial, sans-serif; font-weight: 300; text-transform: uppercase; margin: 5px 0px; letter-spacing: .1em; color: #acacac;}
 
 .attachPage li {padding: 5px 0px;}
 .attachPage ul {padding: 5px 0px;}

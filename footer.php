@@ -5,15 +5,14 @@
   <img src="http://127.0.0.1:8888/wp-content/uploads/2012/07/logos.png" width="275px" />
 </div>
 <div class="footerThird">
-	<h4>Mayor's Twitter Feed</h4>
 	<?php
 
 // Your twitter username.
-$username = "jllord";
+$username = "mayorreichert";
 
-$prefix = "<h3>My last Tweet</h3>";
+$prefix = "<h3>Mayor Reichert's Latest Tweet</h3><div id='tweet'><p>";
 
-$suffix = "";
+$suffix = "</p></div>";
 
 $feed = "http://search.twitter.com/search.atom?q=from:" . $username . "&rpp=1";
 
