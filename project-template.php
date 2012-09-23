@@ -228,6 +228,7 @@ Template Name: THE Project Template.
 </script>
 
 <script type="text/javascript">
+  //makes g+ button
   (function() {
     var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
     po.src = 'https://apis.google.com/js/plusone.js';
@@ -235,7 +236,9 @@ Template Name: THE Project Template.
   })();
 </script>
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
+<script>
+  // makes facebook button
+  (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
