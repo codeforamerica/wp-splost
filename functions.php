@@ -503,5 +503,7 @@ function ilc_favicon(){
 	echo "<link rel='shortcut icon' href='" . get_stylesheet_directory_uri() . "/favicon.png' />" . "\n";
 }
 
-add_image_size( 'half_img', 384, 450 );
+update_option('thumbnail_size_w', 150);
+update_option('thumbnail_size_h', 150);
+update_option('large_size_w', 780);
 
