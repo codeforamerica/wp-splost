@@ -20,7 +20,7 @@ Template Name: SPLOST Overview
     <h3>Project Locations</h3>
       <div id="map" class="fullmap"></div>
     <h3>Category Funding Comparison</h3>
-      <p>Below, a funds comparison between this category's projects.</p>
+      <p>A comparison of each project's funding.</p>
 	    <div id="holder"></div>
     <h3>Project Funding Schedule</h3>
       <div id="table"></div><!-- end #table -->
@@ -110,32 +110,22 @@ Template Name: SPLOST Overview
       var hexcolors = []
           data.forEach(pushBits)
 
-               
-      pie = r.piechart(230, 230, 170, values, { 
-        legend: labels, 
-        legendpos: "east", 
-        href: ["#", "#"],
-        colors: hexcolors
-        })
+      r.g.hbarchart(170, 15, 480, 480, values, {stacked: true, type: "soft", colors: hexcolors, gutter: "50%"}).hoverColumn(
+        function() { 
+          var y = []
+          var res = []
 
-      pie.hover(function () {
-          this.sector.stop();
-          this.sector.scale(1.1, 1.1, this.cx, this.cy);
-                
-
-          if (this.label) {
-              this.label[0].stop();
-              this.label[0].attr({ r: 9.5 }); //changed radius of the label's marker
-              this.label[1].attr({ "font-weight": 800 });
-          }
-      }, function () {
-          this.sector.animate({ transform: 's1 1 ' + this.cx + ' ' + this.cy }, 500, "bounce");
-
-          if (this.label) {
-              this.label[0].animate({ r: 5 }, 500, "bounce");
-              this.label[1].attr({ "font-weight": 400 });
-          }
-      });          
+              for (var i = this.bars.length; i--;) {
+                  y.push(this.bars[i].y);
+                  res.push(this.bars[i].value || "0");
+              }
+              this.flag = r.g.popup(this.bars[0].x, Math.min.apply(Math, y), res.join(", ")).insertBefore(this);
+      }, function() {
+            this.flag.animate({opacity: 0}, 1500, ">", function () {this.remove();});
+      });
+ 
+      axis = r.g.axis(160,470,435,null, null,13,1, labels.reverse(), null, 1);
+      axis.text.attr({font:"12px Arvo", "font-weight": "regular", "fill": "#333333"});   
       
      var numberActive = getActiveProjects(edProjects).length
      var numberTotalProjects = 14

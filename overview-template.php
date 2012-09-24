@@ -19,17 +19,17 @@ Template Name: Overview
 
   <h3>Economic Development Quick Stats</h3>
     <div id="stats"></div>
+  <h3>Project Locations</h3>
+    <div id="map" class="fullmap"></div>    
+  <h3>Category Funding Comparison</h3>
+    <p>Below, a funds comparison between this category's projects.</p>
+	  <div id="holderEd"></div>
+  <h3>Project Funding Schedule</h3>
+    <p>This is the funding schedule budget as proposed by the SPLOST bill.<p>
+    <div id="schedule"></div>
   <h3>Economic Development Monthly Revenue</h3>
     <p>Each month we publish a report on our expenses and tax/bond revenue. Below is an itemization for Economic Development related expenses. You can find an archive of reports <a href="http://splost.codeforamerica.org/?s=monthly+report">here</a>.</p>
     <div id="monthly"></div>
-  <h3>Project Locations</h3>
-    <div id="map" class="fullmap"></div>
-  <h3>Category Funding Comparison</h3>
-    <p>Below, a funds comparison between this category's projects.</p>
-	  <div id="holder"></div>
-  <h3>Project Funding Schedule</h3>
-    <p>This is the funding schedule budget as proposed by the SPLOST bill.<p>
-    <div id="schedule"></div><!-- end #table -->
 
   <span class="button wpedit">
     <?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?></span>
@@ -101,38 +101,29 @@ Template Name: Overview
             hexcolors.push(element.hexcolor)
           }
               
-          var r = Raphael("holder")
+          var r = Raphael("holderEd")
           var values = []
           var labels = []
           var hexcolors = []
               edProjects.forEach(pushBits)
 
-                   
-          pie = r.piechart(230, 230, 170, values, { 
-            legend: labels, 
-            legendpos: "east", 
-            href: ["#", "#"],
-            colors: hexcolors
-            })
+      // (paper, x, y, width, height, values, opts)
+      r.g.hbarchart(170, 15, 480, 90, values, {stacked: true, type: "soft", colors: hexcolors, gutter: "20%"}).hoverColumn(
+        function() { 
+          var y = []
+          var res = []
 
-          pie.hover(function () {
-              this.sector.stop();
-              this.sector.scale(1.1, 1.1, this.cx, this.cy);
-                    
-
-              if (this.label) {
-                  this.label[0].stop();
-                  this.label[0].attr({ r: 9.5 }); //changed radius of the label's marker
-                  this.label[1].attr({ "font-weight": 800 });
+              for (var i = this.bars.length; i--;) {
+                  y.push(this.bars[i].y);
+                  res.push(this.bars[i].value || "0");
               }
-          }, function () {
-              this.sector.animate({ transform: 's1 1 ' + this.cx + ' ' + this.cy }, 500, "bounce");
-
-              if (this.label) {
-                  this.label[0].animate({ r: 5 }, 500, "bounce");
-                  this.label[1].attr({ "font-weight": 400 });
-              }
-          });
+              this.flag = r.g.popup(this.bars[0].x, Math.min.apply(Math, y), res.join(", ")).insertBefore(this);
+      }, function() {
+            this.flag.animate({opacity: 0}, 1500, ">", function () {this.remove();});
+      });
+      // (x, y, length, from, to, steps, orientation, labels, type, dashsize, paper)
+      axis = r.g.axis(160,80,45,null, null,1,1, labels.reverse(), null, 1);
+      axis.text.attr({font:"12px Arvo", "font-weight": "regular", "fill": "#333333"}); 
           
               
                

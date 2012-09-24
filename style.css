@@ -291,7 +291,8 @@ tr {border-bottom: 1px dotted #acacac;}
 .intro a {border-bottom: 1px dotted #acacac; padding-bottom: 2px;}
 
 /* **** Charts ***** */
-#holder {margin: 0 auto; width: 640px; height: 480px;}
+#holder {margin: 0 auto; width: 780px; height: 550px;}
+#holderEd {margin: 0 auto; width: 780px; height: 130px;}
 
 small {line-height: .5em;}
 ul.linkList, li.linkList {list-style: circle; margin-bottom: 8px; margin-left: 10px;}
