@@ -13,7 +13,7 @@ get_header(); ?>
 					<h3>Media Details</h3>
 					<ul class="attachPage">
 					<li>Filename & Permalink: 
-						<a class="noline" href="<?php echo wp_get_attachment_url(); ?>" title="<?php echo esc_attr( get_the_title() ); ?>" rel="attachment">
+						<a href="<?php echo wp_get_attachment_url(); ?>" title="<?php echo esc_attr( get_the_title() ); ?>" rel="attachment">
 							<?php echo basename( get_permalink() ); ?></a></li>
 <li>
 						<?php
@@ -34,7 +34,7 @@ get_header(); ?>
 									esc_attr( get_the_time() ),
 									get_the_date()
 								)
-							);
+							); 
 							if ( wp_attachment_is_image() ) {
 								echo ' | ';
 								$metadata = wp_get_attachment_metadata();
@@ -52,8 +52,8 @@ get_header(); ?>
 					<span class="wpedit">
 						<?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?>
 					</span>
-
-<li>
+<div class="clear"></div>
+<li class="attachmentImage">
 <?php if ( wp_attachment_is_image() ) :
 	$attachments = array_values( get_children( array( 'post_parent' => $post->post_parent, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'ASC', 'orderby' => 'menu_order ID' ) ) );
 	foreach ( $attachments as $k => $attachment ) {
@@ -79,7 +79,7 @@ get_header(); ?>
 							echo wp_get_attachment_image( $post->ID, array( $attachment_size, 9999 ) ); // filterable image width with, essentially, no limit for image height.
 						?></a>
 </li></ul>
-<ul class="attachPage"><li>Other image: <?php previous_image_link( false ); ?>  <?php next_image_link( false ); ?></li></ul>
+<ul class="attachPage"><li>Other image(s): <?php previous_image_link( false ); ?> , <?php next_image_link( false ); ?></li></ul>
 							
 <?php else : ?>
 <?php endif; ?>

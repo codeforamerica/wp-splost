@@ -346,9 +346,14 @@ ul.linkList, li.linkList {list-style: circle; margin-bottom: 8px; margin-left: 1
 #relevantPosts h5 {font-size: 16x; margin: 4px 0px;}
 #relevantPosts h6 {font-size: 10px; font-family: 'Open Sans', Arial, sans-serif; font-weight: 300; text-transform: uppercase; margin: 5px 0px; letter-spacing: .1em; color: #acacac;}
 
-.attachPage li {padding: 5px 0px;}
-.attachPage ul {padding: 5px 0px;}
+.page .attachPage li {padding: 6px 0px;}
+
 
 .fb_edge_widget_with_comment {position: relative; top: -4px;}
 .blog h2 a {border: none;}
 
+.search-results h2 {margin: 10px 0px;}
+.search-results h2 a {border: none;}
+
+.attachmentImage a {border: none;}
+.attachment .prevPageNav {padding: 10px 0px;}
