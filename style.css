@@ -123,7 +123,7 @@ h6 {font-size: 18px;}/* Body Section Titles*/
 p.subtitle {position: relative; font-family: 'Arvo', serif; font-size: 18px; color: #333; line-height: 21px; 
 		   margin: 0px 2px 4px 0px; float: right; text-align: right;}		
 
-#maincontainer {position: relative; float: right; width: 780px; overflow: auto; margin-left: 10px; }
+#maincontainer {position: relative; float: right; width: 780px; overflow: auto; margin-left: 10px; margin-bottom: 40px; }
 
 /* ------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------- */
@@ -361,3 +361,7 @@ ul.linkList, li.linkList {list-style: circle; margin-bottom: 8px; margin-left: 1
 
 #monthly h6 {margin-right: 6px;}
 #monthly {margin-top: 20px;}
+#monthly tr:nth-child(even) {background: #eeeeee;}
+#monthly tr:nth-child(odd) {background: #FFF;}
+
+.schedTable {margin-bottom: 35px;}
