@@ -38,7 +38,7 @@
  <script src="/wp-content/themes/wp-splost/ICanHaz.js" type="text/javascript"></script> 
  <script src="/wp-content/themes/wp-splost/accounting.js" type="text/javascript"></script>
  <script src="/wp-content/themes/wp-splost/leaflet.js"></script>
- <script src="/wp-content/themes/wp-splost/sheetsee.js"></script>
+ <script src="/wp-content/themes/wp-splost/sheetsee.js?0"></script>
  <script src="/wp-content/themes/wp-splost/raphael.js" type="text/javascript"></script>  
  <script src="/wp-content/themes/wp-splost/g.raphael.js"></script>
  <script src="/wp-content/themes/wp-splost/g.pie.js"></script>
