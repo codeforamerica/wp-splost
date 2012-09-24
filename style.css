@@ -263,16 +263,16 @@ input, input[type="password"], input[type="search"], isindex {border: 0px; borde
 .screen-reader-text {font-family: 'Arvo'; font-size: 13px;} 
 
 /* **** Handlebars.js Content, Table ***** */
-thead {padding-bottom: 20px;}
+thead {padding-bottom: 20px; font-family: Arvo, Rockwell, serif;}
 th {background-color: #DDDDDD; font-size: 16px; font-weight: 400; padding: 6px; text-align: center;}
-tbody {padding: 15px 4px;}
+tbody {padding: 15px 4px; font-family: Open Sans, Arial, sans-serif;}
 td {min-width: 64px; vertical-align: middle; height: 28px; padding: 3px;}
 .project {padding-right: 10px;}
 .yrdolls {font-size: 12px; text-align: center;}
 .total {font-weight: 700; font-size: 12px;}
 tr {border-bottom: 1px dotted #acacac;}
 .tableheader {border: none;} 
-
+#schedule table, #monthly table {width: 100%; margin-top: 20px;}
 /* **** Stats ***** */
 .statHighlight {background-color: #BCEDDC; padding: 4px; margin-right: 3px;}
 #stats p {margin: 0px 0px 9px 0px;}
@@ -357,3 +357,6 @@ ul.linkList, li.linkList {list-style: circle; margin-bottom: 8px; margin-left: 1
 
 .attachmentImage a {border: none;}
 .attachment .prevPageNav {padding: 10px 0px;}
+
+#monthly h6 {margin-right: 6px;}
+#monthly {margin-top: 20px;}

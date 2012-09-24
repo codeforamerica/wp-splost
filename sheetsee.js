@@ -1,5 +1,5 @@
 var YEARS = ["year2012", "year2013", "year2014", "year2015", "year2016", "year2017", "year2018", "year2019"]
-var URL = 'https://docs.google.com/spreadsheet/pub?key=0Aj3c4mZCQQaMdGE2TVphOWlXMUMyclRXa2Z1c0g5MGc&single=true&gid=1&output=html';
+var URL = 'https://docs.google.com/spreadsheet/pub?key=0Aj3c4mZCQQaMdGE2TVphOWlXMUMyclRXa2Z1c0g5MGc&output=html';
 
 
 
@@ -113,6 +113,22 @@ function amountSpent(projects) {
     })
     return projects
   }
+
+
+  function turnMonthlyCurrency(projects) {
+  projects.forEach(function (project) {
+    var actualMoney = getMoney(project.actual)
+    var budgetedMoney = getMoney(project.budgeted)
+    if (actualMoney) project.actual = actualMoney
+    if (budgetedMoney) project.budgeted = budgetedMoney
+
+    // YEARS.forEach(function (year){
+    //   var totalYear = getMoney(project[year])
+    //   if (totalYear) project[year] = totalYear
+    // })
+  })
+  return projects
+}
   
  function comboArrays(projectsA, projectsB) {
 	 var arrayA = projectsA

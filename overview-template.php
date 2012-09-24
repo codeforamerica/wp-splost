@@ -19,13 +19,17 @@ Template Name: Overview
 
   <h3>Economic Development Quick Stats</h3>
     <div id="stats"></div>
+  <h3>Economic Development Monthly Revenue</h3>
+    <p>Each month we publish a report on our expenses and tax/bond revenue. Below is an itemization for Economic Development related expenses. You can find an archive of reports <a href="http://splost.codeforamerica.org/?s=monthly+report">here</a>.</p>
+    <div id="monthly"></div>
   <h3>Project Locations</h3>
     <div id="map" class="fullmap"></div>
   <h3>Category Funding Comparison</h3>
     <p>Below, a funds comparison between this category's projects.</p>
 	  <div id="holder"></div>
   <h3>Project Funding Schedule</h3>
-    <div id="table"></div><!-- end #table -->
+    <p>This is the funding schedule budget as proposed by the SPLOST bill.<p>
+    <div id="schedule"></div><!-- end #table -->
 
   <span class="button wpedit">
     <?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?></span>
@@ -53,6 +57,22 @@ Template Name: Overview
       {{/rows}}
       </table>
     </script>
+
+  <script id="monthly" type="text/html">
+      <h6 class="fleft">Monthly Report for:</h6> 
+      <p><span class="statHighlight">  {{reportmonth}} {{reportyear}}</span></p>
+      <table class="monthlytable">
+      <thead>
+      <tr class="tableheader">
+      <th>PROJECT</th><th>SUB PROJECT</th><th>ITEM</th><th>Budget</th><th>Actual</th>
+      </tr>
+      </thead>
+      {{#rows}}
+        <tr>
+        <td >{{project}}</td><td>{{subproject}}</td><td >{{item}}</td><td class="tright">{{budgeted}}</td><td class="tright">{{actual}}</td></tr>
+      {{/rows}}
+      </table>
+    </script>
     
     
     <script type="text/javascript">    
@@ -65,7 +85,7 @@ Template Name: Overview
                
          accounting.settings.currency.precision = 0
 
-         var edProjects = getType(data, "Economic Development")
+         var edProjects = getType(tabletop.sheets("projections").all(), "Economic Development")
          var drProjects = getType(data, "Debt Retirement")
          var raProjects = getType(data, "Rec & Cultural Arts")
          var psProjects = getType(data, "Public Safety")
@@ -124,9 +144,21 @@ Template Name: Overview
          var numberCompletedProjects = completedProjects(edProjects)
          var totalSpent = amountSpent(edProjects)
 
+         var monthlyrev = tabletop.sheets("revenue").all()
+         var reportmonth = "August"
+         var reportyear = 2012
+
+
+// turnCurrency(edProjects)
          var schedule = ich.schedule({
-           "rows": turnCurrency(edProjects)
+          "rows": turnCurrency(edProjects)
          })
+
+         var monthly = ich.monthly({
+          "rows": turnMonthlyCurrency(monthlyrev),
+          "reportyear": reportyear,
+          "reportmonth": reportmonth
+               })
 
          var stats = ich.stats({
            "numberActive": numberActive,
@@ -136,8 +168,9 @@ Template Name: Overview
            "currentDate": getCurrentYear()
          })
 
-         document.getElementById('table').innerHTML = schedule;
+         document.getElementById('schedule').innerHTML = schedule;
          document.getElementById('stats').innerHTML = stats; 
+         document.getElementById('monthly').innerHTML = monthly; 
 
        }
     </script>
