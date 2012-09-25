@@ -25,7 +25,7 @@ get_header(); ?>
 		the_post();
 ?>
 
-			<h1>
+			<h3>
 <?php if ( is_day() ) : ?>
 				<?php printf( __( 'Daily Archives: %s', 'twentyten' ), get_the_date() ); ?>
 <?php elseif ( is_month() ) : ?>
@@ -35,7 +35,7 @@ get_header(); ?>
 <?php else : ?>
 				<?php _e( 'Blog Archives', 'twentyten' ); ?>
 <?php endif; ?>
-			</h1>
+			</h3>
 
 <?php
 	/* Since we called the_post() above, we need to

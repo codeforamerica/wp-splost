@@ -356,7 +356,7 @@ ul.linkList, li.linkList {list-style: circle; margin-bottom: 8px; margin-left: 1
 .search-results h2 {margin: 10px 0px;}
 .search-results h2 a {border: none;}
 
-.attachmentImage a {border: none;}
+.attachmentImage a, .tag a {border: none;}
 .attachment .prevPageNav {padding: 10px 0px;}
 
 #monthly h6 {margin-right: 6px;}

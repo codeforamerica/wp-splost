@@ -64,7 +64,8 @@ Template Name: Centreplex
         <div id="relevantPosts">
           <?php
           // The Query
-          $args = array( 'numberposts' => 5, 'order'=> 'DESC', 'orderby' => 'post_date', 'tag' => 'centreplex' );
+          $page_title = get_the_title();
+          $args = array( 'numberposts' => 5, 'order'=> 'DESC', 'orderby' => 'post_date', 'tag' => $page_title );
           query_posts( $args );
           // The Loop
           while ( have_posts() ) : the_post();
