@@ -502,3 +502,8 @@ add_action( 'wp_head', 'ilc_favicon');
 function ilc_favicon(){
 	echo "<link rel='shortcut icon' href='" . get_stylesheet_directory_uri() . "/favicon.png' />" . "\n";
 }
+
+function the_slug() {
+$post_data = get_post($post->ID, ARRAY_A);
+$slug = $post_data['post_name'];
+return $slug; }
