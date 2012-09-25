@@ -27,22 +27,10 @@
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); echo '?' . filemtime( get_stylesheet_directory() . '/style.css'); ?>" type="text/css" media="screen" />
-
-<!-- <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" /> -->
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <link rel="stylesheet" href="/wp-content/themes/wp-splost/leaflet.css" />
+<script src="/wp-content/themes/wp-splost/site-min.js?0"></script>
 
-
-  <script src="/wp-content/themes/wp-splost/sheetsee.js?0"></script>
-
- <script src="/wp-content/themes/wp-splost/tabletop.js" type="text/javascript"></script> 
- <script src="/wp-content/themes/wp-splost/ICanHaz.js" type="text/javascript"></script> 
- <script src="/wp-content/themes/wp-splost/accounting.js" type="text/javascript"></script>
- <script src="/wp-content/themes/wp-splost/leaflet.js"></script>
-
- <script src="/wp-content/themes/wp-splost/raphael-min.js" type="text/javascript"></script>  
- <script src="/wp-content/themes/wp-splost/g.raphael-min.js"></script>
-    <script src="/wp-content/themes/wp-splost/g.bar-min.js"></script>
 
 
 
