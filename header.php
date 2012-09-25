@@ -29,7 +29,7 @@
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); echo '?' . filemtime( get_stylesheet_directory() . '/style.css'); ?>" type="text/css" media="screen" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <link rel="stylesheet" href="/wp-content/themes/wp-splost/leaflet.css" />
-<script src="/wp-content/themes/wp-splost/libraries/site-min.js?0"></script>
+<script src="/wp-content/themes/wp-splost/site-min.js?0"></script>
 
 
 
