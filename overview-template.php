@@ -31,6 +31,29 @@ Template Name: Overview
     <p>Each month we publish a report on our expenses and tax/bond revenue. Below is an itemization for Economic Development related expenses. You can find an archive of reports <a href="http://splost.codeforamerica.org/?s=monthly+report">here</a>.</p>
     <div id="monthly"></div>
 
+  <div id="sharing">
+    <p>Share this page: </p>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="MayorReichert" data-hashtags="MaconSPLOST">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
+      if(!d.getElementById(id)){js=d.createElement(s);
+      js.id=id; js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);}
+      }(document,"script","twitter-wjs");</script>
+    <g:plusone size="medium"></g:plusone>
+    <div class="fb-like" data-send="true" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+  </div>
+  <!--nextpage-->
+  <div id="post-nav">
+    <span class="prevPageNav">
+      <?php 
+      echo previous_page_not_post('', true, ''); ?> 
+    </span>  
+    <span class="nextPageNav" >
+      <?php 
+      echo next_page_not_post('', true, '' );  ?> 
+    </span>
+  </div>
+
   <span class="button wpedit">
     <?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?></span>
     <?php comments_template( '', true ); ?>
@@ -64,12 +87,12 @@ Template Name: Overview
       <table class="monthlytable">
       <thead>
       <tr class="tableheader">
-      <th>PROJECT</th><th>SUB PROJECT</th><th>ITEM</th><th>Budget</th><th>Actual</th>
+      <th>SUB PROJECT</th><th>ITEM</th><th>Budget</th><th>Actual</th>
       </tr>
       </thead>
       {{#rows}}
         <tr>
-        <td >{{project}}</td><td>{{subproject}}</td><td >{{item}}</td><td class="tright">{{budgeted}}</td><td class="tright">{{actual}}</td></tr>
+        <td>{{subproject}}</td><td >{{item}}</td><td class="tright">{{budgeted}}</td><td class="tright">{{actual}}</td></tr>
       {{/rows}}
       </table>
     </script>
