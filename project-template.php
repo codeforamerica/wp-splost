@@ -65,7 +65,6 @@ Template Name: THE Project Template.
           <?php
           // The Query
           $page_title = the_slug();
-          echo $page_title;
           $args = array( 'numberposts' => 5, 'order'=> 'DESC', 'orderby' => 'post_date', 'tag' => $page_title );
           query_posts( $args );
           // The Loop
