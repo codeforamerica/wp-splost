@@ -34,8 +34,8 @@ Template Name: Centreplex
   <h3>Project Funding Schedule</h3>
     <div id="table"></div>
 
-  <h3>Economic Development Monthly Revenue</h3>
-    <p>Each month we publish a report on our expenses and tax/bond revenue. Below is an itemization for Economic Development related expenses. You can find an archive of reports <a href="http://splost.codeforamerica.org/?s=monthly+report">here</a>.</p>
+  <h3>Monthly Revenue Report</h3>
+    <p>Each month we publish a report on our expenses and tax/bond revenue. Below is an itemization of expenses related to <?php the_title(); ?> . You can find an archive of reports <a href="http://splost.codeforamerica.org/?s=monthly+report">here</a>.</p>
   <div id="monthly"></div>
 
   <?php // check if post has gallery, if so, display it
@@ -122,12 +122,12 @@ Template Name: Centreplex
   <table class="monthlytable">
   <thead>
   <tr class="tableheader">
-  <th>PROJECT</th><th>SUB PROJECT</th><th>ITEM</th><th>Budget</th><th>Actual</th>
+  <th>SUB PROJECT</th><th>ITEM</th><th>Budget</th><th>Actual</th>
   </tr>
   </thead>
   {{#rows}}
     <tr>
-    <td >{{project}}</td><td>{{subproject}}</td><td >{{item}}</td><td class="tright">{{budgeted}}</td><td class="tright">{{actual}}</td></tr>
+    <td>{{subproject}}</td><td >{{item}}</td><td class="tright">{{budgeted}}</td><td class="tright">{{actual}}</td></tr>
   {{/rows}}
   </table>
 </script>
@@ -216,7 +216,8 @@ Template Name: Centreplex
      var totalSpent = amountSpent(centreplex)
      var catTotal = getCatTotal(edProjects)
 
-     var monthlyrev = tabletop.sheets("revenue").all()
+     var monthlyrev = getType(tabletop.sheets("revenue").all(), "Centreplex")
+  
      var reportmonth = "August"
      var reportyear = 2012
 

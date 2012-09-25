@@ -243,7 +243,7 @@ p.subtitle {position: relative; font-family: 'Arvo', serif; font-size: 18px; col
 .footerThird h6 {font-size: 10px; font-family: 'Open Sans', Arial, sans-serif; font-weight: 300; text-transform: uppercase; margin: 5px 0px; letter-spacing: .1em; color: #acacac;}
 .footerThird h4 {font-size: 16px; margin-bottom: 10px;}
 .oneLatestPost {margin: 8px 0px;}
-#tweet {background: #e6e6e6; padding: 15px 20px;  }
+#tweet {background: #e6e6e6; padding: 15px 20px; margin-bottom: 8px; }
 #tweet a {border-color: #fff;}
 
 button, input[type="button"], input[type="reset"], input[type="submit"] {
@@ -294,7 +294,7 @@ tr {border-bottom: 1px dotted #acacac;}
 #holder {margin: 0 auto; width: 780px; height: 550px;}
 #holderEd {margin: 0 auto; width: 780px; height: 130px;}
 
-small {line-height: .5em;}
+small {line-height: .5em; font-size: 10px; font-family: Open Sans, Arial, sans-serif;}
 ul.linkList, li.linkList {list-style: circle; margin-bottom: 8px; margin-left: 10px;}
 
 /* **** Press Page ***** */

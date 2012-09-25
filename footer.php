@@ -28,6 +28,7 @@ function parse_feed($feed) {
 $twitterFeed = file_get_contents($feed);
 echo stripslashes($prefix) . parse_feed($twitterFeed) . stripslashes($suffix);
 ?>
+<small>Follow <a href="http://twitter.com/MayorReichert">@MayorReichert</a> on Twitter.</small>
 </div>
 <div class="footerThird">
 <h4>Latest Posts</h4>
