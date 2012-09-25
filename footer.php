@@ -32,7 +32,7 @@ echo stripslashes($prefix) . parse_feed($twitterFeed) . stripslashes($suffix);
 <div class="footerThird">
 <h4>Latest Posts</h4>
 <?php
-$args = array( 'numberposts' => 3, 'order'=> 'ASC', 'orderby' => 'title' );
+$args = array( 'numberposts' => 3, 'order'=> 'DESC', 'orderby' => 'title' );
 $postslist = get_posts( $args );
 foreach ($postslist as $post) :  setup_postdata($post); ?> 
 	<div class="oneLatestPost">

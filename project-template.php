@@ -60,7 +60,7 @@ Template Name: THE Project Template.
         <div id="relevantPosts">
           <?php
           // The Query
-          $args = array( 'numberposts' => 5, 'order'=> 'DESC', 'orderby' => 'post_date', 'tag' => 'map' );
+          $args = array( 'numberposts' => 5, 'order'=> 'DESC', 'orderby' => 'post_date', 'tag' =>  $title );
           query_posts( $args );
           // The Loop
           while ( have_posts() ) : the_post();
@@ -92,7 +92,7 @@ Template Name: THE Project Template.
     <div class="fb-like" data-send="true" data-layout="button_count" data-width="100" data-show-faces="false"></div>
   </div>
 
-  <!--nextpage-->
+  <!--nextpage  do '&larr; ' . '%title' for arrow and title -->
   <div id="post-nav">
     <span class="prevPageNav">
       <?php 

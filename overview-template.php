@@ -113,10 +113,14 @@ Template Name: Overview
           var y = []
           var res = []
 
+
               for (var i = this.bars.length; i--;) {
+
                   y.push(this.bars[i].y);
                   res.push(this.bars[i].value || "0");
               }
+              value = accounting.formatMoney(value)
+                  console.log(value)
               this.flag = r.g.popup(this.bars[0].x, Math.min.apply(Math, y), res.join(", ")).insertBefore(this);
       }, function() {
             this.flag.animate({opacity: 0}, 1500, ">", function () {this.remove();});

@@ -353,8 +353,8 @@ ul.linkList, li.linkList {list-style: circle; margin-bottom: 8px; margin-left: 1
 .fb_edge_widget_with_comment {position: relative; top: -4px;}
 .blog h2 a {border: none;}
 
-.search-results h2 {margin: 10px 0px;}
-.search-results h2 a {border: none;}
+.search-results h2, .tag h2 {margin: 10px 0px;}
+.search-results h2 a, .tag h2 a {border: none;}
 
 .attachmentImage a {border: none;}
 .attachment .prevPageNav {padding: 10px 0px;}
