@@ -31,6 +31,31 @@ Template Name: Overview
     <p>Each month we publish a report on our expenses and tax/bond revenue. Below is an itemization for Economic Development related expenses. You can find an archive of reports <a href="http://splost.codeforamerica.org/?s=monthly+report">here</a>.</p>
     <div id="monthly"></div>
 
+  <div id="sharing">
+    <p>Share this page: </p>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="MayorReichert" data-hashtags="MaconSPLOST">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
+      if(!d.getElementById(id)){js=d.createElement(s);
+      js.id=id; js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);}
+      }(document,"script","twitter-wjs");</script>
+    <g:plusone size="medium"></g:plusone>
+    <div class="fb-like" data-send="true" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+  </div>
+
+  <!--nextpage  do '&larr; ' . '%title' for arrow and title -->
+  <div id="post-nav">
+    <span class="prevPageNav">
+      <?php 
+      echo previous_page_not_post('', true, ''); ?> 
+    </span>  
+    <span class="nextPageNav" >
+      <?php 
+      echo next_page_not_post('', true, '' );  ?> 
+    </span>
+  </div>
+
+
   <span class="button wpedit">
     <?php edit_post_link( __( 'Edit', 'twentyten' ), '', '' ); ?></span>
     <?php comments_template( '', true ); ?>
@@ -119,8 +144,7 @@ Template Name: Overview
                   y.push(this.bars[i].y);
                   res.push(this.bars[i].value || "0");
               }
-              value = accounting.formatMoney(value)
-                  console.log(value)
+
               this.flag = r.g.popup(this.bars[0].x, Math.min.apply(Math, y), res.join(", ")).insertBefore(this);
       }, function() {
             this.flag.animate({opacity: 0}, 1500, ">", function () {this.remove();});
