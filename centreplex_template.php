@@ -27,8 +27,16 @@ Template Name: Centreplex
     <div id="stats" class="halfstats"></div>
     <div class="clear"></div>
 
+  <h3>Category Funding Comparison</h3>
+    <p>Below, a funds comparison between this category's projects.</p>
+    <div id="holderEd"></div>
+
   <h3>Project Funding Schedule</h3>
     <div id="table"></div>
+
+  <h3>Economic Development Monthly Revenue</h3>
+    <p>Each month we publish a report on our expenses and tax/bond revenue. Below is an itemization for Economic Development related expenses. You can find an archive of reports <a href="http://splost.codeforamerica.org/?s=monthly+report">here</a>.</p>
+  <div id="monthly"></div>
 
   <?php // check if post has gallery, if so, display it
     if (strpos($post->post_content,'[gallery') === false){
@@ -107,6 +115,23 @@ Template Name: Centreplex
 <?php endwhile; ?>
 
 </div><!-- end #maincontainer -->
+
+<script id="monthly" type="text/html">
+  <h6 class="fleft">Monthly Report for:</h6> 
+  <p><span class="statHighlight">  {{reportmonth}} {{reportyear}}</span></p>
+  <table class="monthlytable">
+  <thead>
+  <tr class="tableheader">
+  <th>PROJECT</th><th>SUB PROJECT</th><th>ITEM</th><th>Budget</th><th>Actual</th>
+  </tr>
+  </thead>
+  {{#rows}}
+    <tr>
+    <td >{{project}}</td><td>{{subproject}}</td><td >{{item}}</td><td class="tright">{{budgeted}}</td><td class="tright">{{actual}}</td></tr>
+  {{/rows}}
+  </table>
+</script>
+
     
     
 <script id="stats" type="text/html">
@@ -160,13 +185,47 @@ Template Name: Centreplex
         labels.push(element.project)
         hexcolors.push(element.hexcolor)
       }
+
+          var r = Raphael("holderEd")
+          var values = []
+          var labels = []
+          var hexcolors = []
+              edProjects.forEach(pushBits)
+
+      // (paper, x, y, width, height, values, opts)
+      r.g.hbarchart(170, 15, 480, 90, values, {stacked: true, type: "soft", colors: hexcolors, gutter: "20%"}).hoverColumn(
+        function() { 
+          var y = []
+          var res = []
+
+              for (var i = this.bars.length; i--;) {
+                  y.push(this.bars[i].y);
+                  res.push(this.bars[i].value || "0");
+              }
+              this.flag = r.g.popup(this.bars[0].x, Math.min.apply(Math, y), res.join(", ")).insertBefore(this);
+      }, function() {
+            this.flag.animate({opacity: 0}, 1500, ">", function () {this.remove();});
+      });
+      // (x, y, length, from, to, steps, orientation, labels, type, dashsize, paper)
+      axis = r.g.axis(160,80,45,null, null,1,1, labels.reverse(), null, 1);
+      axis.text.attr({font:"12px Arvo", "font-weight": "regular", "fill": "#333333"}); 
           
      var numberActive = getActiveProjects(centreplex).length
      var numberTotalProjects = 14
      var numberCompletedProjects = completedProjects(centreplex)
      var totalSpent = amountSpent(centreplex)
      var catTotal = getCatTotal(edProjects)
- 
+
+     var monthlyrev = tabletop.sheets("revenue").all()
+     var reportmonth = "August"
+     var reportyear = 2012
+
+    var monthly = ich.monthly({
+      "rows": turnMonthlyCurrency(monthlyrev),
+      "reportyear": reportyear,
+      "reportmonth": reportmonth
+     })
+
      var schedule = ich.schedule({
        "rows": turnCurrency(centreplex)
      })
@@ -183,6 +242,8 @@ Template Name: Centreplex
    
      })
 
+
+     document.getElementById('monthly').innerHTML = monthly; 
      document.getElementById('table').innerHTML = schedule;
      document.getElementById('stats').innerHTML = stats; 
 

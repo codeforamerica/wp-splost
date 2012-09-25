@@ -364,4 +364,5 @@ ul.linkList, li.linkList {list-style: circle; margin-bottom: 8px; margin-left: 1
 #monthly tr:nth-child(even) {background: #eeeeee;}
 #monthly tr:nth-child(odd) {background: #FFF;}
 
-.schedTable {margin-bottom: 35px;}
+.schedTable, .monthlytable {margin-bottom: 35px;}
+
