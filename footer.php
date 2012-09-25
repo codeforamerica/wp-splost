@@ -2,7 +2,7 @@
 
 <div class="footerThird">
   <h4>Built by Code for America in partnership with Macon, Georgia.</h4>
-  <img src="http://splost.codeforamerica.org/wp-content/uploads/2012/09/logos.png" width="275px" />
+  <img src="http://127.0.0.1:8888/wp-content/uploads/2012/07/logos.png" width="275px" />
 </div>
 <div class="footerThird">
 	<?php
@@ -32,7 +32,7 @@ echo stripslashes($prefix) . parse_feed($twitterFeed) . stripslashes($suffix);
 <div class="footerThird">
 <h4>Latest Posts</h4>
 <?php
-$args = array( 'numberposts' => 3, 'order'=> 'DESC', 'orderby' => 'title' );
+$args = array( 'numberposts' => 3, 'order'=> 'ASC', 'orderby' => 'title' );
 $postslist = get_posts( $args );
 foreach ($postslist as $post) :  setup_postdata($post); ?> 
 	<div class="oneLatestPost">
@@ -47,26 +47,6 @@ foreach ($postslist as $post) :  setup_postdata($post); ?>
     </div><!-- #footer end -->
 
 </div><!-- #pagewrapper end -->
-
-<script type="text/javascript">
-  //makes g+ button
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
-<div id="fb-root"></div>
-<script>
-  // makes facebook button
-  (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-</script>
 
 </body>
 </html>

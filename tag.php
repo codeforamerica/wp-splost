@@ -9,9 +9,9 @@
 
 get_header(); ?>
 <div id="maincontainer">
-				<h2><?php
+				<h1><?php
 					printf( __( 'Tag Archives: %s', 'twentyten' ), '' . single_tag_title( '', false ) . '' );
-				?></h2>
+				?></h1>
 
 <?php
 /* Run the loop for the tag archive to output the posts

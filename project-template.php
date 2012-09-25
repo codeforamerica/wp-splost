@@ -60,7 +60,7 @@ Template Name: THE Project Template.
         <div id="relevantPosts">
           <?php
           // The Query
-          $args = array( 'numberposts' => 5, 'order'=> 'DESC', 'orderby' => 'post_date', 'tag' =>  $title );
+          $args = array( 'numberposts' => 5, 'order'=> 'DESC', 'orderby' => 'post_date', 'tag' => 'map' );
           query_posts( $args );
           // The Loop
           while ( have_posts() ) : the_post();
@@ -92,7 +92,7 @@ Template Name: THE Project Template.
     <div class="fb-like" data-send="true" data-layout="button_count" data-width="100" data-show-faces="false"></div>
   </div>
 
-  <!--nextpage  do '&larr; ' . '%title' for arrow and title -->
+  <!--nextpage-->
   <div id="post-nav">
     <span class="prevPageNav">
       <?php 
@@ -225,6 +225,26 @@ Template Name: THE Project Template.
      document.getElementById('stats').innerHTML = stats; 
 
    }
+</script>
+
+<script type="text/javascript">
+  //makes g+ button
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<div id="fb-root"></div>
+<script>
+  // makes facebook button
+  (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
 </script>
 
 <?php get_sidebar(); ?>
