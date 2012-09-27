@@ -1,11 +1,11 @@
 /*
 Theme Name: SPLOST
-Theme URI: http://elliotjaystocks.com
-Description: The totally nude Wordpress theme. Phwoar! (Based on Twenty Ten)
-Version: 3.0
-Author: Elliot Jay Stocks
-Author URI: http://elliotjaystocks.com
-Tags: starkers, naked, clean, basic
+Theme URI: http://seepennywork.in
+Description: Built with tax referendums in mind | Project of Code for America
+Version: 1.0
+Author: Jessica Lord
+Author URI: http://twitter.com/jllord
+Tags: budget, city, code for america
 */
 
 @import "css/reset.css";
@@ -243,7 +243,7 @@ p.subtitle {position: relative; font-family: 'Arvo', serif; font-size: 18px; col
 .footerThird h6 {font-size: 10px; font-family: 'Open Sans', Arial, sans-serif; font-weight: 300; text-transform: uppercase; margin: 5px 0px; letter-spacing: .1em; color: #acacac;}
 .footerThird h4 {font-size: 16px; margin-bottom: 10px;}
 .oneLatestPost {margin: 8px 0px;}
-#tweet {background: #e6e6e6; padding: 15px 20px; margin-bottom: 8px; }
+#tweet {background: #e6e6e6; padding: 10px 20px; margin-bottom: 8px; }
 #tweet a {border-color: #fff;}
 
 button, input[type="button"], input[type="reset"], input[type="submit"] {

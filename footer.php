@@ -10,7 +10,7 @@
 // Your twitter username.
 $username = "mayorreichert";
 
-$prefix = "<h3>Mayor Reichert's Latest Tweet</h3><div id='tweet'><p>";
+$prefix = "<h3><a href=\"http://www.twitter.com/MayorReichert\">@MayorReichert</a>'s Latest Tweet</h3><div id='tweet'><p>";
 
 $suffix = "</p></div>";
 
@@ -28,7 +28,6 @@ function parse_feed($feed) {
 $twitterFeed = file_get_contents($feed);
 echo stripslashes($prefix) . parse_feed($twitterFeed) . stripslashes($suffix);
 ?>
-<small>Follow <a href="http://twitter.com/MayorReichert">@MayorReichert</a> on Twitter.</small>
 </div>
 <div class="footerThird">
 <h4>Latest Posts</h4>
