@@ -366,6 +366,6 @@ ul.linkList, li.linkList {list-style: circle; margin-bottom: 8px; margin-left: 1
 
 .schedTable, .monthlytable {margin-bottom: 35px;}
 
-ul.contactlist {line-height: 1.5em; font-size: 14px; font-family: Open Sans, Arial, sans-serif;}
-ul.contactlist  a {font-family: Open Sans, Arial, sans-serif;}
+.contactlist li {line-height: 2em; font-size: 16px; }
+.contactlist li a {font-family: Open Sans, Arial, sans-serif;}
 
