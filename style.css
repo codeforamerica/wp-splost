@@ -369,15 +369,18 @@ ul.linkList, li.linkList {list-style: circle; margin-bottom: 8px; margin-left: 1
 .contactlist li {line-height: 2em; font-size: 16px; }
 .contactlist li a {font-family: Open Sans, Arial, sans-serif;}
 
+#printHeader {display: none;}
+
 @media print {
 
-  #title_container {display: none;}
-  .top-menu {display: none;}
-  #footer {display: none;}
-  #sidebar {display:none;}
-  #sharing {display: none;}
-  #post-nav {display: none;}
-  #maincontainer {position: relative; float: none; width: 780px; overflow: auto; margin: 0px auto; }
-
+  #header, #footer, #sidebar, #sharing, #post-nav, .wholemilk, #bread_box, #breadcrumbs {display: none;}
+  p {font-size: 12px;}
+thead {border-bottom: 1px solid #333;}
+#printHeader {display: block; width: 100%; border-bottom: 3px solid #333; border-top: 3px solid #333; overflow: auto; margin-bottom: 20px; padding: 10px 0px;}
+#printHeader h1 {font-size: 30px; letter-spacing: 1px;}
+#printHeader h2 {font-size: 40px; margin-bottom: 10px 0px;}
+#printHeader h6 {font-size: 10px; font-family: 'Open Sans', Arial, sans-serif; font-weight: 300; text-transform: uppercase; margin: 5px 0 0 0; letter-spacing: .1em; color: #acacac;}
+#maincontainer {position: relative; float: left; width: 780px; overflow: auto; margin: 0px auto; }
+#monthly {page-break-before: always;}
 }
 

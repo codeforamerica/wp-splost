@@ -38,6 +38,7 @@ Template Name: THE Project Template.
     <p>Each month we publish a report on our expenses and tax/bond revenue. Below is an itemization of expenses related to <?php the_title(); ?> . You can find an archive of reports <a href="http://splost.codeforamerica.org/?s=monthly+report">here</a>.</p>
   <div id="monthly"></div>
 
+<div id="pagePhotos">
   <?php // check if post has gallery, if so, display it
     if (strpos($post->post_content,'[gallery') === false){
     $gallery = 0;}
@@ -57,6 +58,7 @@ Template Name: THE Project Template.
       $afterEachImage = '</a>';
       echo $beforeEachImage . $matches[1][$i] . $afterEachImage;}?>
   </div>
+</div>
                   
   <div class="wholemilk">
     <div class="halfmilk">
