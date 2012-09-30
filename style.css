@@ -369,3 +369,15 @@ ul.linkList, li.linkList {list-style: circle; margin-bottom: 8px; margin-left: 1
 .contactlist li {line-height: 2em; font-size: 16px; }
 .contactlist li a {font-family: Open Sans, Arial, sans-serif;}
 
+@media print {
+
+  #title_container {display: none;}
+  .top-menu {display: none;}
+  #footer {display: none;}
+  #sidebar {display:none;}
+  #sharing {display: none;}
+  #post-nav {display: none;}
+  #maincontainer {position: relative; float: none; width: 780px; overflow: auto; margin: 0px auto; }
+
+}
+

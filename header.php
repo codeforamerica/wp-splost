@@ -25,7 +25,7 @@
 
 <link href='http://fonts.googleapis.com/css?family=Arvo:400,700|Open+Sans:400' rel='stylesheet' type='text/css'>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); echo '?' . filemtime( get_stylesheet_directory() . '/style.css'); ?>" type="text/css" media="screen" />
+<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); echo '?' . filemtime( get_stylesheet_directory() . '/style.css'); ?>" type="text/css" />
 
 <!-- <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" /> -->
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
@@ -41,7 +41,7 @@
 
  <script src="/wp-content/themes/wp-splost/raphael-min.js" type="text/javascript"></script>  
  <script src="/wp-content/themes/wp-splost/g.raphael-min.js"></script>
-    <script src="/wp-content/themes/wp-splost/g.bar-min.js"></script>
+ <script src="/wp-content/themes/wp-splost/g.bar-min.js"></script>
 
 
 

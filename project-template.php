@@ -160,10 +160,14 @@ Template Name: THE Project Template.
    })    
 
    function showInfo(data, tabletop) {
-           
+            
      accounting.settings.currency.precision = 0
 
-     var edProjects = getType(data, "Economic Development")
+     var pageTitle = "<?php echo get_the_title($post->post_parent) ?>"
+     // or <?= get_the_title($post->post_parent) ?>
+     console.log(pageTitle)
+
+     var edProjects = getType(data, pageTitle)
      var drProjects = getType(data, "Debt Retirement")
      var raProjects = getType(data, "Rec & Cultural Arts")
      var psProjects = getType(data, "Public Safety")
