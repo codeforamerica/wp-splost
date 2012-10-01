@@ -2,7 +2,7 @@
   <h5>OVERVIEW & REPORTS</h5>
   <div class="menu">
    <div class="button"><a href="/overview/">SPLOST Overview</a></div>   
-   <div class="button"><a href="/overview/">Montly Revenue</a></div>
+   <div class="button"><a href="/monthly-revenue/">Montly Revenue</a>*</div>
   </div>
    
    <div style="clear:both;"></div>
@@ -10,7 +10,7 @@
    
    <div class="menu">
    <ul class="menu_cat">
-     <li class="category ps"><a href="#">Public Safety Overview</a></li>
+     <li class="category ps"><a href="#">Public Safety Overview</a>*</li>
      </ul>
 
      <ul>
@@ -23,7 +23,7 @@
      
   <div class="menu">
      <ul class="menu_cat">
-     <li class="category dr"><a href="#">Debt Retirement Overview</a></li>
+     <li class="category dr"><a href="#">Debt Retirement Overview</a>*</li>
      </ul>
 
      <ul>
@@ -36,7 +36,7 @@
      
    <div class="menu">
      <ul class="menu_cat">
-     <li class="category ed"><a href="/economic-development/">Economic Development Overview</a></li>
+     <li class="category ed"><a href="/economic-development/">Economic Development Overview</a>Live!</li>
      </ul>
 
      <ul>
@@ -47,7 +47,7 @@
      
    <div class="menu">
      <ul class="menu_cat">
-     <li class="category ra"><a href="#">Rec & Cultural ArtsOverview</a></li>
+     <li class="category ra"><a href="#">Rec & Cultural ArtsOverview</a>*</li>
      </ul>
 
      <ul>
@@ -62,7 +62,7 @@
    <div style="clear:both;"></div>
    <h5>PRESS & DOCUMENTS</h5>
    <div class="menu">
-    <div class="button"><a href="/press/">Recent Press</a></div>   
+    <div class="button"><a href="/press/">Recent Press</a>*</div>   
    </div><!-- #menu END -->
 
    <div class="searcher">

@@ -79,7 +79,6 @@
 
 <body <?php body_class(); ?>>
   <div id="pagewrapper">
-
     <div id="header">
       <p class="top-menu"><a href="http://splost.codeforamerica.org">HOME</a> / <a href="/about-splost/">ABOUT SPLOST</a> / <a href="/about/">ABOUT THIS SITE</a> / <a href="/contact/">CONTACT</a> / <a href="/news/">NEWS</a> </p> 
       <div id="title_container">

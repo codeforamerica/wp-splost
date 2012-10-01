@@ -123,6 +123,8 @@ h6 {font-size: 18px;}/* Body Section Titles*/
 p.subtitle {position: relative; font-family: 'Arvo', serif; font-size: 18px; color: #333; line-height: 21px; 
 		   margin: 0px 2px 4px 0px; float: right; text-align: right;}		
 
+#beta {z-index: 9999; postion: fixed; width: 160px;}       
+
 #maincontainer {position: relative; float: right; width: 780px; overflow: auto; margin-left: 10px; margin-bottom: 40px; }
 
 /* ------------------------------------------------------------------------- */
