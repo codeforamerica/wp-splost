@@ -140,7 +140,7 @@ p.subtitle {position: relative; font-family: 'Arvo', serif; font-size: 18px; col
 
 #welcomepage   {position: relative; width: 780px; float: right; overflow: auto; color: #333;}
 #welcomepage p {font-size: 16px; margin-top: 12px;} 
-.quote         {margin: 0px 0px 0px 0px; background: #E6E6E6; color: #333; padding: 10px 20px 60px 20px;}
+.quote         {margin: 0px 0px 0px 0px; background: ##BCEDDC; color: #333; padding: 10px 20px 10px 20px;}
 .quote a {border-bottom: 1px solid #fff;}        
 .welcometop    {margin-top: 0px;}
 .half          {position: relative; float: left; width: 50%; margin-right: 25px;}
