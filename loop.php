@@ -78,8 +78,6 @@
 <?php endif; ?>
 
 				<a href="<?php echo get_term_link( _x('gallery', 'gallery category slug', 'twentyten'), 'category' ); ?>" title="<?php esc_attr_e( 'View posts in the Gallery category', 'twentyten' ); ?>"><?php _e( 'More Galleries', 'twentyten' ); ?></a>
-				|
-				<?php comments_popup_link( __( 'Leave a comment', 'twentyten' ), __( '1 Comment', 'twentyten' ), __( '% Comments', 'twentyten' ) ); ?>
 				<?php edit_post_link( __( 'Edit', 'twentyten' ), '|', '' ); ?>
 
 <?php /* How to display posts in the asides category */ ?>
@@ -93,8 +91,6 @@
 		<?php endif; ?>
 
 				<?php twentyten_posted_on(); ?>
-				|
-				<?php comments_popup_link( __( 'Leave a comment', 'twentyten' ), __( '1 Comment', 'twentyten' ), __( '% Comments', 'twentyten' ) ); ?>
 				<?php edit_post_link( __( 'Edit', 'twentyten' ), '| ', '' ); ?>
 
 <?php /* How to display all other posts. */ ?>
@@ -120,9 +116,7 @@
 					if ( $tags_list ):
 				?>
 					<?php printf( __( 'Tagged %2$s', 'twentyten' ), 'entry-utility-prep entry-utility-prep-tag-links', $tags_list ); ?>
-					|
 				<?php endif; ?>
-				<?php comments_popup_link( __( 'Leave a comment', 'twentyten' ), __( '1 Comment', 'twentyten' ), __( '% Comments', 'twentyten' ) ); ?>
 				
 				<?php edit_post_link( __( 'Edit', 'twentyten' ), '| ', '' ); ?>
 </p>

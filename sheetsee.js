@@ -2,15 +2,31 @@ var YEARS = ["year2012", "year2013", "year2014", "year2015", "year2016", "year20
 var URL = 'https://docs.google.com/spreadsheet/pub?key=0Aj3c4mZCQQaMdGE2TVphOWlXMUMyclRXa2Z1c0g5MGc&output=html';
 
 
-
 function loadSpreadsheet() {
   
   Tabletop.init( { key: URL, callback: showInfo, simpleSheet: true } )
 }
 
+function getProjectTotal(project) {
+  var tot = "total"
+  var projectTotal = project[tot]
+  return projectTotal
+}
+
 function getCurrentYear() {
   return new Date().getFullYear()  
 }
+
+function getCurrentMonth() {
+  var month = new Date().getMonth() + 1
+  return month
+}
+
+// function getCurrentMonth() {
+//   var monthNames = [ "January", "February", "March", "April", "May", "June",
+//     "July", "August", "September", "October", "November", "December" ];
+//   return monthNames[d.getMonth()]  
+// }
 
 function getCatTotal(projects) {
 	var catTotal = 0
@@ -20,8 +36,6 @@ function getCatTotal(projects) {
   })
   return catTotal
 }
-
-
 
 function completedProjects(projects) {
   var completed = 0
@@ -51,7 +65,6 @@ function amountSpent(projects) {
   })
   return spent
 } 
-
 
  function getType(projects, projectFilter) {
     var filteredProjects = []
@@ -132,18 +145,17 @@ function amountSpent(projects) {
   
  function comboArrays(projectsA, projectsB) {
 	 var arrayA = projectsA
-	 var arrayB = projectsB
+	 var arrayB = projes
 	 var comboArray = arrayA.concat(arrayB)
 	 return comboArray
  } 
 
  
-
 function isComplete(element) {
   var currentYear = "year" + getCurrentYear()
   var dollars = element[currentYear]
-  if (dollars > 0) return "completed"
-  return "active"
+  if (dollars > 0) return "active"
+  return "not yet active"
 }
 
 function getPreviousYears() {
@@ -186,7 +198,7 @@ function loadMap() {
     scrollWheelZoom: false,
     dragging: true});
 	var cloudmade = new L.TileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
-	    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+	    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>, Tiles from <a href="http://tiles.stamen.com" target="_blank">Stamen</a>',
 	    maxZoom: 18
 	});
  map.addLayer(cloudmade);

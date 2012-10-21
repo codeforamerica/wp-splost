@@ -1,12 +1,13 @@
 <?php
 /*
-Template Name: SPLOST Overview
+Template Name: SPLOST Overview Template
+* To be used in one instance as the overview page for all of SPLOST
 */
 ?>
 
 <?php get_header(); ?>
- <div id="maincontainer" class="overview" >
-    <h3>Project Description</h3>
+ <div id="maincontainer" class="overview">
+    <h3>Description</h3>
       <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 				<?php if ( is_front_page() ) { ?>
 					<!-- ><h2><?php the_title(); ?></h2> -->
@@ -37,16 +38,10 @@ Template Name: SPLOST Overview
     <div class="fb-like" data-send="true" data-layout="button_count" data-width="100" data-show-faces="false"></div>
   </div>
 
-  <!--nextpage-->
+  <!--nav between pages, uses plugin-->
   <div id="post-nav">
-    <span class="prevPageNav">
-      <?php 
-    echo previous_page_not_post('', true, ''); ?> 
-    </span>  
-    <span class="nextPageNav">
-      <?php 
-    echo next_page_not_post('', true, '' );  ?> 
-    </span>
+    <span class="prevPageNav"> <?php echo previous_page_not_post('', true, ''); ?> </span>  
+    <span class="nextPageNav"> <?php echo next_page_not_post('', true, '' );  ?> </span>
   </div>
 
   <span class="button wpedit">
@@ -88,10 +83,12 @@ Template Name: SPLOST Overview
            
      accounting.settings.currency.precision = 0
 
-     var edProjects = getType(data, "Economic Development")
-     var drProjects = getType(data, "Debt Retirement")
-     var raProjects = getType(data, "Rec & Cultural Arts")
-     var psProjects = getType(data, "Public Safety")
+     var pageParent = "<?php echo get_the_title($post->post_parent) ?>"
+     var pageName = "<?php the_title(); ?>"
+     // or <?= get_the_title($post->post_parent) ?>
+     
+     var thePageParent = getType(data, pageParent)
+     var thePageName  = getProject(data, pageName)
 
      var map = loadMap()
      data.forEach(function (data){
@@ -127,10 +124,10 @@ Template Name: SPLOST Overview
       axis = r.g.axis(160,470,435,null, null,13,1, labels.reverse(), null, 1);
       axis.text.attr({font:"12px Arvo", "font-weight": "regular", "fill": "#333333"});   
       
-     var numberActive = getActiveProjects(edProjects).length
-     var numberTotalProjects = 14
-     var numberCompletedProjects = completedProjects(edProjects)
-     var totalSpent = amountSpent(edProjects)
+     var numberActive = getActiveProjects(data).length
+     var numberTotalProjects = data.length
+     var numberCompletedProjects = completedProjects(data)
+     var totalSpent = amountSpent(data)
 
      var schedule = ich.schedule({
        "rows": turnCurrency(data)

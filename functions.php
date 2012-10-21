@@ -507,3 +507,11 @@ function the_slug() {
 $post_data = get_post($post->ID, ARRAY_A);
 $slug = $post_data['post_name'];
 return $slug; }
+
+
+// function the_Pslug() {
+// $post_data = get_the_title($parent->ID);
+// $Pslug = $post_data['parent_name'];
+// return $Pslug; }
+
+

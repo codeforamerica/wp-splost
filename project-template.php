@@ -1,19 +1,19 @@
 <?php
 /*
-Template Name: THE Project Template.
+Template Name: Project Template
+* This is the template to be used for Project Pages. 
 */
 ?>
 
 <?php get_header(); ?>
 
- <div id="maincontainer" class="projectPage" >
-
-<!-- save if city decides it wants photo php the_post_thumbnail();  -->
-<h3>Project Description</h3>
+<div id="maincontainer" class="projectPage" >
+<!-- save if city decides it wants photo: php the_post_thumbnail();  -->
+<h3>Description</h3>
  <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
   <div class="content-text">
-    <?php
+    <?php // this pulls out image tags from the_content so that only the text appears in this div
     ob_start();
     the_content('Read the full post',true);
     $postOutput = preg_replace('/<img[^>]+./','', ob_get_contents());
@@ -22,43 +22,42 @@ Template Name: THE Project Template.
     ?>
   </div>
               
-  <h3>Project Location & Quick Stats</h3>
+  <h3>Location & Quick Stats</h3>
     <div id="map" class="halfmap"></div>
     <div id="stats" class="halfstats"></div>
     <div class="clear"></div>
 
   <h3>Category Funding Comparison</h3>
-    <p>Below, a funds comparison between this category's projects.</p>
-    <div id="holderEd"></div>
+    <p>Below, a funds comparison between the projects in <?php echo get_the_title($post->post_parent) ?>.</p>
+    <div id="holder"></div>
 
-  <h3>Project Funding Schedule</h3>
+  <h3>Funding Schedule</h3>
     <div id="table"></div>
 
-  <h3>Monthly Revenue Report</h3>
-    <p>Each month we publish a report on our expenses and tax/bond revenue. Below is an itemization of expenses related to <?php the_title(); ?> . You can find an archive of reports <a href="http://splost.codeforamerica.org/?s=monthly+report">here</a>.</p>
+  <!-- only if this project has a report -->
   <div id="monthly"></div>
 
-<div id="pagePhotos">
-  <?php // check if post has gallery, if so, display it
-    if (strpos($post->post_content,'[gallery') === false){
-    $gallery = 0;}
-    else {
-    $gallery = 1;}
+  <div id="pagePhotos">
+    <?php // check if post has gallery, if so, display it
+      if (strpos($post->post_content,'[gallery') === false){
+      $gallery = 0;}
+      else {
+      $gallery = 1;}
 
-    if ($gallery === 1) {
-    echo "<h3>Project Photos</h3>";
-    echo do_shortcode('[gallery option1="value1"]'); }
-  ?>
+      if ($gallery === 1) {
+      echo "<h3>Project Photos</h3>";
+      echo do_shortcode('[gallery option1="value1"]'); }
+    ?>
   
   <div class="content-img">
-    <?php
+    <?php // if a photo is added not in a gallery
     preg_match_all("/(<img [^>]*>)/",get_the_content(),$matches,PREG_PATTERN_ORDER);
     for( $i=0; isset($matches[1]) && $i < count($matches[1]); $i++ ) {
       $beforeEachImage = '<a href="#">';
       $afterEachImage = '</a>';
       echo $beforeEachImage . $matches[1][$i] . $afterEachImage;}?>
   </div>
-</div>
+</div><!-- end photos -->
                   
   <div class="wholemilk">
     <div class="halfmilk">
@@ -81,11 +80,11 @@ Template Name: THE Project Template.
             wp_reset_query();?>
         </div>
     </div>
+    <!-- incase you want to add a section for documents
     <div class="halfmilk">
       <h3>Relevant Documents</h3>
-        <!-- what if docs were individual posts that didn't come up in feed but you can query? -->
+         // what if docs were individual posts that didn't come up in feed but you can query? -->
     </div>
-  </div>
 
   <div id="sharing">
     <p>Share this page: </p>
@@ -99,7 +98,7 @@ Template Name: THE Project Template.
     <div class="fb-like" data-send="true" data-layout="button_count" data-width="100" data-show-faces="false"></div>
   </div>
 
-  <!--nextpage-->
+  <!-- navigating between pages, uses plugin -->
   <div id="post-nav">
     <span class="prevPageNav">
       <?php 
@@ -120,8 +119,12 @@ Template Name: THE Project Template.
 </div><!-- end #maincontainer -->
 
 <script id="monthly" type="text/html">
+<h3>Monthly Revenue Report</h3>
+  <p>Each month we publish a report on our expenses and tax/bond revenue with active projects. 
+    If this project is active, the chart below will be populated with expenses related to <?php the_title(); ?> . 
+    You can find an archive of reports <a href="http://splost.codeforamerica.org/?s=monthly+report">here</a>.</p>
   <h6 class="fleft">Monthly Report for:</h6> 
-  <p><span class="statHighlight">  {{reportmonth}} {{reportyear}}</span></p>
+  <p><span class="statHighlight">  {{reportmonth}} / {{reportyear}}</span></p>
   <table class="monthlytable">
   <thead>
   <tr class="tableheader">
@@ -138,9 +141,9 @@ Template Name: THE Project Template.
     
 <script id="stats" type="text/html">
  <h5>Project Status: </h5>
- <p><span class="statHighlight">{{isCompleted}}</span></p>
+ <p><span class="statHighlight">{{isActive}}</span></p>
  <h5>Total Spent as of {{currentDate}}:</h5>
- <p><span class="statHighlight">{{totalSpent}}</span> of <span class="statHighlight">{{categoryTotal}}</span></p>
+ <p><span class="statHighlight">{{totalSpent}}</span></p>
 </script>
   
 <script id="schedule" type="text/html">
@@ -165,27 +168,16 @@ Template Name: THE Project Template.
             
      accounting.settings.currency.precision = 0
 
-     var pageTitle = "<?php echo get_the_title($post->post_parent) ?>"
-     // or <?= get_the_title($post->post_parent) ?>
-     console.log(pageTitle)
+     var pageParent = "<?php echo get_the_title($post->post_parent) ?>"
+     var pageName = "<?php the_title(); ?>"
+     var thePageParent = getType(data, pageParent)
+     var thePageName  = getProject(data, pageName)
+     // var downtownC  = getProject(data, "Downtown Corridor")
 
-     var edProjects = getType(data, pageTitle)
-     var drProjects = getType(data, "Debt Retirement")
-     var raProjects = getType(data, "Rec & Cultural Arts")
-     var psProjects = getType(data, "Public Safety")
-     var downtownC  = getProject(data, "Downtown Corridor")
-     
-    function getProjectTotal(project) {
-      var tot = "total"
-      var projectTotal = project[tot]
-      return projectTotal
-    }
-      
-    var theCombo = comboArrays(downtownC, edProjects)
 
      var map = loadMap()
-     downtownC.forEach(function (downtownC){
-       displayAddress(map, downtownC)
+     thePageName.forEach(function (thePageName){
+       displayAddress(map, thePageName)
      })
 
      function pushBits(element) {
@@ -193,61 +185,73 @@ Template Name: THE Project Template.
         labels.push(element.project)
         hexcolors.push(element.hexcolor)
       }
+
+      // axis variables
+      var noProjsInCat = thePageParent.length 
+      var chartHeight = noProjsInCat * 40
+      var axisY =  chartHeight
+
+      function makeAxisLength() {
+        if (noProjsInCat > 2)
+        var axisLength = chartHeight * .8
+        else axisLength = chartHeight * .5 
+          return axisLength
+      }
           
-      var r = Raphael("holderEd")
+      var r = Raphael("holder")
       var values = []
       var labels = []
       var hexcolors = []
-          edProjects.forEach(pushBits)
+          thePageParent.forEach(pushBits)
                
-  // (paper, x, y, width, height, values, opts)
-  r.g.hbarchart(170, 15, 480, 90, values, {stacked: true, type: "soft", colors: hexcolors, gutter: "20%"}).hoverColumn(
-    function() { 
-      var y = []
-      var res = []
+      // (paper, x, y, width, height, values, opts)
+      r.g.hbarchart(170, 20, 480, chartHeight, values, {stacked: true, type: "soft", colors: hexcolors, gutter: "10"}).hoverColumn(
+        function() { 
+          var y = []
+          var res = []
 
-          for (var i = this.bars.length; i--;) {
-              y.push(this.bars[i].y);
-              res.push(this.bars[i].value || "0");
-          }
-          this.flag = r.g.popup(this.bars[0].x, Math.min.apply(Math, y), res.join(", ")).insertBefore(this);
-  }, function() {
-        this.flag.animate({opacity: 0}, 1500, ">", function () {this.remove();});
-  });
-  // (x, y, length, from, to, steps, orientation, labels, type, dashsize, paper)
-  axis = r.g.axis(160,80,45,null, null,1,1, labels.reverse(), null, 1);
-  axis.text.attr({font:"12px Arvo", "font-weight": "regular", "fill": "#333333"});     
+              for (var i = this.bars.length; i--;) {
+                  y.push(this.bars[i].y);
+                  res.push(this.bars[i].value || "0");
+              }
+              this.flag = r.g.popup(this.bars[0].x, Math.min.apply(Math, y), res.join(", ")).insertBefore(this);
+      }, function() {
+            this.flag.animate({opacity: 0}, 1500, ">", function () {this.remove();});
+      });
+      // (x, y, length, from, to, steps, orientation, labels, type, dashsize, paper)
+      axis = r.g.axis(160, axisY, makeAxisLength(), noProjsInCat, null,noProjsInCat - 1,1, labels.reverse(), null, 1);
+      axis.text.attr({font:"12px Arvo", "font-weight": "regular", "fill": "#333333"});     
       
-   var numberActive = getActiveProjects(downtownC).length
-   var numberTotalProjects = 14
-   var numberCompletedProjects = completedProjects(downtownC)
-   var totalSpent = amountSpent(downtownC)
-   var catTotal = getCatTotal(edProjects)
+    var numberActive = getActiveProjects(thePageName).length
+    var numberTotalProjects = data.length
+    var numberCompletedProjects = completedProjects(thePageName)
+    var totalSpent = amountSpent(thePageName)
+    var catTotal = getCatTotal(thePageParent)
 
-  var monthlyrev = getType(tabletop.sheets("revenue").all(), "Downtown Corridor")
+    var monthlyrev = getType(tabletop.sheets("revenue").all(), pageName)
 
-  var reportmonth = "August"
-  var reportyear = 2012
-
+    var reportmonth = getCurrentMonth()
+    var reportyear = getCurrentYear()
+  //These populate the page's tables 
 
     var monthly = ich.monthly({
       "rows": turnMonthlyCurrency(monthlyrev),
       "reportyear": reportyear,
       "reportmonth": reportmonth
     })
- 
+
      var schedule = ich.schedule({
-       "rows": turnCurrency(downtownC)
+       "rows": turnCurrency(thePageName)
      })
 
      var stats = ich.stats({
-       "projectTotal":    accounting.formatMoney(),
+      "projectTotal":    accounting.formatMoney(),
        "categoryTotal":       accounting.formatMoney(catTotal),
-       "isCompleted":         isComplete(downtownC),
+       "isActive":         isComplete(thePageName),
        "numberActive":        numberActive,
        "numberTotalProjects":     numberTotalProjects,
        "numberCompletedProjects":   numberCompletedProjects,
-       "totalSpent":        accounting.formatMoney(totalSpent),
+      "totalSpent":        accounting.formatMoney(totalSpent),
        "currentDate":         getCurrentYear()
    
      })

@@ -21,10 +21,7 @@ Template Name: Press Page Template
 
       <div id="thePostText">
       <?php echo $posttext; ?>
-      </div>
-
-      <?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'twentyten' ), 'after' => '' ) ); ?>
- 
+      </div> 
 
      <?php 
         if ( $noOfImgs > 0 ) {

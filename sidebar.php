@@ -10,7 +10,7 @@
    
    <div class="menu">
    <ul class="menu_cat">
-     <li class="category ps"><a href="#">Public Safety Overview</a>*</li>
+     <li class="category ps"><a href="#">Public Safety Overview</a></li>
      </ul>
 
      <ul>
@@ -18,36 +18,37 @@
      <li class="ps second"><a href="#">Street Maintenance</a></li>
      <li class="ps first"><a href="#">Public Safety Equipment</a></li>
      <li class="ps second"><a href="#">Public Safety Other</a></li>
+     <li class="ps first"><a href="#">GMA Lease Pool</a></li>
      </ul>
   </div><!-- #menu END -->
      
   <div class="menu">
      <ul class="menu_cat">
-     <li class="category dr"><a href="#">Debt Retirement Overview</a>*</li>
+     <li class="category dr"><a href="#">Debt Retirement Overview</a></li>
      </ul>
 
      <ul>
      <li class="dr first"><a href="#">Debt Retirement</a></li>
      <li class="dr second"><a href="#">Bond Repayment</a></li>
-     <li class="dr first"><a href="#">GMA Lease Pool</a></li>
+     
 	 
      </ul>
    </div><!-- #menu END -->
      
    <div class="menu">
      <ul class="menu_cat">
-     <li class="category ed"><a href="/economic-development/">Economic Development Overview</a>Live!</li>
+     <li class="category ed"><a href="/economic-development/">Economic Development Overview</a></li>
      </ul>
 
      <ul>
-     <li class="ed first"><a href="/overview/economic-development/centreplex/">Centreplex</a></li>
-     <li class="ed second"><a href="/downtown-corridor/">Downtown Corridor</a></li>
+     <li class="ed first"><a href="/economic-development/centreplex/">Centreplex</a></li>
+     <li class="ed second"><a href="/economic-development/downtown-corridor/">Downtown Corridor</a></li>
      </ul>
    </div><!-- #menu END -->
      
    <div class="menu">
      <ul class="menu_cat">
-     <li class="category ra"><a href="#">Rec & Cultural ArtsOverview</a>*</li>
+     <li class="category ra"><a href="#">Rec & Cultural Arts Overview</a></li>
      </ul>
 
      <ul>
@@ -62,7 +63,8 @@
    <div style="clear:both;"></div>
    <h5>PRESS & DOCUMENTS</h5>
    <div class="menu">
-    <div class="button"><a href="/press/">Recent Press</a>*</div>   
+    <div class="button"><a href="/press/">Recent Press</a></div>
+    <div class="button"><a href="/tag/document/">SPLOST Documents</a></div>    
    </div><!-- #menu END -->
 
    <div class="searcher">

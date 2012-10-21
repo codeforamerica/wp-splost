@@ -1,6 +1,7 @@
 <?php
 /*
-Template Name: Overview
+Template Name: Category Overview Template
+* This is to be used for Category Overviews
 */
 ?>
 
@@ -27,9 +28,14 @@ Template Name: Overview
   <h3>Project Funding Schedule</h3>
     <p>This is the funding schedule budget as proposed by the SPLOST bill.<p>
     <div id="schedule"></div>
+   <!-- maybe this way  
   <h3>Economic Development Monthly Revenue</h3>
-    <p>Each month we publish a report on our expenses and tax/bond revenue. Below is an itemization for Economic Development related expenses. You can find an archive of reports <a href="http://splost.codeforamerica.org/?s=monthly+report">here</a>.</p>
-    <div id="monthly"></div>
+    <p>Each month we publish a report on our expenses and tax/bond revenue. 
+      Below is an itemization for <?php echo the_title() ?> related expenses. 
+      You can find an archive of reports <a href="http://splost.codeforamerica.org/?s=monthly+report">here</a>.</p>
+  <div id="monthly"></div> -->
+  <h3>Economic Development Monthly Revenue</h3>
+    <p>Visit the individual project pages to learn more about monthly itemizations of active projects.</p>
 
   <div id="sharing">
     <p>Share this page: </p>
@@ -108,10 +114,12 @@ Template Name: Overview
                
          accounting.settings.currency.precision = 0
 
-         var edProjects = getType(tabletop.sheets("projections").all(), "Economic Development")
-         var drProjects = getType(data, "Debt Retirement")
-         var raProjects = getType(data, "Rec & Cultural Arts")
-         var psProjects = getType(data, "Public Safety")
+         var pageParent = "<?php echo get_the_title($post->post_parent) ?>"
+         var pageName = "<?php the_title(); ?>"
+         // or <?= get_the_title($post->post_parent) ?>
+         
+         var thePageParent = getType(data, pageParent)
+         var thePageName  = getProject(data, pageName)
 
          var map = loadMap()
          edProjects.forEach(function (edProject){

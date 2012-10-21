@@ -79,7 +79,7 @@ get_header(); ?>
 							echo wp_get_attachment_image( $post->ID, array( $attachment_size, 9999 ) ); // filterable image width with, essentially, no limit for image height.
 						?></a>
 </li></ul>
-<ul class="attachPage"><li>Other image(s): <?php previous_image_link( false ); ?> , <?php next_image_link( false ); ?></li></ul>
+<ul class="attachPage"><li>Other image(s): <?php previous_image_link( false ); ?> <?php next_image_link( false ); ?></li></ul>
 							
 <?php else : ?>
 <?php endif; ?>
