@@ -22,7 +22,7 @@ Template Name: SPLOST Overview Template
       <div id="map" class="fullmap"></div>
     <h3>Category Funding Comparison</h3>
       <p>A comparison of each project's funding.</p>
-	    <div id="holder"></div>
+	    <div id="splostHolder"></div>
     <h3>Project Funding Schedule</h3>
       <div id="table"></div><!-- end #table -->
 
@@ -101,7 +101,7 @@ Template Name: SPLOST Overview Template
         hexcolors.push(element.hexcolor)
       }
           
-      var r = Raphael("holder")
+      var r = Raphael("splostHolder")
       var values = []
       var labels = []
       var hexcolors = []

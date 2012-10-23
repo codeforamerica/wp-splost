@@ -75,6 +75,16 @@ function amountSpent(projects) {
   })
   return filteredProjects
   }
+
+   function getMonthlyType(projects, projectFilter) {
+    var filteredProjects = []
+    projects.forEach(function (element) {
+      var type = "subtype"
+      var projectType = element[type]
+      if (projectType === projectFilter) filteredProjects.push(element)
+  })
+  return filteredProjects
+  }
   
   function getProject(projects, projectFilter){
 	  var oneProject = []
@@ -155,7 +165,8 @@ function isComplete(element) {
   var currentYear = "year" + getCurrentYear()
   var dollars = element[currentYear]
   if (dollars > 0) return "active"
-  return "not yet active"
+  else 
+  return "not active"
 }
 
 function getPreviousYears() {

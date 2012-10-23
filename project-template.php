@@ -1,7 +1,8 @@
 <?php
 /*
-Template Name: Project Template
-* This is the template to be used for Project Pages. 
+Template Name: Category Template
+* This is the template to be used for Category Pages.
+* Storm Drainage, Centreplex, Ft Hawkins, Debt Retirement 
 */
 ?>
 
@@ -133,7 +134,7 @@ Template Name: Project Template
   </thead>
   {{#rows}}
     <tr>
-    <td>{{subproject}}</td><td >{{item}}</td><td class="tright">{{budgeted}}</td><td class="tright">{{actual}}</td></tr>
+    <td>{{subtype}}</td><td >{{project}}</td><td class="tright">{{budget}}</td><td class="tright">{{year2012}}</td></tr>
   {{/rows}}
   </table>
 </script>
@@ -166,14 +167,13 @@ Template Name: Project Template
 
    function showInfo(data, tabletop) {
             
-     accounting.settings.currency.precision = 0
 
+     accounting.settings.currency.precision = 0
      var pageParent = "<?php echo get_the_title($post->post_parent) ?>"
      var pageName = "<?php the_title(); ?>"
      var thePageParent = getType(data, pageParent)
      var thePageName  = getProject(data, pageName)
      // var downtownC  = getProject(data, "Downtown Corridor")
-
 
      var map = loadMap()
      thePageName.forEach(function (thePageName){
@@ -224,18 +224,18 @@ Template Name: Project Template
       
     var numberActive = getActiveProjects(thePageName).length
     var numberTotalProjects = data.length
-    var numberCompletedProjects = completedProjects(thePageName)
+    // var numberCompletedProjects = completedProjects(thePageName)
     var totalSpent = amountSpent(thePageName)
     var catTotal = getCatTotal(thePageParent)
 
-    var monthlyrev = getType(tabletop.sheets("revenue").all(), pageName)
-
+    var monthlyrev = getMonthlyType(tabletop.sheets("actuals").all(), pageName)
+    console.log(monthlyrev)
     var reportmonth = getCurrentMonth()
     var reportyear = getCurrentYear()
   //These populate the page's tables 
 
     var monthly = ich.monthly({
-      "rows": turnMonthlyCurrency(monthlyrev),
+      "rows": monthlyrev,
       "reportyear": reportyear,
       "reportmonth": reportmonth
     })
@@ -247,14 +247,14 @@ Template Name: Project Template
      var stats = ich.stats({
       "projectTotal":    accounting.formatMoney(),
        "categoryTotal":       accounting.formatMoney(catTotal),
-       "isActive":         isComplete(thePageName),
+       "isActive":         isActive(thePageName),
        "numberActive":        numberActive,
        "numberTotalProjects":     numberTotalProjects,
-       "numberCompletedProjects":   numberCompletedProjects,
+       // "numberCompletedProjects":   numberCompletedProjects,
       "totalSpent":        accounting.formatMoney(totalSpent),
        "currentDate":         getCurrentYear()
-   
      })
+   console.log(thePageName)
 
     document.getElementById('monthly').innerHTML = monthly; 
     document.getElementById('table').innerHTML = schedule;

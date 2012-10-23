@@ -1,7 +1,8 @@
 <?php
 /*
-Template Name: Category Overview Template
-* This is to be used for Category Overviews
+Template Name: Area Overview Template
+* This is to be used for Area Overviews
+* Public Safety, Debt Retirement, Economic Development, Rec & Cultural Arts
 */
 ?>
 
@@ -18,13 +19,13 @@ Template Name: Category Overview Template
 
    						<?php the_content(); ?>
 
-  <h3>Economic Development Quick Stats</h3>
+  <h3>Quick Stats</h3>
     <div id="stats"></div>
   <h3>Project Locations</h3>
     <div id="map" class="fullmap"></div>    
   <h3>Category Funding Comparison</h3>
     <p>Below, a funds comparison between this category's projects.</p>
-	  <div id="holderEd"></div>
+	  <div id="holder"></div>
   <h3>Project Funding Schedule</h3>
     <p>This is the funding schedule budget as proposed by the SPLOST bill.<p>
     <div id="schedule"></div>
@@ -68,11 +69,11 @@ Template Name: Category Overview Template
 </div><!-- end #maincontainer -->
     
     
-    <script id="stats" type="text/html">
-       <p><span class="statHighlight">{{numberActive}} of {{numberTotalProjects}}</span> projects are active</p>
-       <p><span class="statHighlight">{{numberCompletedProjects}}</span> projects are completed</p>
-       <p><span class="statHighlight">{{totalSpent}}</span> has been spent as of {{currentDate}} </p>
-     </script>
+   <script id="stats" type="text/html">
+     <p><span class="statHighlight">{{numberActive}} of {{numberTotalProjects}}</span> projects are active</p>
+     <p><span class="statHighlight">{{numberCompletedProjects}}</span> projects are completed</p>
+     <p><span class="statHighlight">{{totalSpent}}</span> has been spent as of {{currentDate}} </p>
+   </script>
     
    <script id="schedule" type="text/html">
       <table>
@@ -113,17 +114,15 @@ Template Name: Category Overview Template
                
                
          accounting.settings.currency.precision = 0
-
          var pageParent = "<?php echo get_the_title($post->post_parent) ?>"
          var pageName = "<?php the_title(); ?>"
-         // or <?= get_the_title($post->post_parent) ?>
-         
          var thePageParent = getType(data, pageParent)
          var thePageName  = getProject(data, pageName)
+         
 
          var map = loadMap()
-         edProjects.forEach(function (edProject){
-           displayAddress(map, edProject)
+         thePageParent.forEach(function (thePageParent){
+           displayAddress(map, thePageParent)
          })
 
          function pushBits(element) {
@@ -132,11 +131,11 @@ Template Name: Category Overview Template
             hexcolors.push(element.hexcolor)
           }
               
-          var r = Raphael("holderEd")
+          var r = Raphael("holder")
           var values = []
           var labels = []
           var hexcolors = []
-              edProjects.forEach(pushBits)
+              thePageParent.forEach(pushBits)
 
       // (paper, x, y, width, height, values, opts)
       r.g.hbarchart(170, 15, 480, 90, values, {stacked: true, type: "soft", colors: hexcolors, gutter: "20%"}).hoverColumn(
@@ -156,31 +155,16 @@ Template Name: Category Overview Template
       axis = r.g.axis(160,80,45,null, null,1,1, labels.reverse(), null, 1);
       axis.text.attr({font:"12px Arvo", "font-weight": "regular", "fill": "#333333"}); 
           
-              
-               
-          
-          
-          
-         var numberActive = getActiveProjects(edProjects).length
+
+         var numberActive = getActiveProjects(thePageParent).length
          var numberTotalProjects = 2
-         var numberCompletedProjects = completedProjects(edProjects)
-         var totalSpent = amountSpent(edProjects)
-
-         var monthlyrev = tabletop.sheets("revenue").all()
-         var reportmonth = "August"
-         var reportyear = 2012
-
+         var numberCompletedProjects = completedProjects(thePageParent)
+         var totalSpent = amountSpent(thePageParent)
 
 // turnCurrency(edProjects)
          var schedule = ich.schedule({
-          "rows": turnCurrency(edProjects)
+          "rows": turnCurrency(thePageParent)
          })
-
-         var monthly = ich.monthly({
-          "rows": turnMonthlyCurrency(monthlyrev),
-          "reportyear": reportyear,
-          "reportmonth": reportmonth
-               })
 
          var stats = ich.stats({
            "numberActive": numberActive,
@@ -192,7 +176,6 @@ Template Name: Category Overview Template
 
          document.getElementById('schedule').innerHTML = schedule;
          document.getElementById('stats').innerHTML = stats; 
-         document.getElementById('monthly').innerHTML = monthly; 
 
        }
     </script>

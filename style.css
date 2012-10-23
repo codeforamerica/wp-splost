@@ -370,6 +370,8 @@ ul.linkList, li.linkList {list-style: circle; margin-bottom: 8px; margin-left: 1
 .contactlist li {line-height: 2em; font-size: 16px; }
 .contactlist li a {font-family: Open Sans, Arial, sans-serif;}
 
+#splostHolder {height: 500px;}
+
 #printHeader {display: none;}
 
 @media print {

@@ -18,7 +18,7 @@
      <li class="ps second"><a href="#">Street Maintenance</a></li>
      <li class="ps first"><a href="#">Public Safety Equipment</a></li>
      <li class="ps second"><a href="#">Public Safety Other</a></li>
-     <li class="ps first"><a href="#">GMA Lease Pool</a></li>
+     
      </ul>
   </div><!-- #menu END -->
      
@@ -30,6 +30,7 @@
      <ul>
      <li class="dr first"><a href="#">Debt Retirement</a></li>
      <li class="dr second"><a href="#">Bond Repayment</a></li>
+     <li class="dr first"><a href="#">GMA Lease Pool</a></li>
      
 	 
      </ul>
