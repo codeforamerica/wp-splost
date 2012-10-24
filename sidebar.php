@@ -2,7 +2,7 @@
   <h5>OVERVIEW & REPORTS</h5>
   <div class="menu">
    <div class="button"><a href="/overview/">SPLOST Overview</a></div>   
-   <div class="button"><a href="/monthly-revenue/">Montly Revenue</a></div>
+   <div class="button"><a href="/revenue/">Montly Revenue</a></div>
   </div>
    
    <div style="clear:both;"></div>
@@ -14,23 +14,23 @@
      </ul>
 
      <ul>
-     <li class="ps first"><a href="#">Storm Drainage</a></li>
-     <li class="ps second"><a href="#">Street Maintenance</a></li>
-     <li class="ps first"><a href="#">Public Safety Equipment</a></li>
-     <li class="ps second"><a href="#">Public Safety Other</a></li>
+     <li class="ps first"><a href="/public-safety/storm-drainage/">Storm Drainage</a></li>
+     <li class="ps second"><a href="/public-safety/street-maintenance/">Street Maintenance</a></li>
+     <li class="ps first"><a href="/public-safety/public-safety-equipment/">Public Safety Equipment</a></li>
+     <li class="ps second"><a href="/public-safety/public-safety-other/">Public Safety Other</a></li>
      
      </ul>
   </div><!-- #menu END -->
      
   <div class="menu">
      <ul class="menu_cat">
-     <li class="category dr"><a href="#">Debt Retirement Overview</a></li>
+     <li class="category dr"><a href="/debt-retirement/">Debt Retirement Overview</a></li>
      </ul>
 
      <ul>
-     <li class="dr first"><a href="#">Debt Retirement</a></li>
-     <li class="dr second"><a href="#">Bond Repayment</a></li>
-     <li class="dr first"><a href="#">GMA Lease Pool</a></li>
+     <li class="dr first"><a href="/debt-retirement/debt-retirement/">Debt Retirement</a></li>
+     <li class="dr second"><a href="/debt-retirement/bond-repayment/">Bond Repayment</a></li>
+     <li class="dr first"><a href="/debt-retirement/gma-lease-pool/">GMA Lease Pool</a></li>
      
 	 
      </ul>
@@ -49,14 +49,14 @@
      
    <div class="menu">
      <ul class="menu_cat">
-     <li class="category ra"><a href="#">Rec & Cultural Arts Overview</a></li>
+     <li class="category ra"><a href="/rec-and-cultural-arts/">Rec & Cultural Arts Overview</a></li>
      </ul>
 
      <ul>
-     <li class="ra first"><a href="#">Tubman Museum</a></li>
-     <li class="ra second"><a href="#">Bowden Golf</a></li>
-     <li class="ra first"><a href="#">Rose Hill Cemetery</a></li>
-     <li class="ra second"><a href="#">Ft. Hawkins</a></li>
+     <li class="ra first"><a href="/rec-and-cultural-arts/tubman-museum/">Tubman Museum</a></li>
+     <li class="ra second"><a href="/rec-and-cultural-arts/bowden-golf/">Bowden Golf</a></li>
+     <li class="ra first"><a href="/rec-and-cultural-arts/rose-hill-cemetery/">Rose Hill Cemetery</a></li>
+     <li class="ra second"><a href="/rec-and-cultural-arts/ft-hawkins/">Ft. Hawkins</a></li>
      </ul>
 	 
    </div><!-- #menu END -->
