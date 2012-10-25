@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Area Overview Template
+Template Name: Category Overview Template
 * This is to be used for Area Overviews
 * Public Safety, Debt Retirement, Economic Development, Rec & Cultural Arts
 */
