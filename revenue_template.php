@@ -8,7 +8,7 @@ Template Name: Revenue Page Template
 
 <?php get_header(); ?>
  <div id="maincontainer" class="overview" >
-   <h3>Overview Description</h3>
+   <h3>Description</h3>
    <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
    					<?php if ( is_front_page() ) { ?>
@@ -19,10 +19,8 @@ Template Name: Revenue Page Template
 
    						<?php the_content(); ?>
 
-  <h3>Quick Stats</h3>
-    <div id="stats"></div>  
-  <h3>Category Funding Comparison</h3>
-    <p>Below, a funds comparison between this category's projects.</p>
+   <h3>Revenue Received</h3>
+    <p>Chart coming soon.</p>
 	  <div id="holder"></div>
 
   <h3>Economic Development Monthly Revenue</h3>
@@ -59,11 +57,7 @@ Template Name: Revenue Page Template
 </div><!-- end #maincontainer -->
     
     
-   <script id="stats" type="text/html">
-     <p><span class="statHighlight">{{numberActive}} of {{numberTotalProjects}}</span> projects are active</p>
-     <p><span class="statHighlight">{{numberCompletedProjects}}</span> projects are completed</p>
-     <p><span class="statHighlight">{{totalSpent}}</span> has been spent as of {{currentDate}} </p>
-   </script>
+
     
   <script id="monthly" type="text/html">
       <h6 class="fleft">Monthly Report for:</h6> 
@@ -71,12 +65,12 @@ Template Name: Revenue Page Template
       <table class="monthlytable">
       <thead>
       <tr class="tableheader">
-      <th>SUB PROJECT</th><th>ITEM</th><th>Budget</th><th>Actual</th>
+      <th>PROJECT</th><th>STATUS</th><th>BUDGET</th><th>Actual</th>
       </tr>
       </thead>
       {{#rows}}
         <tr>
-        <td>{{subtype}}</td><td >{{status}}</td><td class="tright">{{budget}}</td><td class="tright">{{ytd_actual}}</td></tr>
+        <td>{{project}}</td><td >{{status}}</td><td class="tright">{{budget}}</td><td class="tright">{{ytdactual}}</td></tr>
       {{/rows}}
       </table>
     </script>
@@ -135,19 +129,10 @@ Template Name: Revenue Page Template
 
       var monthlyrev = getType(tabletop.sheets("actuals").all(), pageName)
       console.log(monthlyrev)
-      var reportmonth = getCurrentMonth()
+      var reportmonth = getCurrentMonth() - 1
       var reportyear = getCurrentYear()
       //These populate the page's tables 
 
-
-
-      var stats = ich.stats({
-        "numberActive": numberActive,
-        "numberTotalProjects": numberTotalProjects,
-        "numberCompletedProjects": numberCompletedProjects,
-        "totalSpent": accounting.formatMoney(totalSpent),
-        "currentDate": getCurrentYear()
-      })
 
 
       var monthly = ich.monthly({
@@ -157,7 +142,6 @@ Template Name: Revenue Page Template
       })
 
          document.getElementById('monthly').innerHTML = monthly; 
-         document.getElementById('stats').innerHTML = stats; 
 
        }
     </script>

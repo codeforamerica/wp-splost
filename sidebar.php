@@ -17,8 +17,7 @@
      <li class="ps first"><a href="/public-safety/storm-drainage/">Storm Drainage</a></li>
      <li class="ps second"><a href="/public-safety/street-maintenance/">Street Maintenance</a></li>
      <li class="ps first"><a href="/public-safety/public-safety-equipment/">Public Safety Equipment</a></li>
-     <li class="ps second"><a href="/public-safety/public-safety-other/">Public Safety Other</a></li>
-     
+     <li class="ps second"><a href="/public-safety/public-safety-other/">Public Safety Other</a></li>   
      </ul>
   </div><!-- #menu END -->
      
