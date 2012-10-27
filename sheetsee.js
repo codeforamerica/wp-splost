@@ -137,6 +137,18 @@ function amountSpent(projects) {
     return projects
   }
 
+  function turnReportCurrency(projects) {
+    projects.forEach(function (project) {
+      var totalBudget = getMoney(project.budget)
+      if (totalBudget) project.budget = totalBudget
+      projects.forEach(function (project){
+        var totalPTD = getMoney(project.ptdactual)
+        if (totalPTD) project.ptdactual = totalPTD
+      })
+    })
+    return projects
+  }
+
 
   function turnMonthlyCurrency(projects) {
   projects.forEach(function (project) {
@@ -194,6 +206,8 @@ function getActiveProjects(projects) {
   })
   return activeProjects
 }
+
+// Mappin' with Leaflet.js
 
 function displayAddress(map, project) {
 	var markerLocation = new L.LatLng(project.lat, project.long);

@@ -6,24 +6,24 @@
   </div>
    
    <div style="clear:both;"></div>
-   <h5>SPLOST CATEGORIES & PROJECTS</h5>
+   <h5>SPLOST CATEGORIES & FOCUS AREAS</h5>
    
    <div class="menu">
    <ul class="menu_cat">
-     <li class="category ps"><a href="/public-safety/">Public Safety Overview</a></li>
+     <li class="category ps"><a href="/public-safety/">Public Safety Category</a></li>
      </ul>
 
      <ul>
-     <li class="ps first"><a href="/public-safety/storm-drainage/">Storm Drainage</a></li>
-     <li class="ps second"><a href="/public-safety/street-maintenance/">Street Maintenance</a></li>
-     <li class="ps first"><a href="/public-safety/public-safety-equipment/">Public Safety Equipment</a></li>
-     <li class="ps second"><a href="/public-safety/public-safety-other/">Public Safety Other</a></li>   
+     <li class="ps first"><a href="/public-safety/800-mhz/">800 MHz</a></li> 
+     <li class="ps second"><a href="/public-safety/public-safety-equipment/">Public Safety Equipment</a></li>
+     <li class="ps first"><a href="/public-safety/public-safety-other/">Public Safety Other</a></li>  
+     
      </ul>
   </div><!-- #menu END -->
      
   <div class="menu">
      <ul class="menu_cat">
-     <li class="category dr"><a href="/debt-retirement/">Debt Retirement Overview</a></li>
+     <li class="category dr"><a href="/debt-retirement/">Debt Retirement Category</a></li>
      </ul>
 
      <ul>
@@ -37,7 +37,7 @@
      
    <div class="menu">
      <ul class="menu_cat">
-     <li class="category ed"><a href="/economic-development/">Economic Development Overview</a></li>
+     <li class="category ed"><a href="/economic-development/">Economic Development Category</a></li>
      </ul>
 
      <ul>
@@ -45,10 +45,22 @@
      <li class="ed second"><a href="/economic-development/downtown-corridor/">Downtown Corridor</a></li>
      </ul>
    </div><!-- #menu END -->
+
+   <div class="menu">
+     <ul class="menu_cat">
+     <li class="category if"><a href="/infrastructure/">Infrastructure</a></li>
+     </ul>
+
+   <ul>
+     <li class="if first"><a href="/public-safety/storm-drainage/">Storm Drainage</a></li>
+     <li class="if second"><a href="/public-safety/street-maintenance/">Street Maintenance</a></li>
+   </ul>
+   
+   </div><!-- #menu END -->
      
    <div class="menu">
      <ul class="menu_cat">
-     <li class="category ra"><a href="/rec-and-cultural-arts/">Rec & Cultural Arts Overview</a></li>
+     <li class="category ra"><a href="/rec-and-cultural-arts/">Rec & Cultural Arts Category</a></li>
      </ul>
 
      <ul>

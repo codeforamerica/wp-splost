@@ -9,7 +9,8 @@ Template Name: Focus Area Template
 <?php get_header(); ?>
 
 <div id="maincontainer" class="projectPage" >
-<!-- save if city decides it wants photo: php the_post_thumbnail();  -->
+
+<?php the_post_thumbnail();  ?>
 <h3>Description</h3>
  <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
@@ -24,7 +25,7 @@ Template Name: Focus Area Template
   </div>
               
   <h3>Location & Quick Stats</h3>
-    <div id="map" class="halfmap"></div>
+    <div id="map" class="halfmap"><img class="spinner" src="/wp-content/uploads/fbi_spinner.gif"></div>
     <div id="stats" class="halfstats"></div>
     <div class="clear"></div>
 
@@ -47,7 +48,7 @@ Template Name: Focus Area Template
 
       if ($gallery === 1) {
       echo "<h3>Project Photos</h3>";
-      echo do_shortcode('[gallery option1="value1"]'); }
+      echo do_shortcode('[gallery option1="value1" columns="5"]'); }
     ?>
   
   <div class="content-img">
@@ -120,21 +121,22 @@ Template Name: Focus Area Template
 </div><!-- end #maincontainer -->
 
 <script id="monthly" type="text/html">
-<h3>Monthly Revenue Report</h3>
+<h3>Monthly Expenditure Report</h3>
   <p>Each month we publish a report on our expenses and tax/bond revenue with active projects. 
     If this project is active, the chart below will be populated with expenses related to <?php the_title(); ?> . 
     You can find an archive of reports <a href="http://splost.codeforamerica.org/?s=monthly+report">here</a>.</p>
   <h6 class="fleft">Monthly Report for:</h6> 
   <p><span class="statHighlight">  {{reportmonth}} / {{reportyear}}</span></p>
+
   <table class="monthlytable">
   <thead>
   <tr class="tableheader">
-  <th>SUB PROJECT</th><th>ITEM</th><th>Budget</th><th>Actual</th>
+  <th>FOCUS AREA</th><th>PROJECT</th><th>BUDGET</th><th>ACTUAL</th>
   </tr>
   </thead>
   {{#rows}}
     <tr>
-    <td>{{subtype}}</td><td >{{project}}</td><td class="tright">{{budget}}</td><td class="tright">{{year2012}}</td></tr>
+    <td>{{subtype}}</td><td >{{project}}</td><td class="yrdolls">{{budget}}</td><td class="yrdolls total">{{ptdactual}}</td></tr>
   {{/rows}}
   </table>
 </script>
@@ -151,7 +153,7 @@ Template Name: Focus Area Template
   <table>
   <thead>
   <tr class="tableheader">
-  <th>PROJECT</th><th>TOTAL</th><th>2012</th><th>2013</th><th>2014</th><th>2015</th><th>2016</th><th>2017</th><th>2018</th><th>2019</th>
+  <th>FOCUS AREA</th><th>TOTAL</th><th>2012</th><th>2013</th><th>2014</th><th>2015</th><th>2016</th><th>2017</th><th>2018</th><th>2019</th>
   </tr>
   </thead>
   {{#rows}}
@@ -229,13 +231,13 @@ Template Name: Focus Area Template
     var catTotal = getCatTotal(thePageParent)
 
     var monthlyrev = getMonthlyType(tabletop.sheets("actuals").all(), pageName)
-    console.log(monthlyrev)
-    var reportmonth = getCurrentMonth()
+    var reportmonth = getCurrentMonth() - 1
     var reportyear = getCurrentYear()
   //These populate the page's tables 
 
     var monthly = ich.monthly({
-      "rows": monthlyrev,
+      // "rows": monthlyrev,
+      "rows": turnReportCurrency(monthlyrev),
       "reportyear": reportyear,
       "reportmonth": reportmonth
     })

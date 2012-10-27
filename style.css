@@ -73,7 +73,7 @@ a, a:visited      {text-decoration: none; color: #333; padding-bottom: 2px; bord
 a:hover, a:active {color: #777;}
 a:hover img, a:active img, a:visited img {border: none;}
 
-p {font-size: 16px; line-height: 1.5em; color: #333; font-family: 'Open Sans', Arial, sans-serif; font-weight: 400;}	
+p {font-size: 15px; line-height: 1.5em; color: #333; font-family: 'Open Sans', Arial, sans-serif; font-weight: 400;}	
 p.post-date, p.loop-meta, p.single-meta {text-transform: uppercase; color: #acacac; margin: 3px 0px;}
 p.post-date {font-size: 10px;}
 p.loop-meta {font-size: 12px; padding: 20px 0px; border-bottom: 3px solid #BCEDDC;}
@@ -206,6 +206,7 @@ p.subtitle {position: relative; font-family: 'Arvo', serif; font-size: 18px; col
 .dr a {background: #4FC6C6;}
 .ed a {background: #BCFF52;}
 .ra a {background: #66E224;}
+.if a {background: #81D0D8;}
 
 .attachImg * {border: none;}
 
@@ -214,6 +215,7 @@ p.subtitle {position: relative; font-family: 'Arvo', serif; font-size: 18px; col
 .category.dr::after {border-left: 11px solid #4FC6C6;}
 .category.ed::after {border-left: 11px solid #BCFF52;}
 .category.ra::after {border-left: 11px solid #66E224;}
+.category.if::after {border-left: 11px solid #81D0D8;}
 
 .category::after {content: " "; position: relative; float: left; width: 0; height: 0; 
 				  border-top: 11px solid transparent; border-bottom: 11px solid transparent;}	
@@ -341,7 +343,7 @@ ul.linkList, li.linkList {list-style: circle; margin-bottom: 8px; margin-left: 1
 /* **** Page Galleries ***** */
 #gallery-1 {display: none;}
 #gallery-2 {margin: 15px 0px;}
-#gallery-2 img {float: left; margin-right: 8px;}
+#gallery-2 img {float: left; margin-right: 8px; margin-bottom: 8px;}
 
 /* **** Relevant Posts ***** */
 #relevantPosts {}
@@ -386,4 +388,6 @@ thead {border-bottom: 1px solid #333;}
 #maincontainer {position: relative; float: left; width: 780px; overflow: auto; margin: 0px auto; }
 #monthly {page-break-before: always;}
 }
+
+.spinner {text-align: center;}
 
