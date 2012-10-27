@@ -62,8 +62,8 @@ Template Name: Focus Area Template
 </div><!-- end photos -->
                   
   <div class="wholemilk">
-    <div class="halfmilk">
       <h3>Related News Posts</h3>
+      <p>Recent news entries about <?php the_title(); ?>. You can also subscribe to the <a href="http://localhost:8888/?tag=<?php echo the_slug() ?>&feed=rss2">RSS Feed</a> for updates on <?php the_title() ?>.
         <div id="relevantPosts">
           <?php
           // The Query
@@ -81,7 +81,6 @@ Template Name: Focus Area Template
             // Reset Query
             wp_reset_query();?>
         </div>
-    </div>
     <!-- incase you want to add a section for documents
     <div class="halfmilk">
       <h3>Relevant Documents</h3>
