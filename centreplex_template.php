@@ -1,6 +1,5 @@
 <?php
 /*
-Template Name: Centreplex
 */
 ?>
 

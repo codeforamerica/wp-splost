@@ -61,7 +61,7 @@ Template Name: Revenue Page Template
     
   <script id="monthly" type="text/html">
       <h6 class="fleft">Monthly Report for:</h6> 
-      <p><span class="statHighlight">  {{reportmonth}} {{reportyear}}</span></p>
+      <p><span class="statHighlight">  {{reportmonth}} / {{reportyear}}</span></p>
       <table class="monthlytable">
       <thead>
       <tr class="tableheader">
@@ -70,7 +70,7 @@ Template Name: Revenue Page Template
       </thead>
       {{#rows}}
         <tr>
-        <td>{{project}}</td><td >{{status}}</td><td class="tright">{{budget}}</td><td class="tright">{{ytdactual}}</td></tr>
+        <td>{{project}}</td><td >{{status}}</td><td class="tright yrdolls">{{budget}}</td><td class="tright yrdolls">{{ptdactual}}</td></tr>
       {{/rows}}
       </table>
     </script>
@@ -136,7 +136,7 @@ Template Name: Revenue Page Template
 
 
       var monthly = ich.monthly({
-        "rows": monthlyrev,
+        "rows": turnReportCurrency(monthlyrev),
         "reportyear": reportyear,
         "reportmonth": reportmonth
       })
