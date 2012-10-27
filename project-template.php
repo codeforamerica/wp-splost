@@ -63,7 +63,7 @@ Template Name: Focus Area Template
                   
   <div class="wholemilk">
       <h3>Related News Posts</h3>
-      <p>Recent news entries about <?php the_title(); ?>. You can also subscribe to the <a href="http://localhost:8888/?tag=<?php echo the_slug() ?>&feed=rss2">RSS Feed</a> for updates on <?php the_title() ?>.
+      <p>Recent news entries about <?php the_title(); ?>. You can also subscribe to the <a href="http://splost.info/?tag=<?php echo the_slug() ?>&feed=rss2">RSS Feed</a> for updates on <?php the_title() ?>.
         <div id="relevantPosts">
           <?php
           // The Query
