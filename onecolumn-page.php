@@ -1,6 +1,5 @@
 <?php
 /**
- * Template Name: One column, no sidebar
  *
  * A custom page template without sidebar.
  *
