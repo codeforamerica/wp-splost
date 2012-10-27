@@ -233,18 +233,9 @@ Template Name: Focus Area Template
     console.log(monthlyrev)
     var reportmonth = getCurrentMonth() - 1
     var reportyear = getCurrentYear()
+
+
   //These populate the page's tables 
-
-    var monthly = ich.monthly({
-      // "rows": monthlyrev,
-      "rows": turnReportCurrency(monthlyrev),
-      "reportyear": reportyear,
-      "reportmonth": reportmonth
-    })
-
-     var schedule = ich.schedule({
-       "rows": turnCurrency(thePageName)
-     })
 
      var stats = ich.stats({
       "projectTotal":    accounting.formatMoney(),
@@ -256,11 +247,21 @@ Template Name: Focus Area Template
       "totalSpent":        accounting.formatMoney(totalSpent),
        "currentDate":         getCurrentYear()
      })
-   console.log(thePageName)
 
-    document.getElementById('monthly').innerHTML = monthly; 
-    document.getElementById('table').innerHTML = schedule;
+    var schedule = ich.schedule({
+       "rows": turnCurrency(thePageName)
+    }) 
+
+    var monthly = ich.monthly({
+      // "rows": monthlyrev,
+      "rows": turnReportCurrency(monthlyrev),
+      "reportyear": reportyear,
+      "reportmonth": reportmonth
+    })
+    
     document.getElementById('stats').innerHTML = stats; 
+    document.getElementById('table').innerHTML = schedule;
+    document.getElementById('monthly').innerHTML = monthly;
 
    }
 </script>

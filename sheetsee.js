@@ -7,6 +7,7 @@ function loadSpreadsheet() {
   Tabletop.init( { key: URL, callback: showInfo, simpleSheet: true } )
 }
 
+
 function getProjectTotal(project) {
   var tot = "total"
   var projectTotal = project[tot]
