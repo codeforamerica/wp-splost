@@ -79,7 +79,7 @@ function amountSpent(projects) {
    function getMonthlyType(projects, projectFilter) {
     var filteredProjects = []
     projects.forEach(function (element) {
-      var type = "subtype"
+      var type = "focusarea"
       var projectType = element[type]
       if (projectType === projectFilter) filteredProjects.push(element)
   })

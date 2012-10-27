@@ -63,7 +63,7 @@ Template Name: Focus Area Template
                   
   <div class="wholemilk">
       <h3>Related News Posts</h3>
-      <p>Recent news entries about <?php the_title(); ?>. You can also subscribe to the <a href="http://splost.info/?tag=<?php echo the_slug() ?>&feed=rss2">RSS Feed</a> for updates on <?php the_title() ?>.
+      <p>Recent news entries about <?php the_title(); ?>. You can also subscribe to the <a href="http://www.splost.info/?tag=<?php echo the_slug() ?>&feed=rss2">RSS Feed</a> for updates on <?php the_title() ?>, or if you'd like, this <a href="http://www.splost.info/feed=rss2">RSS Feed</a> for all SPLOST updates.
         <div id="relevantPosts">
           <?php
           // The Query
@@ -130,12 +130,12 @@ Template Name: Focus Area Template
   <table class="monthlytable">
   <thead>
   <tr class="tableheader">
-  <th>FOCUS AREA</th><th>PROJECT</th><th>BUDGET</th><th>ACTUAL</th>
+  <th>FOCUS AREA</th><th>PROJECT</th><th>BUDGET</th><th>ACTUAL</th><th>STATUS</th>
   </tr>
   </thead>
   {{#rows}}
     <tr>
-    <td>{{focusarea}}</td><td >{{project}}</td><td class="yrdolls">{{budget}}</td><td class="yrdolls total">{{ptdactual}}</td></tr>
+    <td>{{focusarea}}</td><td >{{project}}</td><td class="yrdolls">{{budget}}</td><td class="yrdolls total">{{ptdactual}}</td><td>{{status}}</td></tr>
   {{/rows}}
   </table>
 </script>
@@ -230,6 +230,7 @@ Template Name: Focus Area Template
     var catTotal = getCatTotal(thePageParent)
 
     var monthlyrev = getMonthlyType(tabletop.sheets("actuals").all(), pageName)
+    console.log(monthlyrev)
     var reportmonth = getCurrentMonth() - 1
     var reportyear = getCurrentYear()
   //These populate the page's tables 
