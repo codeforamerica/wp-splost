@@ -67,6 +67,6 @@ foreach ($postslist as $post) :  setup_postdata($post); ?>
   fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 </script>
-
+<?php wp_footer(); ?>
 </body>
 </html>
