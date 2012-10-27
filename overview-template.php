@@ -22,7 +22,7 @@ Template Name: Category Overview Template
   <h3>Quick Stats</h3>
     <div id="stats"></div>
   <h3>Project Locations</h3>
-    <div id="map" class="fullmap"></div>    
+    <div id="map" class="fullmap"><img class="spinner" src="http://splost.codeforamerica.org/wp-content/uploads/2012/10/fbi_spinner.gif"></div>    
   <h3>Category Funding Comparison</h3>
     <p>Below, a funds comparison between this category's projects.</p>
 	  <div id="holder"></div>
@@ -35,8 +35,9 @@ Template Name: Category Overview Template
       Below is an itemization for <?php echo the_title() ?> related expenses. 
       You can find an archive of reports <a href="http://splost.codeforamerica.org/?s=monthly+report">here</a>.</p>
   <div id="monthly"></div> -->
-  <h3>Economic Development Monthly Revenue</h3>
-    <p>Visit the individual project pages to learn more about monthly itemizations of active projects.</p>
+
+ <!-- <h3>Economic Development Monthly Revenue</h3>
+    <p>Visit the individual project pages to learn more about monthly itemizations of active projects.</p> -->
 
   <div id="sharing">
     <p>Share this page: </p>

@@ -17,7 +17,9 @@
      <li class="ps first"><a href="/public-safety/800-mhz/">800 MHz</a></li> 
      <li class="ps second"><a href="/public-safety/public-safety-equipment/">Public Safety Equipment</a></li>
      <li class="ps first"><a href="/public-safety/public-safety-other/">Public Safety Other</a></li>  
-     
+     <li class="ps second"><a href="/public-safety/animal-control-center/">Animal Control Center</a></li>
+     <li class="ps first"><a href="/public-safety/juvenile-justice-center/">Juvenile Justice Center</a></li>
+     <li class="ps second"><a href="/public-safety/new-fire-stations/">New Fire Stations</a></li>
      </ul>
   </div><!-- #menu END -->
      
@@ -43,6 +45,8 @@
      <ul>
      <li class="ed first"><a href="/economic-development/centreplex/">Centreplex</a></li>
      <li class="ed second"><a href="/economic-development/downtown-corridor/">Downtown Corridor</a></li>
+     <li class="ed first"><a href="/economic-development/centreplex/">Property for BRAC</a></li>
+     <li class="ed second"><a href="/economic-development/downtown-corridor/">Land Acquisition</a></li>
      </ul>
    </div><!-- #menu END -->
 
