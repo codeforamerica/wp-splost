@@ -1,8 +1,8 @@
 <div id="sidebar">
   <h5>OVERVIEW & REPORTS</h5>
   <div class="menu">
-   <div class="button"><a href="/overview/">SPLOST Overview</a></div>   
-   <div class="button"><a href="/revenue/">Montly Revenue</a></div>
+   <div class="button"><a href="/splost/overview/">SPLOST Overview</a></div>   
+   <div class="button"><a href="/splost/revenue/">Montly Revenue</a></div>
   </div>
    
    <div style="clear:both;"></div>
@@ -79,7 +79,7 @@
    <div style="clear:both;"></div>
    <h5>PRESS & DOCUMENTS</h5>
    <div class="menu">
-    <div class="button"><a href="/press/">Recent Press</a></div>
+    <div class="button"><a href="splost/press/">Recent Press</a></div>
     <div class="button"><a href="/tag/document/">SPLOST Documents</a></div>    
    </div><!-- #menu END -->
 

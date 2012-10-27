@@ -80,7 +80,7 @@
 <body <?php body_class(); ?>>
   <div id="pagewrapper">
     <div id="header">
-      <p class="top-menu"><a href="http://splost.codeforamerica.org">HOME</a> / <a href="/about-splost/">ABOUT SPLOST</a> / <a href="/about/">ABOUT THIS SITE</a> / <a href="/contact/">CONTACT</a> / <a href="/news/">NEWS</a> </p> 
+      <p class="top-menu"><a href="<?php echo home_url(); ?>">HOME</a> / <a href="/splost/about-splost/">ABOUT SPLOST</a> / <a href="/splost/about/">ABOUT THIS SITE</a> / <a href="/splost/contact/">CONTACT</a> / <a href="/splost/news/">NEWS</a> </p> 
       <div id="title_container">
         <!-- <p class="subtitle">Macon-Bibb County</p> --> <div style="clear:both;"></div>
       <h1 class="tright">Macon-Bibb County 2012 SPLOST</h1>

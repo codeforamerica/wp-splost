@@ -22,7 +22,7 @@ Template Name: Category Overview Template
   <h3>Quick Stats</h3>
     <div id="stats"></div>
   <h3>Project Locations</h3>
-    <div id="map" class="fullmap"><img class="spinner" src="http://splost.codeforamerica.org/wp-content/uploads/2012/10/fbi_spinner.gif"></div>    
+    <div id="map" class="fullmap"><img class="spinner" src="/wp-content/themes/wp-splost/fbi_spinner.gif"></div>    
   <h3>Category Funding Comparison</h3>
     <p>Below, a funds comparison between this category's projects.</p>
 	  <div id="holder"></div>

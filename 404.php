@@ -12,7 +12,7 @@ get_header(); ?>
 
 
   <div id="maincontainer" class="fourOh">
-        <img src="http://127.0.0.1:8888/wp-content/uploads/2012/07/404.png" width="250">
+        <img src="/wp-content/themes/wp-splost/404.png" width="250">
 				<h2><?php _e( 'Oh, no! What page?', 'twentyten' ); ?></h2>
 				<p><?php _e( 'Apologies, but the page you requested could not be found. Perhaps searching will help.', 'twentyten' ); ?></p>
 			  <div class="searcher">

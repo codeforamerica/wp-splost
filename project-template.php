@@ -25,7 +25,7 @@ Template Name: Focus Area Template
   </div>
               
   <h3>Location & Quick Stats</h3>
-    <div id="map" class="halfmap"><img class="spinner" src="http://splost.codeforamerica.org/wp-content/uploads/2012/10/fbi_spinner.gif"></div>
+    <div id="map" class="halfmap"><img class="spinner" src="/wp-content/themes/wp-splost/fbi_spinner.gif"></div>
     <div id="stats" class="halfstats"></div>
     <div class="clear"></div>
 

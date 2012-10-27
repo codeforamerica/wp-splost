@@ -119,7 +119,7 @@ h6 {font-size: 18px;}/* Body Section Titles*/
 
 #title_container {positon: relative; float: right;}	
 #header   {position: relative; height: 110px; width: 100%; padding-top: 20px; overflow: auto;
-		   background-image: url('http://splost.codeforamerica.org/wp-content/uploads/2012/09/rainbowtop.png'); background-position: top; background-repeat: repeat-x;}
+		   background-image: url('/wp-content/themes/wp-splost/rainbowtop.png'); background-position: top; background-repeat: repeat-x;}
 p.subtitle {position: relative; font-family: 'Arvo', serif; font-size: 18px; color: #333; line-height: 21px; 
 		   margin: 0px 2px 4px 0px; float: right; text-align: right;}		
 
@@ -362,7 +362,7 @@ ul.linkList, li.linkList {list-style: circle; margin-bottom: 8px; margin-left: 1
 .attachmentImage a, .tag a {border: none;}
 .attachment .prevPageNav {padding: 10px 0px;}
 
-#monthly h6 {margin-right: 6px;}
+#monthly h6 {margin-right: 6px; font-family: Open Sans; font-size: 16px; font-weight: bold;}
 #monthly {margin-top: 20px;}
 #monthly tr:nth-child(even) {background: #eeeeee;}
 #monthly tr:nth-child(odd) {background: #FFF;}

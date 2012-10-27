@@ -2,7 +2,7 @@
 
 <div class="footerThird">
   <h4>Built by Code for America in partnership with Macon, Georgia.</h4>
-  <img src="http://splost.codeforamerica.org/wp-content/uploads/2012/09/logos.png" width="275px" />
+  <img src="/wp-content/themes/wp-splost/logos.png" width="275px" />
 </div>
 <div class="footerThird">
 	<?php
