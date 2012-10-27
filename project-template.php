@@ -135,7 +135,7 @@ Template Name: Focus Area Template
   </thead>
   {{#rows}}
     <tr>
-    <td>{{focusarea}}</td><td >{{project}}</td><td class="yrdolls">{{budget}}</td><td class="yrdolls total">{{ptdactual}}</td><td>{{status}}</td></tr>
+    <td>{{focusarea}}</td><td >{{project}}</td><td class="yrdolls">{{budget}}</td><td class="yrdolls total">{{ptdactual}}</td><td class-"tright">{{status}}</td></tr>
   {{/rows}}
   </table>
 </script>
