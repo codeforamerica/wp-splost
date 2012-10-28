@@ -78,19 +78,20 @@ function twentyten_setup() {
 	add_editor_style();
 
 	// This theme uses post thumbnails
-add_theme_support( 'post-thumbnails' );
-if ( function_exists( 'add_theme_support' ) ) { 
-add_theme_support( 'post-thumbnails' );
-set_post_thumbnail_size( 780, 150, true ); //(cropped)
+	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 780, 150, true ); // default Post Thumbnail dimensions (cropped)
 
-// additional image sizes
-// delete the next line if you do not need additional image sizes
-add_image_size( 'top-img', 750, 128 ); 
+
+// VOODOOCHILD FUNCTION FOR ADDING IMAGE SIZES
+function voodoochild_image_sizes(){
+add_image_size ( 'top-img', 780, 130, true );
 }
 
+add_action( 'after_setup_theme', 'voodoochild_image_sizes' ); 
 
 	// Add default posts and comments RSS feed links to head
-	add_theme_support( 'automatic-feed-links' );
+		add_theme_support( 'automatic-feed-links' );
+
 
 	// Make theme available for translation
 	// Translations can be filed in the /languages/ directory

@@ -10,7 +10,7 @@ Template Name: Focus Area Template
 
 <div id="maincontainer" class="projectPage" >
 
-<?php the_post_thumbnail();  ?>
+<?php the_post_thumbnail(); ?>
 <h3>Description</h3>
  <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
