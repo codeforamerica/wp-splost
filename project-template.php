@@ -2,7 +2,7 @@
 /*
 Template Name: Focus Area Template
 * This is the template to be used for Category Pages.
-* Storm Drainage, Centreplex, Ft Hawkins, Debt Retirement 
+* Storm Drainage, Centreplex, Ft Hawkins, Infrastructure, Debt Retirement 
 */
 ?>
 
