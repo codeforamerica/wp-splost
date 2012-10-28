@@ -508,6 +508,7 @@ $post_data = get_post($post->ID, ARRAY_A);
 $slug = $post_data['post_name'];
 return $slug; }
 
+set_post_thumbnail_size( 780, 150, true ); // 780 pixels wide by 150 pixels tall, crop mode
 
 // function the_Pslug() {
 // $post_data = get_the_title($parent->ID);
