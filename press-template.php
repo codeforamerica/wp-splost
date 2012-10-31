@@ -8,7 +8,7 @@ Template Name: Press Page Template
 <?php get_header(); ?>
 
  <div id="maincontainer" class="pressPage" >
-  <h3>Recent Press on Macon's SPLOST</h3>
+  <h3>Media Coverage of our SPLOST Projects</h3>
 
    <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 

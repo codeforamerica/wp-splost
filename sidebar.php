@@ -79,7 +79,7 @@
    <div style="clear:both;"></div>
    <h5>PRESS & DOCUMENTS</h5>
    <div class="menu">
-    <div class="button"><a href="splost/press/">Recent Press</a></div>
+    <div class="button"><a href="/splost/press/">Recent Press</a></div>
     <div class="button"><a href="/tag/document/">SPLOST Documents</a></div>    
    </div><!-- #menu END -->
 

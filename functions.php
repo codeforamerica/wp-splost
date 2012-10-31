@@ -81,14 +81,6 @@ function twentyten_setup() {
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 780, 150, true ); // default Post Thumbnail dimensions (cropped)
 
-
-// VOODOOCHILD FUNCTION FOR ADDING IMAGE SIZES
-function voodoochild_image_sizes(){
-add_image_size ( 'top-img', 780, 130, true );
-}
-
-add_action( 'after_setup_theme', 'voodoochild_image_sizes' ); 
-
 	// Add default posts and comments RSS feed links to head
 		add_theme_support( 'automatic-feed-links' );
 

@@ -22,6 +22,7 @@ function parse_feed($feed) {
     $tweet = $stepTwo[0];
     $tweet = str_replace("&lt;", "<", $tweet);
     $tweet = str_replace("&gt;", ">", $tweet);
+    $tweet = str_replace("&amp;", "&", $tweet);
     return $tweet;
 }
 
