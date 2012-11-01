@@ -24,7 +24,7 @@ Template Name: Revenue Page Template
 	  <div id="holder"></div>
 
   <h3>Economic Development Monthly Revenue</h3>
-    <div id="monthly"></div>
+    <div id="monthly"><img class="spinner" src="/wp-content/themes/wp-splost/fbi_spinner.gif"></div>
 
   <div id="sharing">
     <p>Share this page: </p>
@@ -122,18 +122,12 @@ Template Name: Revenue Page Template
       // axis.text.attr({font:"12px Arvo", "font-weight": "regular", "fill": "#333333"}); 
           
 
-      var numberActive = getActiveProjects(thePageParent).length
-      var numberTotalProjects = 2
-      var numberCompletedProjects = completedProjects(thePageParent)
-      var totalSpent = amountSpent(thePageParent)
 
-      var monthlyrev = getType(tabletop.sheets("actuals").all(), pageName)
-      console.log(monthlyrev)
+      var monthlyrev = getActualsArea(tabletop.sheets("actuals").all(), pageName)
       var reportmonth = getCurrentMonth() - 1
       var reportyear = getCurrentYear()
+
       //These populate the page's tables 
-
-
 
       var monthly = ich.monthly({
         "rows": turnReportCurrency(monthlyrev),
