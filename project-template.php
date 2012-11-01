@@ -180,7 +180,7 @@ Template Name: Focus Area Template
    })    
 
    function showInfo(data, tabletop) {
-            
+     window.tabletopData = tabletop       
 
      accounting.settings.currency.precision = 0
      var pageParent = "<?php echo get_the_title($post->post_parent) ?>"

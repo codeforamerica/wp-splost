@@ -19,7 +19,7 @@ Template Name: SPLOST Overview Template
     <h3>Quick Stats</h3>
       <div id="stats"></div>
     <h3>Project Locations</h3>
-      <div id="map" class="fullmap"></div>
+      <div id="map" class="fullmap"><img class="spinner" src="/wp-content/themes/wp-splost/fbi_spinner.gif"></div>
     <h3>Category Funding Comparison</h3>
       <p>A comparison of each project's funding.</p>
 	    <div id="splostHolder"></div>
@@ -54,20 +54,20 @@ Template Name: SPLOST Overview Template
     
     
 <script id="stats" type="text/html">
-   <p><span class="statHighlight">{{numberActive}} of {{numberTotalProjects}}</span> projects are active</p>
-   <p><span class="statHighlight">{{numberCompletedProjects}}</span> projects are completed</p>
-   <p><span class="statHighlight">{{totalSpent}}</span> has been spent as of {{currentDate}} </p>
- </script>
+ <h5><?php echo get_the_title($post->post_parent) ?> has <span class="statHighlight">{{numberFocusAreas}}</span> Focus Areas with a combined <span class="statHighlight">{{numberItemizedProjects}}</span> projects.</h5>
+ <h5><span class="statHighlight">{{numberInProgress}}</span> of these projects are labeled in progress.</h5>
+ <h5>To date, <span class="statHighlight">{{sumInProgress}}</span> has been spent on the projects in progress.</h5>
+</script>
 
 <script id="schedule" type="text/html">
   <table>
   <thead>
   <tr class="tableheader">
-  <th>PROJECT</th><th>TOTAL</th><th>2012</th><th>2013</th><th>2014</th><th>2015</th><th>2016</th><th>2017</th><th>2018</th><th>2019</th>
+  <th>FOCUS AREA</th><th>TOTAL</th><th>2012</th><th>2013</th><th>2014</th><th>2015</th><th>2016</th><th>2017</th><th>2018</th><th>2019</th>
   </tr>
   </thead>
   {{#rows}}
-    <tr><td class = "project">{{project}}</td><td class="total">{{total}}</td><td class="yrdolls">{{year2012}}</td><td class="yrdolls">{{year2013}}</td><td class="yrdolls">{{year2014}}</td><td class="yrdolls">{{year2015}}</td><td class="yrdolls">{{year2016}}</td><td class="yrdolls">{{year2017}}</td><td class="yrdolls">{{year2018}}</td><td class="yrdolls">{{year2019}}</td></tr>
+    <tr><td class = "project">{{focusarea}}</td><td class="total">{{total}}</td><td class="yrdolls">{{year2012}}</td><td class="yrdolls">{{year2013}}</td><td class="yrdolls">{{year2014}}</td><td class="yrdolls">{{year2015}}</td><td class="yrdolls">{{year2016}}</td><td class="yrdolls">{{year2017}}</td><td class="yrdolls">{{year2018}}</td><td class="yrdolls">{{year2019}}</td></tr>
   {{/rows}}
   </table>
 </script>
@@ -84,9 +84,7 @@ Template Name: SPLOST Overview Template
      accounting.settings.currency.precision = 0
 
      var pageParent = "<?php echo get_the_title($post->post_parent) ?>"
-     var pageName = "<?php the_title(); ?>"
-     // or <?= get_the_title($post->post_parent) ?>
-     
+     var pageName = "<?php the_title(); ?>"     
      var thePageParent = getType(data, pageParent)
      var thePageName  = getProject(data, pageName)
 
@@ -97,7 +95,7 @@ Template Name: SPLOST Overview Template
 
      function pushBits(element) {
         values.push(parseInt(element.total))
-        labels.push(element.project)
+        labels.push(element.focusarea)
         hexcolors.push(element.hexcolor)
       }
           
@@ -124,21 +122,22 @@ Template Name: SPLOST Overview Template
       axis = r.g.axis(160,470,435,null, null,13,1, labels.reverse(), null, 1);
       axis.text.attr({font:"12px Arvo", "font-weight": "regular", "fill": "#333333"});   
       
-     var numberActive = getActiveProjects(data).length
-     var numberTotalProjects = data.length
-     var numberCompletedProjects = completedProjects(data)
-     var totalSpent = amountSpent(data)
+    var numberFocusAreas = data.length
+    var itemizedArea = tabletop.sheets("actuals").all()
+    var inProgress = getInProgress(itemizedArea)
+    var sumInProgress = inProgressSpent(itemizedArea)
 
      var schedule = ich.schedule({
        "rows": turnCurrency(data)
      })
 
      var stats = ich.stats({
-       "numberActive": numberActive,
-       "numberTotalProjects": numberTotalProjects,
-       "numberCompletedProjects": numberCompletedProjects,
-       "totalSpent": accounting.formatMoney(totalSpent),
-       "currentDate": getCurrentYear()
+      "numberItemizedProjects": itemizedArea.length,
+      "numberInProgress": inProgress.length,
+      "sumInProgress": accounting.formatMoney(sumInProgress),
+      "currentDate": getCurrentYear(),
+      "numberFocusAreas": numberFocusAreas
+
      })
 
      document.getElementById('table').innerHTML = schedule;
