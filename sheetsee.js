@@ -76,7 +76,42 @@ function getProject(projects, projectFilter){
   return oneProject
 }
 
+// get total budget for revenue
+
+function getTotalBudget(projects){
+  var budgetDollars = []
+  projects.forEach(function (project) {
+    if (project.budget === "") return 
+    budgetDollars.push(+project.budget) 
+  })
+  return budgetDollars.reduce(function(a,b) {
+    return a + b
+  })
+}
+
 // ---------------------------------------------------- //
+
+// get total actual for revenue
+
+function getTotalActual(projects){
+  var actualDollars = []
+  projects.forEach(function (project) {
+    if (project.ptdactual === "") return 
+    actualDollars.push(+project.ptdactual) 
+  })
+  return actualDollars.reduce(function(a,b) {
+    return a + b
+  })
+}
+
+// ---------------------------------------------------- //
+
+// diff of budgeted and actual
+
+function getDiff(budgeted, actual){
+  var diff = actual - budgeted
+  return diff
+}
 
 // turning into currency 
 

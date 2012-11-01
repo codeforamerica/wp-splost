@@ -18,12 +18,14 @@ Template Name: Revenue Page Template
    					<?php } ?>				
 
    						<?php the_content(); ?>
-
-   <h3>Revenue Received</h3>
+  <h3>Quick Stats</h3>
+    <div id="stats"></div>
+  <h3>Revenue Received</h3>
     <p>Chart coming soon.</p>
 	  <div id="holder"></div>
 
   <h3>Economic Development Monthly Revenue</h3>
+    <p>Something about fiscal years starting on July 1 and what budgeted and actual mean.</p> 
     <div id="monthly"><img class="spinner" src="/wp-content/themes/wp-splost/fbi_spinner.gif"></div>
 
   <div id="sharing">
@@ -59,22 +61,26 @@ Template Name: Revenue Page Template
     
 
     
-  <script id="monthly" type="text/html">
-      <h6 class="fleft">Monthly Report for:</h6> 
-      <p><span class="statHighlight">  {{reportmonth}} / {{reportyear}}</span></p>
-      <table class="monthlytable">
-      <thead>
-      <tr class="tableheader">
-      <th>PROJECT</th><th>STATUS</th><th>BUDGET</th><th>Actual</th>
-      </tr>
-      </thead>
-      {{#rows}}
-        <tr>
-        <td>{{project}}</td><td >{{status}}</td><td class="tright yrdolls">{{budget}}</td><td class="tright yrdolls">{{ptdactual}}</td></tr>
-      {{/rows}}
-      </table>
-    </script>
+<script id="monthly" type="text/html">
+  <h6 class="fleft">Monthly Report for:</h6> 
+  <p><span class="statHighlight">  {{reportmonth}} / {{reportyear}}</span></p>
+  <table class="monthlytable">
+  <thead>
+  <tr class="tableheader">
+  <th>PROJECT</th><th>STATUS</th><th>BUDGET</th><th>Actual</th>
+  </tr>
+  </thead>
+  {{#rows}}
+    <tr>
+    <td>{{project}}</td><td >{{status}}</td><td class="tright yrdolls">{{budget}}</td><td class="tright yrdolls">{{ptdactual}}</td></tr>
+  {{/rows}}
+  </table>
+</script>
     
+<script id="stats" type="text/html">
+ <h5>Total Budgeted Revenue: <span class="statHighlight">{{totalBudgeted}}</span> vs Total Actual Revenue: <span class="statHighlight">{{totalActual}}</span></h5>
+</script>
+
     
     <script type="text/javascript">    
       document.addEventListener('DOMContentLoaded', function() {
@@ -122,11 +128,14 @@ Template Name: Revenue Page Template
       // axis.text.attr({font:"12px Arvo", "font-weight": "regular", "fill": "#333333"}); 
           
 
-
       var monthlyrev = getActualsArea(tabletop.sheets("actuals").all(), pageName)
+      var totalBudgeted = getTotalBudget(monthlyrev)
+      var totalActual = getTotalActual(monthlyrev)
       var reportmonth = getCurrentMonth() - 1
       var reportyear = getCurrentYear()
 
+      var theDiff = getDiff(totalBudgeted, totalActual)
+      console.log(accounting.formatMoney(theDiff))
       //These populate the page's tables 
 
       var monthly = ich.monthly({
@@ -135,7 +144,13 @@ Template Name: Revenue Page Template
         "reportmonth": reportmonth
       })
 
+      var stats = ich.stats({
+        "totalBudgeted": accounting.formatMoney(totalBudgeted),
+        "totalActual": accounting.formatMoney(totalActual)
+      })
+
          document.getElementById('monthly').innerHTML = monthly; 
+         document.getElementById('stats').innerHTML = stats; 
 
        }
     </script>
