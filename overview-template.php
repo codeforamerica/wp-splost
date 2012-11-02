@@ -140,22 +140,33 @@ Template Name: Category Overview Template
           displayAddress(map, thePageParent)
       })
 
-      // make bar chart
+     // make bar chart
 
-      function pushBits(element) {
-          values.push(parseInt(element.total))
-          labels.push(element.focusarea)
-          hexcolors.push(element.hexcolor)
+     function pushBits(element) {
+        values.push(parseInt(element.total))
+        labels.push(element.focusarea)
+        hexcolors.push(element.hexcolor)
       }
-            
+
+      // -- axis variables
+
+      var noProjsInCat = thePageParent.length 
+      var noProjsMinusOne = noProjsInCat - 1
+      var chartHeight = noProjsInCat * 40
+      var gutterTotal = noProjsMinusOne * 10
+      axisLength = chartHeight - (noProjsInCat * 3)
+
+      // -- set up chart
+      document.querySelector('#holder').style.height = chartHeight + "px"
+
       var r = Raphael("holder")
       var values = []
       var labels = []
       var hexcolors = []
           thePageParent.forEach(pushBits)
-
+               
       // (paper, x, y, width, height, values, opts)
-      r.g.hbarchart(170, 15, 480, 90, values, {stacked: true, type: "soft", colors: hexcolors, gutter: "20%"}).hoverColumn(
+      r.g.hbarchart(220, 20, 480, chartHeight, values, {stacked: true, type: "soft", colors: hexcolors, gutter: "10"}).hoverColumn(
         function() { 
           var y = []
           var res = []
@@ -169,8 +180,8 @@ Template Name: Category Overview Template
             this.flag.animate({opacity: 0}, 1500, ">", function () {this.remove();});
       });
       // (x, y, length, from, to, steps, orientation, labels, type, dashsize, paper)
-      axis = r.g.axis(160,80,45,null, null,1,1, labels.reverse(), null, 1);
-      axis.text.attr({font:"12px Arvo", "font-weight": "regular", "fill": "#333333"}); 
+      axis = r.g.axis(200, axisLength + 43, axisLength, null, null, noProjsMinusOne,1, labels.reverse(), null, 1);
+      axis.text.attr({font:"12px Arvo", "font-weight": "regular", "fill": "#333333"});   
           
       // variables to fill in tables 
 

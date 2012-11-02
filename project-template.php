@@ -206,18 +206,14 @@ Template Name: Focus Area Template
       // -- axis variables
 
       var noProjsInCat = thePageParent.length 
+      var noProjsMinusOne = noProjsInCat - 1
       var chartHeight = noProjsInCat * 40
-      var axisY =  chartHeight
-
-      function makeAxisLength() {
-        if (noProjsInCat > 2)
-        var axisLength = chartHeight * .8
-        else axisLength = chartHeight * .5 
-          return axisLength
-      }
+      var gutterTotal = noProjsMinusOne * 10
+      axisLength = chartHeight - (noProjsInCat * 3)
 
       // -- set up chart
-          
+      document.querySelector('#holder').style.height = chartHeight + "px"
+
       var r = Raphael("holder")
       var values = []
       var labels = []
@@ -225,7 +221,7 @@ Template Name: Focus Area Template
           thePageParent.forEach(pushBits)
                
       // (paper, x, y, width, height, values, opts)
-      r.g.hbarchart(170, 20, 480, chartHeight, values, {stacked: true, type: "soft", colors: hexcolors, gutter: "10"}).hoverColumn(
+      r.g.hbarchart(220, 20, 480, chartHeight, values, {stacked: true, type: "soft", colors: hexcolors, gutter: "10"}).hoverColumn(
         function() { 
           var y = []
           var res = []
@@ -239,23 +235,20 @@ Template Name: Focus Area Template
             this.flag.animate({opacity: 0}, 1500, ">", function () {this.remove();});
       });
       // (x, y, length, from, to, steps, orientation, labels, type, dashsize, paper)
-      axis = r.g.axis(160, axisY, makeAxisLength(), noProjsInCat, null,noProjsInCat - 1,1, labels.reverse(), null, 1);
-      axis.text.attr({font:"12px Arvo", "font-weight": "regular", "fill": "#333333"});     
-      
-      // variables to fill in tables 
+      axis = r.g.axis(200, axisLength + 43, axisLength, null, null, noProjsMinusOne,1, labels.reverse(), null, 1);
+      axis.text.attr({font:"12px Arvo", "font-weight": "regular", "fill": "#333333"});   
+
+      // These define the tables 
+
+
+      var schedule = ich.schedule({
+        "rows": turnCurrency(thePageName)
+      }) 
 
       // -- quick stats table
       var itemizedArea = getActualsArea(tabletop.sheets("actuals").all(), pageName)
       var inProgress = getInProgress(itemizedArea)
       var sumInProgress = inProgressSpent(itemizedArea)
-
-      // -- monthly expense table
-      var monthlyrev = getActualsArea(tabletop.sheets("actuals").all(), pageName)
-      var reportmonth = getCurrentMonth() - 1
-      var reportyear = getCurrentYear()
-
-
-      // These define the tables 
 
       var stats = ich.stats({
         "numberItemizedProjects": itemizedArea.length,
@@ -264,9 +257,10 @@ Template Name: Focus Area Template
         "currentDate": getCurrentYear()
       })
 
-      var schedule = ich.schedule({
-        "rows": turnCurrency(thePageName)
-      }) 
+      // -- monthly expense table
+      var monthlyrev = getActualsArea(tabletop.sheets("actuals").all(), pageName)
+      var reportmonth = getCurrentMonth() - 1
+      var reportyear = getCurrentYear()
 
       var monthly = ich.monthly({
         "rows": turnReportCurrency(monthlyrev),
@@ -274,8 +268,8 @@ Template Name: Focus Area Template
         "reportmonth": reportmonth
       })
     
-      document.getElementById('stats').innerHTML = stats; 
       document.getElementById('table').innerHTML = schedule;
+      document.getElementById('stats').innerHTML = stats; 
       document.getElementById('monthly').innerHTML = monthly;
    }
 </script>

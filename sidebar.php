@@ -50,7 +50,7 @@
      <li class="ed first"><a href="/economic-development/centreplex/">Centreplex</a></li>
      <li class="ed second"><a href="/economic-development/downtown-corridor/">Downtown Corridor</a></li>
      <li class="ed first"><a href="/economic-development/acquisition-for-brac/">Acquisition for BRAC</a></li>
-     <li class="ed second"><a href="/economic-development/acquisition-for-economic-development/">Acquisition for Economic Development</a></li>
+     <li class="ed first"><a href="/economic-development/acquisition-for-economic-development/">Acquisition for Economic Development</a></li>
      </ul>
    </div><!-- #menu END -->
 

@@ -99,13 +99,33 @@ Template Name: SPLOST Overview Template
         hexcolors.push(element.hexcolor)
       }
           
-      var r = Raphael("splostHolder")
+     // make bar chart
+
+     function pushBits(element) {
+        values.push(parseInt(element.total))
+        labels.push(element.focusarea)
+        hexcolors.push(element.hexcolor)
+      }
+
+      // -- axis variables
+
+      var noProjsInCat = thePageParent.length 
+      var noProjsMinusOne = noProjsInCat - 1
+      var chartHeight = noProjsInCat * 40
+      var gutterTotal = noProjsMinusOne * 10
+      axisLength = chartHeight - (noProjsInCat * 3)
+
+      // -- set up chart
+      document.querySelector('#holder').style.height = chartHeight + "px"
+
+      var r = Raphael("holder")
       var values = []
       var labels = []
       var hexcolors = []
-          data.forEach(pushBits)
-
-      r.g.hbarchart(170, 15, 480, 480, values, {stacked: true, type: "soft", colors: hexcolors, gutter: "50%"}).hoverColumn(
+          thePageParent.forEach(pushBits)
+               
+      // (paper, x, y, width, height, values, opts)
+      r.g.hbarchart(220, 20, 480, chartHeight, values, {stacked: true, type: "soft", colors: hexcolors, gutter: "10"}).hoverColumn(
         function() { 
           var y = []
           var res = []
@@ -118,9 +138,9 @@ Template Name: SPLOST Overview Template
       }, function() {
             this.flag.animate({opacity: 0}, 1500, ">", function () {this.remove();});
       });
- 
-      axis = r.g.axis(160,470,435,null, null,13,1, labels.reverse(), null, 1);
-      axis.text.attr({font:"12px Arvo", "font-weight": "regular", "fill": "#333333"});   
+      // (x, y, length, from, to, steps, orientation, labels, type, dashsize, paper)
+      axis = r.g.axis(200, axisLength + 43, axisLength, null, null, noProjsMinusOne,1, labels.reverse(), null, 1);
+      axis.text.attr({font:"12px Arvo", "font-weight": "regular", "fill": "#333333"});    
       
     var numberFocusAreas = data.length
     var itemizedArea = tabletop.sheets("actuals").all()
