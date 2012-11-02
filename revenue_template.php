@@ -129,8 +129,8 @@ Template Name: Revenue Page Template
           
 
       var monthlyrev = getActualsArea(tabletop.sheets("actuals").all(), pageName)
-      var totalBudgeted = getTotalBudget(monthlyrev)
-      var totalActual = getTotalActual(monthlyrev)
+      var totalBudgeted = getColumnTotal(monthlyrev, "budget")
+      var totalActual = getColumnTotal(monthlyrev, "ptdactual")
       var reportmonth = getCurrentMonth() - 1
       var reportyear = getCurrentYear()
 

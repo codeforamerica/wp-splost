@@ -19,7 +19,9 @@
      <li class="ps first"><a href="/public-safety/public-safety-other/">Public Safety Other</a></li>  
      <li class="ps second"><a href="/public-safety/animal-control-center/">Animal Control Center</a></li>
      <li class="ps first"><a href="/public-safety/juvenile-justice-center/">Juvenile Justice Center</a></li>
-     <li class="ps second"><a href="/public-safety/new-fire-stations/">New Fire Stations</a></li>
+     <li class="ps second"><a href="/public-safety/fire-stations/">Fire Stations</a></li>
+     <li class="ps first"><a href="/public-safety/sherrif-cars-and-other-equipment/">Sherrif Cars and Other Equipment</a></li>
+     <li class="ps first"><a href="/public-safety/courthouse-and-building-equipment/">Courthouse and Building Improvements</a></li>
      </ul>
   </div><!-- #menu END -->
      
@@ -29,9 +31,11 @@
      </ul>
 
      <ul>
-     <li class="dr first"><a href="/debt-retirement/debt-retirement/">Debt Retirement</a></li>
-     <li class="dr second"><a href="/debt-retirement/bond-repayment/">Bond Repayment</a></li>
-     <li class="dr first"><a href="/debt-retirement/gma-lease-pool/">GMA Lease Pool</a></li>
+     <li class="dr first"><a href="/debt-retirement/macon-debt-retirement/">Macon Debt Retirement</a></li>
+     <li class="dr second"><a href="/debt-retirement/bibb-debt-retirement/">Bibb Debt Retirement</a></li>
+     <li class="dr first"><a href="/debt-retirement/bond-repayment/">Bond Repayment</a></li>
+     <li class="dr second"><a href="/debt-retirement/macon-gma-lease-pool/">Macon GMA Lease Pool</a></li>
+     <li class="dr first"><a href="/debt-retirement/bibb-gma-lease-pool/">Bibb GMA Lease Pool</a></li>
      
 	 
      </ul>
@@ -45,8 +49,8 @@
      <ul>
      <li class="ed first"><a href="/economic-development/centreplex/">Centreplex</a></li>
      <li class="ed second"><a href="/economic-development/downtown-corridor/">Downtown Corridor</a></li>
-     <li class="ed first"><a href="/economic-development/centreplex/">Property for BRAC</a></li>
-     <li class="ed second"><a href="/economic-development/downtown-corridor/">Land Acquisition</a></li>
+     <li class="ed first"><a href="/economic-development/acquisition-for-brac/">Acquisition for BRAC</a></li>
+     <li class="ed second"><a href="/economic-development/acquisition-for-economic-development/">Acquisition for Economic Development</a></li>
      </ul>
    </div><!-- #menu END -->
 
@@ -56,8 +60,10 @@
      </ul>
 
    <ul>
-     <li class="if first"><a href="/public-safety/storm-drainage/">Storm Drainage</a></li>
-     <li class="if second"><a href="/public-safety/street-maintenance/">Street Maintenance</a></li>
+     <li class="if first"><a href="/public-safety/bibb-storm-drainage/">Bibb Storm Drainage</a></li>
+     <li class="if second"><a href="/public-safety/bibb-street-maintenance/">Bibb Street Maintenance</a></li>
+     <li class="if first"><a href="/public-safety/macon-storm-drainage/">Macon Storm Drainage</a></li>
+     <li class="if first"><a href="/public-safety/macon-street-maintenance/">Macon Street Maintenance</a></li>
    </ul>
    
    </div><!-- #menu END -->
@@ -72,6 +78,23 @@
      <li class="ra second"><a href="/rec-and-cultural-arts/bowden-golf/">Bowden Golf</a></li>
      <li class="ra first"><a href="/rec-and-cultural-arts/rose-hill-cemetery/">Rose Hill Cemetery</a></li>
      <li class="ra second"><a href="/rec-and-cultural-arts/ft-hawkins/">Ft. Hawkins</a></li>
+     <li class="ra first"><a href="/rec-and-cultural-arts/purchase-rec-equipment/">Purchase Rec Equipment</a></li>
+     <li class="ra second"><a href="/rec-and-cultural-arts/purchase-rec-land/">Purchase Rec Land</a></li>
+     <li class="ra first"><a href="/rec-and-cultural-arts/new-parks-and-rec-office-and-senior-center/">New Parks and Rec Office and Senior Center</a></li>
+     <li class="ra first"><a href="/rec-and-cultural-arts/tatnall-square-park/">Tatnall Square Park</a></li>
+     <li class="ra second"><a href="/rec-and-cultural-arts/lizella/">Lizella</a></li>
+     <li class="ra first"><a href="/rec-and-cultural-arts/sub-south-complex/">Sub South Complex</a></li>
+     <li class="ra second"><a href="/rec-and-cultural-arts/henry-burns-park/">Henry Burns Park</a></li>
+     <li class="ra first"><a href="/rec-and-cultural-arts/mattie-jones-hubbard-park/">Mattie Jones Hubbard Park</a></li>
+     <li class="ra first"><a href="/rec-and-cultural-arts/filmore-thomas-center/">Filmore Thomas Center</a></li>
+     <li class="ra second"><a href="/rec-and-cultural-arts/east-macon-center">East Macon Center</a></li>
+     <li class="ra first"><a href="/rec-and-cultural-arts/rosa-jackson-center/">Rosa Jackson Center</a></li>
+     <li class="ra second"><a href="/rec-and-cultural-arts/north-macon-center/">North Macon Center</a></li>
+     <li class="ra first"><a href="/rec-and-cultural-arts/freedom-center/">Freedom Center</a></li>
+     <li class="ra second"><a href="/rec-and-cultural-arts/frank-johnson-center/">Frank Johnson Center</a></li>
+     <li class="ra first"><a href="/rec-and-cultural-arts/bloomfield-center/">Bloomfield Center</a></li>
+     <li class="ra second"><a href="/rec-and-cultural-arts/john-drew-tennis-center/">John Drew Tennis Center</a></li>
+     <li class="ra first"><a href="/rec-and-cultural-arts/central-city-park/">Central City Park</a></li>
      </ul>
 	 
    </div><!-- #menu END -->

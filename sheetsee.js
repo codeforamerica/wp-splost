@@ -76,30 +76,15 @@ function getProject(projects, projectFilter){
   return oneProject
 }
 
-// get total budget for revenue
+// get column total 
 
-function getTotalBudget(projects){
-  var budgetDollars = []
+function getColumnTotal(projects, column){
+  var dollars = []
   projects.forEach(function (project) {
-    if (project.budget === "") return 
-    budgetDollars.push(+project.budget) 
+    if (project[column] === "") return 
+    dollars.push(+project[column]) 
   })
-  return budgetDollars.reduce(function(a,b) {
-    return a + b
-  })
-}
-
-// ---------------------------------------------------- //
-
-// get total actual for revenue
-
-function getTotalActual(projects){
-  var actualDollars = []
-  projects.forEach(function (project) {
-    if (project.ptdactual === "") return 
-    actualDollars.push(+project.ptdactual) 
-  })
-  return actualDollars.reduce(function(a,b) {
+  return dollars.reduce(function(a,b) {
     return a + b
   })
 }
@@ -136,11 +121,11 @@ function turnReportCurrency(projects) {
   projects.forEach(function (project) {
     var totalBudget = getMoney(project.budget)
     if (totalBudget) project.budget = totalBudget
-    })
-    projects.forEach(function (project){
+  })
+  projects.forEach(function (project){
     var totalPTD = getMoney(project.ptdactual)
     if (totalPTD) project.ptdactual = totalPTD
-    })
+  })
   return projects
 }
 

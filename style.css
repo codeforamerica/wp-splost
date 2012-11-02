@@ -388,3 +388,7 @@ thead {border-bottom: 1px solid #333;}
 .spinner {text-align: center;}
 .content-img a {border: none;}
 .articleHolder {padding-bottom: 30px;}
+
+.wp-caption {border: none; text-align: left; background: none; padding: 0px; margin: 0px;}
+.wp-caption a {border: none;}
+.wp-caption-text {font-size: 10px;}
