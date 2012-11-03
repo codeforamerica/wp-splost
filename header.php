@@ -86,7 +86,7 @@
 <body <?php body_class(); ?>>
   <div id="pagewrapper">
     <div id="header">
-      <p class="top-menu"><a href="<?php echo home_url(); ?>">HOME</a> / <a href="/splost/about-splost/">ABOUT SPLOST</a> / <a href="/splost/about/">ABOUT THIS SITE</a> / <a href="/splost/contact/">CONTACT</a> / <a href="/splost/news/">NEWS</a> </p> 
+      <p class="top-menu"><a href="<?php echo home_url(); ?>">HOME</a> / <a href="/splost/about-splost/">ABOUT SPLOST</a> / <a href="/splost/about/">ABOUT SITE</a> / <a href="/splost/contact/">CONTACT</a> / <a href="/tag/press/">PRESS</a> / <a href="/splost/updates/">UPDATES</a> </p> 
       <div id="title_container">
         <!-- <p class="subtitle">Macon-Bibb County</p> --> <div style="clear:both;"></div>
       <h1 class="tright">Macon-Bibb County 2012 SPLOST</h1>

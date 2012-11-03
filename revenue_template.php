@@ -24,7 +24,7 @@ Template Name: Revenue Page Template
     <p>Chart coming soon.</p>
 	  <div id="holder"></div>
 
-  <h3>Economic Development Monthly Revenue</h3>
+  <h3>Monthly Revenue</h3>
     <p>Something about fiscal years starting on July 1 and what budgeted and actual mean.</p> 
     <div id="monthly"><img class="spinner" src="/wp-content/themes/wp-splost/fbi_spinner.gif"></div>
 

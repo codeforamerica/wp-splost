@@ -22,8 +22,8 @@ Template Name: SPLOST Overview Template
       <div id="map" class="fullmap"><img class="spinner" src="/wp-content/themes/wp-splost/fbi_spinner.gif"></div>
     <h3>Category Funding Comparison</h3>
       <p>A comparison of each project's funding.</p>
-	    <div id="splostHolder"></div>
-    <h3>Project Funding Schedule</h3>
+	    <div id="holder"></div>
+    <h3>Funding Schedule</h3>
       <div id="table"></div><!-- end #table -->
 
   <div id="sharing">
@@ -51,12 +51,11 @@ Template Name: SPLOST Overview Template
 
     <?php endwhile; ?>
   </div><!-- end #maincontainer -->
-    
+   <!-- <h5>To date, <span class="statHighlight">{{sumInProgress}}</span> has been spent on the projects in progress.</h5> -->
     
 <script id="stats" type="text/html">
  <h5><?php echo get_the_title($post->post_parent) ?> has <span class="statHighlight">{{numberFocusAreas}}</span> Focus Areas with a combined <span class="statHighlight">{{numberItemizedProjects}}</span> projects.</h5>
- <h5><span class="statHighlight">{{numberInProgress}}</span> of these projects are labeled in progress.</h5>
- <h5>To date, <span class="statHighlight">{{sumInProgress}}</span> has been spent on the projects in progress.</h5>
+ <h5><span class="statHighlight">{{numberInProgress}}</span> of these projects are labeled in progress and <span class="statHighlight">{{completeProjects}}</span> are complete.</h5>
 </script>
 
 <script id="schedule" type="text/html">
@@ -109,23 +108,23 @@ Template Name: SPLOST Overview Template
 
       // -- axis variables
 
-      var noProjsInCat = thePageParent.length 
+      var noProjsInCat = data.length 
       var noProjsMinusOne = noProjsInCat - 1
-      var chartHeight = noProjsInCat * 40
+      var topOffset = 10
+      var chartHeight = (noProjsInCat * 40) + topOffset
       var gutterTotal = noProjsMinusOne * 10
-      axisLength = chartHeight - (noProjsInCat * 3)
-
+      var axisLength = chartHeight - topOffset - 81
       // -- set up chart
-      document.querySelector('#holder').style.height = chartHeight + "px"
+      document.querySelector('#holder').style.height = (chartHeight + topOffset) + "px"
 
       var r = Raphael("holder")
       var values = []
       var labels = []
       var hexcolors = []
-          thePageParent.forEach(pushBits)
-               
+          data.forEach(pushBits)
+      
       // (paper, x, y, width, height, values, opts)
-      r.g.hbarchart(220, 20, 480, chartHeight, values, {stacked: true, type: "soft", colors: hexcolors, gutter: "10"}).hoverColumn(
+      r.g.hbarchart(220, topOffset, 480, chartHeight, values, {stacked: true, type: "soft", colors: hexcolors}).hoverColumn(
         function() { 
           var y = []
           var res = []
@@ -139,13 +138,15 @@ Template Name: SPLOST Overview Template
             this.flag.animate({opacity: 0}, 1500, ">", function () {this.remove();});
       });
       // (x, y, length, from, to, steps, orientation, labels, type, dashsize, paper)
-      axis = r.g.axis(200, axisLength + 43, axisLength, null, null, noProjsMinusOne,1, labels.reverse(), null, 1);
+      axis = r.g.axis(200, axisLength + topOffset + 23, axisLength, null, null, noProjsMinusOne,1, labels.reverse(), null, 1);
       axis.text.attr({font:"12px Arvo", "font-weight": "regular", "fill": "#333333"});    
       
     var numberFocusAreas = data.length
     var itemizedArea = tabletop.sheets("actuals").all()
     var inProgress = getInProgress(itemizedArea)
     var sumInProgress = inProgressSpent(itemizedArea)
+    var completeProjects = getStatusCount(tabletop.sheets("actuals").all(), "Complete")
+
 
      var schedule = ich.schedule({
        "rows": turnCurrency(data)
@@ -156,7 +157,8 @@ Template Name: SPLOST Overview Template
       "numberInProgress": inProgress.length,
       "sumInProgress": accounting.formatMoney(sumInProgress),
       "currentDate": getCurrentYear(),
-      "numberFocusAreas": numberFocusAreas
+      "numberFocusAreas": numberFocusAreas,
+      "completeProjects": completeProjects
 
      })
 

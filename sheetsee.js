@@ -76,6 +76,15 @@ function getProject(projects, projectFilter){
   return oneProject
 }
 
+function getStatusCount(projects, statusFilter) {
+  var statusGroup = []
+  projects.forEach(function (project) {
+    if (project.status.match(statusFilter)) statusGroup.push(project)
+  })
+  return statusGroup.length
+  if (statusGroup = []) return "0" 
+}
+
 // get column total 
 
 function getColumnTotal(projects, column){
@@ -147,11 +156,13 @@ function getInProgress (projects) {
   var inProgress = []
   projects.forEach(function (project) {
     if (project.status.match(/in progress/i)) inProgress.push(project)
+      else return "0"
   })
   return inProgress
 }
 
 function inProgressSpent (projects) {
+  if (projects = []) return "0"
   var inProgressDollars = []
   projects.forEach(function (project) {
     if (project.ptdactual === "") return 

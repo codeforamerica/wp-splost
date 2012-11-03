@@ -24,6 +24,7 @@ Template Name: Focus Area Template
       echo $postOutput;
       ?>
     </div>
+    <div id="entity"></div>
   </div><!-- end holder -->
               
   <div class="articleHolder">
@@ -47,7 +48,10 @@ Template Name: Focus Area Template
 
   <!-- only if this project has a report -->
   <div class="articleHolder">
-    <div id="monthly"></div>
+    <div id="monthly">
+      <h3>Monthly Expenditure Report</h3>
+      <p>Nothing yet to report in <?php the_title(); ?>.</p>
+    </div>
   </div><!-- end holder -->
 
   <div class="articleHolder">
@@ -77,7 +81,7 @@ Template Name: Focus Area Template
   <div class="articleHolder">              
   <div class="wholemilk">
       <h3>Related News Posts</h3>
-      <p>Recent news entries about <?php the_title(); ?>. You can also subscribe to the <a href="http://www.splost.info/?tag=<?php echo the_slug() ?>&feed=rss2">RSS Feed</a> for updates on <?php the_title() ?>, or if you'd like, this <a href="http://www.splost.info/feed=rss2">RSS Feed</a> for all SPLOST updates.
+      <p>Any recent news entries about <?php the_title(); ?> will appear below. You can also subscribe to the <a href="http://www.splost.info/?tag=<?php echo the_slug() ?>&feed=rss2">RSS Feed</a> for updates on <?php the_title() ?>, or if you'd like, this <a href="http://www.splost.info/feed=rss2">RSS Feed</a> for all SPLOST updates.
         <div id="relevantPosts">
           <?php
           // The Query
@@ -155,10 +159,12 @@ Template Name: Focus Area Template
   </table>
 </script>
     
+<script id="entity" type="text/html">
+ <h6>Managing Entity: {{entity}}</h6>
+</script>
     
 <script id="stats" type="text/html">
- <h5><?php the_title(); ?> has <span class="statHighlight">{{numberItemizedProjects}}</span> projects, <span class="statHighlight">{{numberInProgress}}</span> of which labeled in progress.</h5>
- <h5>To date, <span class="statHighlight">{{sumInProgress}}</span> has been spent on the projects in progress.</h5>
+ <h5><?php the_title(); ?> has <span class="statHighlight">{{numberItemizedProjects}}</span> projects, <span class="statHighlight">{{numberInProgress}}</span> of which labeled in progress and <span class="statHighlight">{{completeProjects}}</span> are complete.</h5>
 </script>
   
 <script id="schedule" type="text/html">
@@ -207,21 +213,21 @@ Template Name: Focus Area Template
 
       var noProjsInCat = thePageParent.length 
       var noProjsMinusOne = noProjsInCat - 1
-      var chartHeight = noProjsInCat * 40
+      var topOffset = 10
+      var chartHeight = (noProjsInCat * 40) + topOffset
       var gutterTotal = noProjsMinusOne * 10
-      axisLength = chartHeight - (noProjsInCat * 3)
-
+      var axisLength = chartHeight - 50
       // -- set up chart
-      document.querySelector('#holder').style.height = chartHeight + "px"
+      document.querySelector('#holder').style.height = (chartHeight + topOffset) + "px"
 
       var r = Raphael("holder")
       var values = []
       var labels = []
       var hexcolors = []
           thePageParent.forEach(pushBits)
-               
+      
       // (paper, x, y, width, height, values, opts)
-      r.g.hbarchart(220, 20, 480, chartHeight, values, {stacked: true, type: "soft", colors: hexcolors, gutter: "10"}).hoverColumn(
+      r.g.hbarchart(220, topOffset, 480, chartHeight, values, {stacked: true, type: "soft", colors: hexcolors}).hoverColumn(
         function() { 
           var y = []
           var res = []
@@ -235,18 +241,18 @@ Template Name: Focus Area Template
             this.flag.animate({opacity: 0}, 1500, ">", function () {this.remove();});
       });
       // (x, y, length, from, to, steps, orientation, labels, type, dashsize, paper)
-      axis = r.g.axis(200, axisLength + 43, axisLength, null, null, noProjsMinusOne,1, labels.reverse(), null, 1);
+      axis = r.g.axis(200, axisLength + topOffset + 23, axisLength, null, null, noProjsMinusOne,1, labels.reverse(), null, 1);
       axis.text.attr({font:"12px Arvo", "font-weight": "regular", "fill": "#333333"});   
 
       // These define the tables 
 
-
-      var schedule = ich.schedule({
-        "rows": turnCurrency(thePageName)
-      }) 
+      var entity = ich.entity({
+        "entity": thePageName[0].entity
+      })
 
       // -- quick stats table
       var itemizedArea = getActualsArea(tabletop.sheets("actuals").all(), pageName)
+      var completeProjects = getStatusCount(itemizedArea, "Complete")
       var inProgress = getInProgress(itemizedArea)
       var sumInProgress = inProgressSpent(itemizedArea)
 
@@ -254,23 +260,28 @@ Template Name: Focus Area Template
         "numberItemizedProjects": itemizedArea.length,
         "numberInProgress": inProgress.length,
         "sumInProgress": accounting.formatMoney(sumInProgress),
-        "currentDate": getCurrentYear()
+        "currentDate": getCurrentYear(),
+        "completeProjects": completeProjects
       })
+
+      var schedule = ich.schedule({
+        "rows": turnCurrency(thePageName)
+      }) 
 
       // -- monthly expense table
       var monthlyrev = getActualsArea(tabletop.sheets("actuals").all(), pageName)
       var reportmonth = getCurrentMonth() - 1
       var reportyear = getCurrentYear()
-
+      console.log(monthlyrev)
       var monthly = ich.monthly({
         "rows": turnReportCurrency(monthlyrev),
         "reportyear": reportyear,
         "reportmonth": reportmonth
       })
-    
+      document.getElementById('entity').innerHTML = entity;
       document.getElementById('table').innerHTML = schedule;
       document.getElementById('stats').innerHTML = stats; 
-      document.getElementById('monthly').innerHTML = monthly;
+      if (monthlyrev.length > 0) document.getElementById('monthly').innerHTML = monthly;
    }
 </script>
 
