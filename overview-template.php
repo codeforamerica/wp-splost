@@ -85,8 +85,7 @@ Template Name: Category Overview Template
     
 <script id="stats" type="text/html">
  <h5><?php the_title(); ?> has <span class="statHighlight">{{numberFocusAreas}}</span> Focus Areas with a combined <span class="statHighlight">{{numberItemizedProjects}}</span> projects.</h5>
- <h5><span class="statHighlight">{{numberInProgress}}</span> of these projects are labeled in progress.</h5>
- <h5>To date, <span class="statHighlight">{{sumInProgress}}</span> has been spent on the projects in progress.</h5>
+ <h5><span class="statHighlight">{{numberInProgress}}</span> of these projects are labeled in progress and <span class="statHighlight">{{completeProjects}}</span> are complete.</h5>
 </script>
     
    <script id="schedule" type="text/html">
@@ -142,35 +141,31 @@ Template Name: Category Overview Template
 
       // make bar chart
 
-      // -- axis variables
-
-      var noProjsInCat = thePageParent.length 
-      var chartHeight = noProjsInCat * 40
-      var axisY =  chartHeight + (noProjsInCat * 10)
-
-      function makeAxisLength() {
-        if (noProjsInCat > 2)
-        var axisth = chartHeight * .8
-        else axisLength = chartHeight * .5 
-          return axisLength
-      }
-
       function pushBits(element) {
           values.push(parseInt(element.total))
           labels.push(element.focusarea)
           hexcolors.push(element.hexcolor)
       }
             
+      // -- axis variables
+
+      var noProjsInCat = thePageParent.length 
+      var noProjsMinusOne = noProjsInCat - 1
+      var topOffset = 10
+      var chartHeight = (noProjsInCat * 40) + topOffset
+      var gutterTotal = noProjsMinusOne * 10
+      var axisLength = chartHeight - 50
+      // -- set up chart
+      document.querySelector('#holder').style.height = (chartHeight + topOffset) + "px"
+
       var r = Raphael("holder")
       var values = []
       var labels = []
       var hexcolors = []
           thePageParent.forEach(pushBits)
-      console.log(labels)
+      
       // (paper, x, y, width, height, values, opts)
-      // y must be 15 so that topmost label is visible
-      // 
-      r.g.hbarchart(170, 15, 480, 90, values, {stacked: true, type: "soft", colors: hexcolors, gutter: "20%"}).hoverColumn(
+      r.g.hbarchart(220, topOffset, 480, chartHeight, values, {stacked: true, type: "soft", colors: hexcolors}).hoverColumn(
         function() { 
           var y = []
           var res = []
@@ -184,7 +179,7 @@ Template Name: Category Overview Template
             this.flag.animate({opacity: 0}, 1500, ">", function () {this.remove();});
       });
       // (x, y, length, from, to, steps, orientation, labels, type, dashsize, paper)
-      axis = r.g.axis(160, axisY, makeAxisLength(), noProjsInCat, null,1,1, labels.reverse(), null, 1);
+      axis = r.g.axis(200, axisLength + topOffset + 23, axisLength, null, null, noProjsMinusOne,1, labels.reverse(), null, 1);
       axis.text.attr({font:"12px Arvo", "font-weight": "regular", "fill": "#333333"}); 
           
       // variables to fill in tables 
@@ -194,11 +189,7 @@ Template Name: Category Overview Template
       var itemizedArea = getActualsCategory(tabletop.sheets("actuals").all(), pageParent)
       var inProgress = getInProgress(itemizedArea)
       var sumInProgress = inProgressSpent(itemizedArea)
-
-      // var numberActive = getActiveProjects(thePageParent).length
-      // var numberTotalProjects = 2
-      // var numberCompletedProjects = completedProjects(thePageParent)
-      // var totalSpent = amountSpent(thePageParent)
+      var completeProjects = getStatusCount(itemizedArea, "Complete")
 
       var schedule = ich.schedule({
         "rows": turnCurrency(thePageParent)
@@ -209,7 +200,8 @@ Template Name: Category Overview Template
         "numberInProgress": inProgress.length,
         "sumInProgress": accounting.formatMoney(sumInProgress),
         "currentDate": getCurrentYear(),
-        "numberFocusAreas": numberFocusAreas
+        "numberFocusAreas": numberFocusAreas,
+        "completeProjects": completeProjects
       })
 
      document.getElementById('schedule').innerHTML = schedule;
