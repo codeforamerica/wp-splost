@@ -40,7 +40,7 @@ Template Name: Category Overview Template
   <div class="articleHolder">
     <h3>Project Funding Schedule</h3>
       <p>This is the funding schedule budget as proposed by the SPLOST bill.<p>
-      <div id="schedule"></div>
+      <div id="table"></div>
   </div><!-- end holder -->
    <!-- maybe this way  
   <h3>Economic Development Monthly Revenue</h3>
