@@ -260,7 +260,7 @@ function sorrySVG(divTown) {
 
      $('#entity').html(entity)
      $('#stats').html(stats)
-     $('#schedule').html(schedule)
+     $('#table').html(schedule)
      if (monthlyrev.length > 0) $('#monthly').html(monthly)
    }
 </script>

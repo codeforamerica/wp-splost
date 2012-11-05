@@ -89,18 +89,18 @@ Template Name: Revenue Page Template
        function showInfo(data, tabletop) {
                
                
-         accounting.settings.currency.precision = 0
-         var pageParent = "<?php echo get_the_title($post->post_parent) ?>"
-         var pageName = "<?php the_title(); ?>"
-         var thePageParent = getType(data, pageParent)
-         var thePageName  = getProject(data, pageName)
+       accounting.settings.currency.precision = 0
+       var pageParent = "<?php echo get_the_title($post->post_parent) ?>"
+       var pageName = "<?php the_title(); ?>"
+       var thePageParent = getType(data, pageParent)
+       var thePageName  = getProject(data, pageName)
 
-         var monthlyrev = getActualsArea(tabletop.sheets("actuals").all(), pageName)
-         var dataLength = monthlyrev.length
+       var monthlyrev = getActualsArea(tabletop.sheets("actuals").all(), pageName)
+       var dataLength = monthlyrev.length
 
-// start d3 
+       // monthly revenue stacked bar chart in d3 
 
-function renderGraph(data, divTown) {
+function renderRevenueGraph(data, divTown) {
 
   var margin = {top: 20, right: 20, bottom: 30, left: 70},
       width = 780 - margin.left - margin.right,
@@ -113,7 +113,7 @@ function renderGraph(data, divTown) {
       .rangeRound([height, 0]);
 
   var color = d3.scale.ordinal()
-      .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+      .range(["#BCEDDC","#e6e6e6","#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
   var xAxis = d3.svg.axis()
       .scale(x)
@@ -193,17 +193,17 @@ function renderGraph(data, divTown) {
 
 };
 
-
 var reformattedData = monthlyrev.map(function(i){
   // this data format comes from http://bl.ocks.org/3886208
   return { State: i.project, budgeted: +i.budget, actual: +i.ptdactual }
 })
-if (Modernizr.svg) renderGraph(reformattedData, "#holder")
-else sorrySVG("#holder")
+ 
+      if (Modernizr.svg) renderRevenueGraph(reformattedData, "#holder")
+      else sorrySVG("#holder")
 
-function sorrySVG(divTown) {
-  $(divTown).text("Sorry, to see the chart you'll need to update your browser.")
-}
+      function sorrySVG(divTown) {
+        $(divTown).text("Sorry, to see the chart you'll need to update your browser.")
+      }
 
       var totalBudgeted = getColumnTotal(monthlyrev, "budget")
       var totalActual = getColumnTotal(monthlyrev, "ptdactual")

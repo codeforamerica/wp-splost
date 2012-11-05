@@ -170,7 +170,7 @@ function sorrySVG(divTown) {
       })
 
 
-     $('#schedule').html(schedule)
+     $('#table').html(schedule)
      $('#stats').html(stats)
 
        }
