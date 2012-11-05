@@ -285,3 +285,64 @@ function loadMap() {
 function setCenter(map, markerLocation) {
 	map.setView(markerLocation, 13)
 }	
+
+// d3 chartyness
+
+function renderGraph(data, noProjsInCat, divTown) {
+
+var m = [30, 60, 10, 200],
+    w = 780 - m[1] - m[3],
+    h = (noProjsInCat * 40) - m[0] - m[2];
+
+var format = d3.format(",.0f");
+
+var x = d3.scale.linear().range([0, w]),
+    y = d3.scale.ordinal().rangeRoundBands([0, h], .1);
+
+var xAxis = d3.svg.axis().scale(x).orient("top").tickSize(-h).tickFormat(d3.format(".2s")),
+    yAxis = d3.svg.axis().scale(y).orient("left").tickSize(0);
+
+var svg = d3.select(divTown).append("svg")
+    .attr("width", w + m[1] + m[3])
+    .attr("height", h + m[0] + m[2])
+  .append("g")
+    .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+ 
+
+  // Parse numbers, and sort by value.
+  data.forEach(function(d) { d.total = +d.total; });
+  // data.sort(function(a, b) { return b.total - a.the_post_thumbnail; });
+
+  // Set the scale domain.
+  x.domain([0, d3.max(data, function(d) { return d.total; })]);
+  y.domain(data.map(function(d) { return d.focusarea; }));
+
+  var bar = svg.selectAll("g.bar")
+      .data(data)
+    .enter().append("g")
+      .attr("class", "bar")
+      .attr("transform", function(d) { return "translate(0," + y(d.focusarea) + ")"; });
+
+  bar.append("rect")
+      .attr("width", function(d) { return x(d.total); })
+      .attr("height", y.rangeBand())
+      .style("fill", function(d) { return d.hexcolor; });
+
+  bar.append("text")
+      .attr("class", "value")
+      .attr("x", function(d) { return x(d.total); })
+      .attr("y", y.rangeBand() / 2)
+      .attr("dx", 60)
+      .attr("dy", ".35em")
+      .attr("text-anchor", "end")
+      .text(function(d) { return format(d.total); });
+      
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+};

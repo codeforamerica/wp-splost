@@ -109,15 +109,10 @@ Template Name: SPLOST Overview Template
       // -- axis variables
 
       var noProjsInCat = data.length 
-      var noProjsMinusOne = noProjsInCat - 1
-      var topOffset = 10
-      var chartHeight = (noProjsInCat * 40) + topOffset
-      var gutterTotal = noProjsMinusOne * 10
-      var axisLength = chartHeight - topOffset - 81
-      // -- set up chart
+
 /// beign d3
 
-// document.querySelector('.bar rect').style.fill = thePageName.hexcolor
+function renderGraph(data, divTown) {
 
 var m = [30, 60, 10, 200],
     w = 780 - m[1] - m[3],
@@ -131,13 +126,13 @@ var x = d3.scale.linear().range([0, w]),
 var xAxis = d3.svg.axis().scale(x).orient("top").tickSize(-h),
     yAxis = d3.svg.axis().scale(y).orient("left").tickSize(0);
 
-var svg = d3.select("#holder").append("svg")
+var svg = d3.select(divTown).append("svg")
     .attr("width", w + m[1] + m[3])
     .attr("height", h + m[0] + m[2])
   .append("g")
     .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
  
-function renderGraph(data) {
+
 
   // Parse numbers, and sort by value.
   data.forEach(function(d) { d.total = +d.total; });
@@ -177,7 +172,13 @@ function renderGraph(data) {
       .call(yAxis);
 };
 
-renderGraph(data) 
+if (Modernizr.svg) renderGraph(data, "#holder") 
+else sorrySVG("#holder")
+
+function sorrySVG(divTown) {
+  $(divTown).text("Sorry, to see the chart you'll need to update your browser. <a href='https://www.google.com/intl/en/chrome/browser/'>Google Chrome</a> is great.")
+}
+
       
     var numberFocusAreas = data.length
     var itemizedArea = tabletop.sheets("actuals").all()

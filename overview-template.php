@@ -33,7 +33,7 @@ Template Name: Category Overview Template
 
   <div class="articleHolder"> 
     <h3>Category Funding Comparison</h3>
-      <p>Below, a funds comparison between this category's projects.</p>
+      <p>Below, a funds comparison between this category's Focus Areas.</p>
   	  <div id="holder"></div>
   </div><!-- end holder -->
 
@@ -139,80 +139,14 @@ Template Name: Category Overview Template
           displayAddress(map, thePageParent)
       })
 
-      // make bar chart
+var noProjsInCat = thePageParent.length 
 
-      function pushBits(element) {
-          values.push(parseInt(element.total))
-          labels.push(element.focusarea)
-          hexcolors.push(element.hexcolor)
-      }
-            
-function renderGraph(data, divTown) {
-
-var m = [30, 50, 10, 200],
-    w = 780 - m[1] - m[3],
-    h = 170 - m[0] - m[2];
-
-var format = d3.format(",.0f");
-
-var x = d3.scale.linear().range([0, w]),
-    y = d3.scale.ordinal().rangeRoundBands([0, h], .1);
-
-var xAxis = d3.svg.axis().scale(x).orient("top").tickSize(-h),
-    yAxis = d3.svg.axis().scale(y).orient("left").tickSize(0);
-
-var svg = d3.select("divTown").append("svg")
-    .attr("width", w + m[1] + m[3])
-    .attr("height", h + m[0] + m[2])
-  .append("g")
-    .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
- 
-
-  // Parse numbers, and sort by value.
-  data.forEach(function(d) { d.total = +d.total; });
-  // data.sort(function(a, b) { return b.total - a.the_post_thumbnail; });
-
-  // Set the scale domain.
-  x.domain([0, d3.max(data, function(d) { return d.total; })]);
-  y.domain(data.map(function(d) { return d.focusarea; }));
-
-  var bar = svg.selectAll("g.bar")
-      .data(data)
-    .enter().append("g")
-      .attr("class", "bar")
-      .attr("transform", function(d) { return "translate(0," + y(d.focusarea) + ")"; });
-
-  bar.append("rect")
-      .attr("width", function(d) { return x(d.total); })
-      .attr("height", y.rangeBand())
-      .style("fill", function(d) { return d.hexcolor; });
-
-  bar.append("text")
-      .attr("class", "value")
-      .attr("x", function(d) { return x(d.total); })
-      .attr("y", y.rangeBand() / 2)
-      .attr("dx", -3)
-      .attr("dy", ".35em")
-      .attr("text-anchor", "end")
-      .text(function(d) { return format(d.total); });
-
-  svg.append("g")
-      .attr("class", "x axis")
-      .call(xAxis);
-
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis);
-};
-
-if (Modernizr.svg) renderGraph(thePageParent, "#holder")
+if (Modernizr.svg) renderGraph(thePageParent, noProjsInCat, "#holder") 
 else sorrySVG("#holder")
 
 function sorrySVG(divTown) {
-  $(divTown).text("Sorry, to see the chart you'll need to update your browser.")
+  $(divTown).text("Sorry, to see the chart you'll need to update your browser. <a href='https://www.google.com/intl/en/chrome/browser/'>Google Chrome</a> is great.")
 }
-
-
       // variables to fill in tables 
 
       // -- stats table
