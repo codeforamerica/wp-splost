@@ -39,6 +39,7 @@
 
 
   <script src="/wp-content/themes/wp-splost/sheetsee.js?0"></script>
+  <script type="text/javascript" src="/wp-content/themes/wp-splost/jquery-1.8.2.min.js"></script>
 
  <script src="/wp-content/themes/wp-splost/tabletop.js" type="text/javascript"></script> 
  <script src="/wp-content/themes/wp-splost/ICanHaz.js" type="text/javascript"></script> 
@@ -49,6 +50,8 @@
  <script src="/wp-content/themes/wp-splost/g.raphael-min.js"></script>
  <script src="/wp-content/themes/wp-splost/g.bar-min.js"></script>
 
+ <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.6.0"></script>
+ <script type="text/javascript" src="/wp-content/themes/wp-splost/modernizr.custom.33965.js"></script>
 
 
  

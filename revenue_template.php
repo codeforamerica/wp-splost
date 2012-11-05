@@ -95,38 +95,118 @@ Template Name: Revenue Page Template
          var pageName = "<?php the_title(); ?>"
          var thePageParent = getType(data, pageParent)
          var thePageName  = getProject(data, pageName)
-         
 
-      //    function pushBits(element) {
-      //       values.push(parseInt(element.total))
-      //       labels.push(element.project)
-      //       hexcolors.push(element.hexcolor)
-      //     }
-              
-      //     var r = Raphael("holder")
-      //     var values = []
-      //     var labels = []
-      //     var hexcolors = []
-      //         thePageParent.forEach(pushBits)
+// start d3 
 
-      // // (paper, x, y, width, height, values, opts)
-      // r.g.hbarchart(170, 15, 480, 90, values, {stacked: true, type: "soft", colors: hexcolors, gutter: "20%"}).hoverColumn(
-      //   function() { 
-      //     var y = []
-      //     var res = []
+function renderGraph(data, divTown) {
 
-      //         for (var i = this.bars.length; i--;) {
-      //             y.push(this.bars[i].y);
-      //             res.push(this.bars[i].value || "0");
-      //         }
-      //         this.flag = r.g.popup(this.bars[0].x, Math.min.apply(Math, y), res.join(", ")).insertBefore(this);
-      // }, function() {
-      //       this.flag.animate({opacity: 0}, 1500, ">", function () {this.remove();});
-      // });
-      // // (x, y, length, from, to, steps, orientation, labels, type, dashsize, paper)
-      // axis = r.g.axis(160,80,45,null, null,1,1, labels.reverse(), null, 1);
-      // axis.text.attr({font:"12px Arvo", "font-weight": "regular", "fill": "#333333"}); 
-          
+  var margin = {top: 20, right: 20, bottom: 30, left: 40},
+      width = 780 - margin.left - margin.right,
+      height = 500 - margin.top - margin.bottom;
+
+  var x = d3.scale.ordinal()
+      .rangeRoundBands([0, width], .1);
+
+  var y = d3.scale.linear()
+      .rangeRound([height, 0]);
+
+  var color = d3.scale.ordinal()
+      .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
+  var xAxis = d3.svg.axis()
+      .scale(x)
+      .orient("bottom");
+
+  var yAxis = d3.svg.axis()
+      .scale(y)
+      .orient("left")
+      .tickFormat(d3.format(".2s"));
+
+  var svg = d3.select(divTown).append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+
+  color.domain(d3.keys(data[0]).filter(function(key) { return key !== "State"; }));
+
+  data.forEach(function(d) {
+    var y0 = 0;
+    d.ages = color.domain().map(function(name) { return {name: name, y0: y0, y1: y0 += +d[name]}; });
+    d.total = d.ages[d.ages.length - 1].y1;
+  });
+
+  data.sort(function(a, b) { return b.total - a.total; });
+
+  x.domain(data.map(function(d) { return d.State; }));
+  y.domain([0, d3.max(data, function(d) { return d.total; })]);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Budget Amount");
+
+  var state = svg.selectAll(".state")
+      .data(data)
+    .enter().append("g")
+      .attr("class", "g")
+      .attr("transform", function(d) { return "translate(" + x(d.State) + ",0)"; });
+
+  state.selectAll("rect")
+      .data(function(d) { return d.ages; })
+    .enter().append("rect")
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.y1); })
+      .attr("height", function(d) { return y(d.y0) - y(d.y1); })
+      .style("fill", function(d) { return color(d.name); });
+
+  var legend = svg.selectAll(".legend")
+      .data(color.domain().slice().reverse())
+    .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  legend.append("rect")
+      .attr("x", width - 18)
+      .attr("width", 18)
+      .attr("height", 18)
+      .style("fill", color);
+
+  legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9)
+      .attr("dy", ".35em")
+      .style("text-anchor", "end")
+      .text(function(d) { return d; });
+
+};
+
+var monthlyrev = getActualsArea(tabletop.sheets("actuals").all(), pageName)
+var reformattedData = monthlyrev.map(function(i){
+  // this data format comes from http://bl.ocks.org/3886208
+  return { State: i.project, budgeted: +i.budget, actual: +i.ptdactual }
+})
+if (Modernizr.svg) renderGraph(reformattedData, "#holder")
+else sorrySVG("#holder")
+
+function sorrySVG(divTown) {
+  $(divTown).text("Sorry, to see the chart you'll need to update your browswer.")
+}
+
+
+
 
       var monthlyrev = getActualsArea(tabletop.sheets("actuals").all(), pageName)
       var totalBudgeted = getColumnTotal(monthlyrev, "budget")
@@ -135,11 +215,10 @@ Template Name: Revenue Page Template
       var reportyear = getCurrentYear()
 
       var theDiff = getDiff(totalBudgeted, totalActual)
-      console.log(accounting.formatMoney(theDiff))
       //These populate the page's tables 
 
       var monthly = ich.monthly({
-        "rows": turnReportCurrency(monthlyrev),
+        "rows": monthlyrev,
         "reportyear": reportyear,
         "reportmonth": reportmonth
       })
@@ -148,9 +227,8 @@ Template Name: Revenue Page Template
         "totalBudgeted": accounting.formatMoney(totalBudgeted),
         "totalActual": accounting.formatMoney(totalActual)
       })
-
-         document.getElementById('monthly').innerHTML = monthly; 
-         document.getElementById('stats').innerHTML = stats; 
+         $('#monthly').html(monthly)
+         $('#stats').html(stats)
 
        }
     </script>

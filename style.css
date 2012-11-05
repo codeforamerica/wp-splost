@@ -295,7 +295,7 @@ tr {border-bottom: 1px dotted #acacac;}
 .intro a {border-bottom: 1px dotted #acacac; padding-bottom: 2px;}
 
 /* **** Charts ***** */
-#holder {margin: 0 auto; width: 780px;}
+#holder {margin: 0 auto; width: 780px; font-size: 10px;}
 
 small {line-height: .5em; font-size: 10px; font-family: Open Sans, Arial, sans-serif;}
 ul.linkList, li.linkList {list-style: circle; margin-bottom: 8px; margin-left: 10px;}
@@ -394,3 +394,28 @@ thead {border-bottom: 1px solid #333;}
 .wp-caption {border: none; text-align: left; background: none; padding: 0px; margin: 0px;}
 .wp-caption a {border: none;}
 .wp-caption-text {font-size: 10px;}
+
+.bar rect {
+  fill: #e6e6e6;
+}
+
+.bar text.value {
+  fill: #333;
+}
+
+.axis {
+  shape-rendering: crispEdges;
+}
+
+.axis path {
+  fill: none;
+}
+
+.x.axis line {
+  stroke: #fff;
+  stroke-opacity: .8;
+}
+
+.y.axis path {
+  stroke: #333;
+}

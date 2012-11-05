@@ -115,31 +115,69 @@ Template Name: SPLOST Overview Template
       var gutterTotal = noProjsMinusOne * 10
       var axisLength = chartHeight - topOffset - 81
       // -- set up chart
-      document.querySelector('#holder').style.height = (chartHeight + topOffset) + "px"
+/// beign d3
 
-      var r = Raphael("holder")
-      var values = []
-      var labels = []
-      var hexcolors = []
-          data.forEach(pushBits)
-      
-      // (paper, x, y, width, height, values, opts)
-      r.g.hbarchart(220, topOffset, 480, chartHeight, values, {stacked: true, type: "soft", colors: hexcolors}).hoverColumn(
-        function() { 
-          var y = []
-          var res = []
+// document.querySelector('.bar rect').style.fill = thePageName.hexcolor
 
-              for (var i = this.bars.length; i--;) {
-                  y.push(this.bars[i].y);
-                  res.push(this.bars[i].value || "0");
-              }
-              this.flag = r.g.popup(this.bars[0].x, Math.min.apply(Math, y), res.join(", ")).insertBefore(this);
-      }, function() {
-            this.flag.animate({opacity: 0}, 1500, ">", function () {this.remove();});
-      });
-      // (x, y, length, from, to, steps, orientation, labels, type, dashsize, paper)
-      axis = r.g.axis(200, axisLength + topOffset + 23, axisLength, null, null, noProjsMinusOne,1, labels.reverse(), null, 1);
-      axis.text.attr({font:"12px Arvo", "font-weight": "regular", "fill": "#333333"});    
+var m = [30, 50, 10, 200],
+    w = 780 - m[1] - m[3],
+    h = 900 - m[0] - m[2];
+
+var format = d3.format(",.0f");
+
+var x = d3.scale.linear().range([0, w]),
+    y = d3.scale.ordinal().rangeRoundBands([0, h], .1);
+
+var xAxis = d3.svg.axis().scale(x).orient("top").tickSize(-h),
+    yAxis = d3.svg.axis().scale(y).orient("left").tickSize(0);
+
+var svg = d3.select("#holder").append("svg")
+    .attr("width", w + m[1] + m[3])
+    .attr("height", h + m[0] + m[2])
+  .append("g")
+    .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+ 
+function renderGraph(data) {
+
+  // Parse numbers, and sort by value.
+  data.forEach(function(d) { d.total = +d.total; });
+  // data.sort(function(a, b) { return b.total - a.the_post_thumbnail; });
+
+  // Set the scale domain.
+  x.domain([0, d3.max(data, function(d) { return d.total; })]);
+  y.domain(data.map(function(d) { return d.focusarea; }));
+
+  var bar = svg.selectAll("g.bar")
+      .data(data)
+    .enter().append("g")
+      .attr("class", "bar")
+      .attr("transform", function(d) { return "translate(0," + y(d.focusarea) + ")"; });
+
+  bar.append("rect")
+      .attr("width", function(d) { return x(d.total); })
+      .attr("height", y.rangeBand())
+      .style("fill", function(d) { return d.hexcolor; });
+
+  bar.append("text")
+      .attr("class", "value")
+      .attr("x", function(d) { return x(d.total); })
+      .attr("y", y.rangeBand() / 2)
+      .attr("dx", 60)
+      .attr("dy", ".35em")
+      .attr("text-anchor", "end")
+      .text(function(d) { return format(d.total); })
+      .style("fill", function(d) { return d.hexcolor; });
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+};
+
+renderGraph(data) 
       
     var numberFocusAreas = data.length
     var itemizedArea = tabletop.sheets("actuals").all()
