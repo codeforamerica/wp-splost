@@ -195,7 +195,13 @@ function renderRevenueGraph(data, divTown) {
 
 var reformattedData = monthlyrev.map(function(i){
   // this data format comes from http://bl.ocks.org/3886208
-  return { State: i.project, budgeted: +i.budget, actual: +i.ptdactual }
+  var budget = +i.budget
+  var actual = +i.ptdactual
+  if (budget < actual) actual = actual - budget
+  if (budget > actual) budget = budget - actual
+  if (budget === actual) budget = 0
+
+  return { State: i.project, budgeted: budget, actual: actual }
 })
  
       if (Modernizr.svg) renderRevenueGraph(reformattedData, "#holder")
