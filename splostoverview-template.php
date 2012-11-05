@@ -119,7 +119,7 @@ Template Name: SPLOST Overview Template
 
 // document.querySelector('.bar rect').style.fill = thePageName.hexcolor
 
-var m = [30, 50, 10, 200],
+var m = [30, 60, 10, 200],
     w = 780 - m[1] - m[3],
     h = 900 - m[0] - m[2];
 
@@ -200,8 +200,8 @@ renderGraph(data)
 
      })
 
-     document.getElementById('table').innerHTML = schedule;
-     document.getElementById('stats').innerHTML = stats; 
+     $('#table').html(schedule)
+     $('#stats').html(stats)
    }
 </script>
 

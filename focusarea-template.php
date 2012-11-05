@@ -216,7 +216,8 @@ Template Name: Focus Area Template
 
 /// beign d3
 
-// document.querySelector('.bar rect').style.fill = thePageName.hexcolor
+
+function renderGraph(data, divTown) {
 
 var m = [30, 50, 10, 200],
     w = 780 - m[1] - m[3],
@@ -230,13 +231,12 @@ var x = d3.scale.linear().range([0, w]),
 var xAxis = d3.svg.axis().scale(x).orient("top").tickSize(-h),
     yAxis = d3.svg.axis().scale(y).orient("left").tickSize(0);
 
-var svg = d3.select("#holder").append("svg")
+var svg = d3.select("divTown").append("svg")
     .attr("width", w + m[1] + m[3])
     .attr("height", h + m[0] + m[2])
   .append("g")
     .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
  
-function renderGraph(data) {
 
   // Parse numbers, and sort by value.
   data.forEach(function(d) { d.total = +d.total; });
@@ -275,7 +275,13 @@ function renderGraph(data) {
       .call(yAxis);
 };
 
-renderGraph(thePageParent)
+if (Modernizr.svg) renderGraph(thePageParent, "#holder")
+else sorrySVG("#holder")
+
+function sorrySVG(divTown) {
+  $(divTown).text("Sorry, to see the chart you'll need to update your browser.")
+}
+
 
       // These define the tables 
 
@@ -310,10 +316,11 @@ renderGraph(thePageParent)
         "reportyear": reportyear,
         "reportmonth": reportmonth
       })
-      document.getElementById('entity').innerHTML = entity;
-      document.getElementById('table').innerHTML = schedule;
-      document.getElementById('stats').innerHTML = stats; 
-      if (monthlyrev.length > 0) document.getElementById('monthly').innerHTML = monthly;
+
+     $('#entity').html(entity)
+     $('#stats').html(stats)
+     $('#schedule').html(schedule)
+     if (monthlyrev.length > 0) $('#monthly').html(monthly)
    }
 </script>
 

@@ -46,10 +46,6 @@
  <script src="/wp-content/themes/wp-splost/accounting.js" type="text/javascript"></script>
  <script src="/wp-content/themes/wp-splost/leaflet.js"></script>
 
- <script src="/wp-content/themes/wp-splost/raphael-min.js" type="text/javascript"></script>  
- <script src="/wp-content/themes/wp-splost/g.raphael-min.js"></script>
- <script src="/wp-content/themes/wp-splost/g.bar-min.js"></script>
-
  <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.6.0"></script>
  <script type="text/javascript" src="/wp-content/themes/wp-splost/modernizr.custom.33965.js"></script>
 

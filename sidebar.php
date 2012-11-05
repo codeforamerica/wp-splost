@@ -20,7 +20,7 @@
      <li class="ps second"><a href="/public-safety/animal-welfare-center/">Animal Welfare Center</a></li>
      <li class="ps first"><a href="/public-safety/juvenile-justice-center/">Juvenile Justice Center</a></li>
      <li class="ps second"><a href="/public-safety/fire-stations/">Fire Stations</a></li>
-     <li class="ps first"><a href="/public-safety/sherrif-cars-and-other-equipment/">Sherrif Cars and Other Equipment</a></li>
+     <li class="ps first"><a href="/public-safety/sheriff-cars-and-other-equipment/">Sheriff Cars and Other Equipment</a></li>
      <li class="ps first"><a href="/public-safety/courthouse-and-building-equipment/">Courthouse and Building Improvements</a></li>
      </ul>
   </div><!-- #menu END -->
@@ -102,7 +102,6 @@
    <div style="clear:both;"></div>
    <h5>PRESS & DOCUMENTS</h5>
    <div class="menu">
-    <div class="button"><a href="/splost/press/">Recent Press</a></div>
     <div class="button"><a href="/tag/document/">SPLOST Documents</a></div>    
    </div><!-- #menu END -->
 

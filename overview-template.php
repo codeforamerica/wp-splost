@@ -147,41 +147,72 @@ Template Name: Category Overview Template
           hexcolors.push(element.hexcolor)
       }
             
-      // -- axis variables
+function renderGraph(data, divTown) {
 
-      var noProjsInCat = thePageParent.length 
-      var noProjsMinusOne = noProjsInCat - 1
-      var topOffset = 10
-      var chartHeight = (noProjsInCat * 40) + topOffset
-      var gutterTotal = noProjsMinusOne * 10
-      var axisLength = chartHeight - 50
-      // -- set up chart
-      document.querySelector('#holder').style.height = (chartHeight + topOffset) + "px"
+var m = [30, 50, 10, 200],
+    w = 780 - m[1] - m[3],
+    h = 170 - m[0] - m[2];
 
-      var r = Raphael("holder")
-      var values = []
-      var labels = []
-      var hexcolors = []
-          thePageParent.forEach(pushBits)
-      
-      // (paper, x, y, width, height, values, opts)
-      r.g.hbarchart(220, topOffset, 480, chartHeight, values, {stacked: true, type: "soft", colors: hexcolors}).hoverColumn(
-        function() { 
-          var y = []
-          var res = []
+var format = d3.format(",.0f");
 
-              for (var i = this.bars.length; i--;) {
-                  y.push(this.bars[i].y);
-                  res.push(this.bars[i].value || "0");
-              }
-              this.flag = r.g.popup(this.bars[0].x, Math.min.apply(Math, y), res.join(", ")).insertBefore(this);
-      }, function() {
-            this.flag.animate({opacity: 0}, 1500, ">", function () {this.remove();});
-      });
-      // (x, y, length, from, to, steps, orientation, labels, type, dashsize, paper)
-      axis = r.g.axis(200, axisLength + topOffset + 23, axisLength, null, null, noProjsMinusOne,1, labels.reverse(), null, 1);
-      axis.text.attr({font:"12px Arvo", "font-weight": "regular", "fill": "#333333"}); 
-          
+var x = d3.scale.linear().range([0, w]),
+    y = d3.scale.ordinal().rangeRoundBands([0, h], .1);
+
+var xAxis = d3.svg.axis().scale(x).orient("top").tickSize(-h),
+    yAxis = d3.svg.axis().scale(y).orient("left").tickSize(0);
+
+var svg = d3.select("divTown").append("svg")
+    .attr("width", w + m[1] + m[3])
+    .attr("height", h + m[0] + m[2])
+  .append("g")
+    .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+ 
+
+  // Parse numbers, and sort by value.
+  data.forEach(function(d) { d.total = +d.total; });
+  // data.sort(function(a, b) { return b.total - a.the_post_thumbnail; });
+
+  // Set the scale domain.
+  x.domain([0, d3.max(data, function(d) { return d.total; })]);
+  y.domain(data.map(function(d) { return d.focusarea; }));
+
+  var bar = svg.selectAll("g.bar")
+      .data(data)
+    .enter().append("g")
+      .attr("class", "bar")
+      .attr("transform", function(d) { return "translate(0," + y(d.focusarea) + ")"; });
+
+  bar.append("rect")
+      .attr("width", function(d) { return x(d.total); })
+      .attr("height", y.rangeBand())
+      .style("fill", function(d) { return d.hexcolor; });
+
+  bar.append("text")
+      .attr("class", "value")
+      .attr("x", function(d) { return x(d.total); })
+      .attr("y", y.rangeBand() / 2)
+      .attr("dx", -3)
+      .attr("dy", ".35em")
+      .attr("text-anchor", "end")
+      .text(function(d) { return format(d.total); });
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+};
+
+if (Modernizr.svg) renderGraph(thePageParent, "#holder")
+else sorrySVG("#holder")
+
+function sorrySVG(divTown) {
+  $(divTown).text("Sorry, to see the chart you'll need to update your browser.")
+}
+
+
       // variables to fill in tables 
 
       // -- stats table
@@ -204,8 +235,9 @@ Template Name: Category Overview Template
         "completeProjects": completeProjects
       })
 
-     document.getElementById('schedule').innerHTML = schedule;
-     document.getElementById('stats').innerHTML = stats; 
+
+     $('#schedule').html(schedule)
+     $('#stats').html(stats)
 
        }
     </script>

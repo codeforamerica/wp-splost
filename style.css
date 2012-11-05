@@ -413,7 +413,7 @@ thead {border-bottom: 1px solid #333;}
 
 .x.axis line {
   stroke: #fff;
-  stroke-opacity: .8;
+  stroke-opacity: .7;
 }
 
 .y.axis path {
