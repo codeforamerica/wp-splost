@@ -395,9 +395,8 @@ thead {border-bottom: 1px solid #333;}
 .wp-caption a {border: none;}
 .wp-caption-text {font-size: 10px;}
 
-.bar rect {
-  fill: #e6e6e6;
-}
+.attachment-post-thumbnail {margin-bottom: 12px;}
+.bar rect {fill: #e6e6e6;}
 
 .bar text.value {
   fill: #333;

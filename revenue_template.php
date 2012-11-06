@@ -134,11 +134,12 @@ function renderRevenueGraph(data, divTown) {
 
   data.forEach(function(d) {
     var y0 = 0;
-    d.ages = color.domain().map(function(name) { return {name: name, y0: y0, y1: y0 += +d[name]}; });
+    d.ages = color.domain().map(function(name) {
+      return {name: name, y0: y0, y1: y0 += +d[name]};
+    });
     d.total = d.ages[d.ages.length - 1].y1;
   });
 
-  // data.sort(function(a, b) { return b.total - a.total; });
 
   x.domain(data.map(function(d) { return d.State; }));
   y.domain([0, d3.max(data, function(d) { return d.total; })]);
@@ -165,7 +166,9 @@ function renderRevenueGraph(data, divTown) {
       .attr("transform", function(d) { return "translate(" + x(d.State) + ",0)"; });
 
   state.selectAll("rect")
-      .data(function(d) { return d.ages; })
+      .data(function(d) {
+        return d.ages;
+      })
     .enter().append("rect")
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.y1); })
