@@ -41,43 +41,45 @@ See Penny Work is a Wordpress theme with custom javascript built in. This javasc
 1. Budget
 2. Actuals
 
-## GENERAL PAGES
+## PAGE TEMPLATES
+
+### General Pages
 These pages are most like any other Wordpress page. All content is created within the WP CMS interface and no additional customization has been made. 
 
-## BLOG
+### Blog
 The blog is also very straightforward and all content is created within the WP CMS interface.
 
-### Tagging
+**Tagging**
 Make sure to tag blog posts with the project name that they relate to, this will list the entry on that project's page.
 (see fig. a)
 
-## CATEGORY OVERVIEWS
+### Category Overview Page Template
 First, create a page for each of your Categories.
  
 Create a new page in Wordpress. Title the page the name of a Category exactly as you're calling it in your spreadsheets. Select "Category Overview" as your template type. Do not select a page parent. 
 
 Write a description in the text-edit window and publish the page.
 
-## FOCUS AREA PAGES
+### Focus Area Page Template
 Create a new page. Title it the Focus Area title exactly as you're using it in your spreadsheet. Select the Focus Area template and the corresponding Parent page. 
 
 In the text-area, write a brief paragraph describing the project. 
 
-### PHOTOS
+**Photos**
 Add photos using Wordpress's Gallery option. To add photos, click the Upload/Insert media button above the text-area. Add the photos in the drag and drop section and then select Save Changes. In the Gallery tab, select Insert Gallery. Publish page. The page template knows to take this gallery and place it at the bottom. The Gallery option nicely formats the images into thumbnails which visitors can click on to see larger versions or more in the gallery. The template will also add singular images to the bottom of the page.
 
-### FEATURED PHOTO
+**Featured Photo**
 This is the photo that appears cropped at the top of a page. To add this photo, on the righthand side of your page select 'Set Featured Image.' Drag and drop the image you'd like into the boxed area. Select 'Make Featured Image' and then click 'Ok'. This designates that photo as the featured image and adds it to the gallery. I recommend using an image you've cropped to 780x150 pixels so that you do not fill up valuable space on the screen.
 
-### MAPS AND CHARTS
+**Maps and Charts**
 The page's maps and charts are generated from the data you've created and connected to in the spreadsheets.
 
-## OVERVIEW TEMPLATE
+### Overview Page Template
 This template serves just one page, the Overview page, which displays information about all of the projects within your budget. 
 
 Create a page, give it a parent that matches the name of your project and select the Overview template. Write a description of the entire budget and projects and click Publish.
 
-## MONTHLY REVENUE
+### Montly Revenue Page Template
 This page can be used to display the budgeted and actual numbers regarding revenue from the sales tax. It uses the Monthly Revenue template.
 
 
