@@ -1,26 +1,30 @@
-# DOCUMENTATION FOR SEE PENNY WORK
-### WHAT?
-See Penny Work is a kit for creating websites - specifically it was created to visualize bond referendum budgets. It makes it easy to show tax payers where their money is going. But you can use your imagination and use it in other ways, too.
+# HI!
+# Documentation for See Penny Work
+### What?
+[See Penny Work](http://www.seepennywork.in) is a kit for creating websites - specifically it was created to visualize bond referendum budgets. More specifically, it was created for Macon, Georgia during it's 2012 partnership with [Code for America](http://www.codeforamerica.org). It makes it easy to show tax payers where their money is going. But you can use your imagination and use it in other ways, too.
 
-### HOW?
-See Penny Work is a Wordpress theme that's connected to a Google spreadsheet. The theme is customized by you so that the style and projects on the sidebar fit with your budget and tastes. Each page gets its information from the input of the creator (like project descriptions and photos), the spreadsheet (like the maps, charts and tables) or through querying tagged items (like documents and related posts). (see fig)
+### How?
+See Penny Work is a Wordpress theme that's connected to a Google spreadsheet. The theme is customized by you so that the style and projects on the sidebar fit with your budget and tastes. Each page gets its information from the input of the creator (like project descriptions and photos), the spreadsheet (like the maps, charts and tables) or through querying tagged items (like documents and related posts). 
+![spreadsheet publish settings](https://raw.github.com/codeforamerica/wp-splost/master/readme-imgs/content-sources.png)
 
-### WHAT YOU'LL NEED TO GET STARTED
+### What You'll Need to get Started
 If you want to set it up, you'll need someone on hand who understands HTML/CSS and Javascript. But once it's set up, the site is managed through a spreadsheet and Wordpress - easy for all skill levels. 
 
-## TO INSTALL
+## To Install
 
-### INSTALL WORDPRESS 
+### Install Wordpress
 Install the latest version of Wordpress and follow Wordpress's installation instructions. Once you've installed the file system, you'll download this git repo. Unzip the file once it's downloaded and move that unzipped folder into your Wordpress Themes folder. This is usually at ../wp-content/themes/. Now when you login into the Wordpress (yoursite.com/wp-admin) you'll see this as a theme option. Click Activate to start using this theme.
 
-### USING WORDPRESS WITH HEROKU AND S3
-If you don't anticipate high, high traffic, Heroku and Amanzon S3 make great cloud-based solutions for hosting your site. A great tutorial on setting up a Wordpress on Heroku can be found [here]().
+### Using Wordpress with Heroku and S3
+If you don't anticipate high, high traffic, Heroku and Amanzon S3 make great cloud-based solutions for hosting your site. Two great tutorials on setting up a Wordpress:
+1. [Migrating Wordpress Blog to Heroku](blog.pardner.com/2012/04/migrating-a-wordpress-blog-to-heroku/) by Parner Wynn
+2. [Running Wordpress on Heroku](http://www.mick.im/2012/05/26/wordpress-heroku/) by CfA Alum [Mick Thompson](https://twitter.com/dthompson/)
 
-### CUSTOMIZE THEME
-You'll want to open up the theme files (../wp-content/themes/seepennywork/) in your favorite text editor and customize the colors and project names and categories to fit your project, this can all be done through basic HTML/CSS on the sidebar.php, header.php, footer.php, style.css and so forth. Customize the style to your hearts content.
+### Customize Theme
+You'll want to open up the theme files (../wp-content/themes/seepennywork/) in your favorite text editor and customize the colors and project names and categories to fit your project, this can all be done through basic HTML/CSS on the 'sidebar.php', 'header.php', 'footer.php', 'style.css' and so forth. Customize the style to your hearts content.
 
-### CUSTOMIZE JAVASCRIPT AND SPREADSHEETS
-Have a look at the [spreadsheets Macon]() is using and see how their information compares to the information you'd like to display. 	
+### Customize Spreadsheet and Javascript
+Have a look at the [spreadsheets Macon](https://docs.google.com/a/codeforamerica.org/spreadsheet/ccc?key=0Aj3c4mZCQQaMdGE2TVphOWlXMUMyclRXa2Z1c0g5MGc#gid=1) is using and see how their information compares to the information you'd like to display. 	
 
 Link your spreadsheet to your Wordpress by opening your spreadsheet, clicking File > Publish to the Web and setting the window like so: 
 ![spreadsheet publish settings](https://github.com/codeforamerica/wp-splost/raw/master/readme-imgs/publish-spreadsheet.png)
@@ -28,19 +32,19 @@ Link your spreadsheet to your Wordpress by opening your spreadsheet, clicking Fi
 When it generates the URL in the bottom text box, you'll copy that URL and paste it into the URL variable at the top of sheetsee.js.
 ![spreadsheet publish settings](https://github.com/codeforamerica/wp-splost/raw/master/readme-imgs/sheetsee-url.png)
 
-## SHEETSEE.JS
+## Sheetsee.js
 Sheetsee.js contains most of the javascript the filters the spreadsheet data and generates the charts, maps and tables. It is used on each of the project and overview templates. It may do more or less than you'll need for budget. You'll want to have someone who is famailiar with javascript go through it, take out parts you don't need and possible create more to suit your custom needs.
 
 Once your spreadsheet is linked to your Wordpress instance you're ready to start setting up the pages.
 
 
-# THE STRUCTURE
+# The Structure
 See Penny Work is a Wordpress theme that interacts with other elements of the site (such as blog posts) as well as making use of javascript on each page to connect to your spreadsheet and generate the visualizations. 
 
 For reference, the diagram below explains the basic layout of pages and what I call those parts.
 ![spreadsheet publish settings](https://raw.github.com/codeforamerica/wp-splost/master/readme-imgs/page-structure.png)
 
-## COMPONENTS
+## Componets
 Some pages do not use templates and use Wordpress Defaults:
 1. General pages: such as the about, press and contact pages; No template.
 2. Blog: for related current events; no template.
@@ -73,7 +77,7 @@ Generally, a page template gets it content sources like this:
 ![spreadsheet publish settings](https://raw.github.com/codeforamerica/wp-splost/master/readme-imgs/content-sources.png)
 
 
-## PAGE TEMPLATES
+## Page Templates
 
 ### Category Overview Page Template
 First, create a page for each of your Categories.
