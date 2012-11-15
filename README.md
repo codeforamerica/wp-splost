@@ -23,10 +23,10 @@ You'll want to open up the theme files (../wp-content/themes/seepennywork/) in y
 Have a look at the [spreadsheets Macon]() is using and see how their information compares to the information you'd like to display. 	
 
 Link your spreadsheet to your Wordpress by opening your spreadsheet, clicking File > Publish to the Web and setting the window like so: 
-![spreadsheet publish settings](/readme-imgs/publish-spreadsheet.png)
+![spreadsheet publish settings](readme-imgs/publish-spreadsheet.png)
 
 When it generates the URL in the bottom text box, you'll copy that URL and paste it into the URL variable at the top of sheetsee.js.
-![spreadsheet publish settings](/readme-imgs/sheetsee-url.png)
+![spreadsheet publish settings](readme-imgs/sheetsee-url.png)
 
 ## SHEETSEE.JS
 Sheetsee.js contains most of the javascript the filters the spreadsheet data and generates the charts, maps and tables. It is used on each of the project and overview templates. It may do more or less than you'll need for budget. You'll want to have someone who is famailiar with javascript go through it, take out parts you don't need and possible create more to suit your custom needs.
@@ -38,7 +38,7 @@ Once your spreadsheet is linked to your Wordpress instance you're ready to start
 See Penny Work is a Wordpress theme that interacts with other elements of the site (such as blog posts) as well as making use of javascript on each page to connect to your spreadsheet and generate the visualizations. 
 
 For reference, the diagram below explains the basic layout of pages and what I call those parts.
-![spreadsheet publish settings](/readme-imgs/page-structure.png)
+![spreadsheet publish settings](readme-imgs/page-structure.png)
 
 ## COMPONENTS
 Some pages do not use templates and use Wordpress Defaults:
@@ -54,7 +54,7 @@ Make sure to tag blog posts with the project name that they relate to, this will
 
 ### Page Templates
 There are four page templates:
-![spreadsheet publish settings](/readme-imgs/templates.png)
+![spreadsheet publish settings](readme-imgs/templates.png)
 
 1. Category Overviews: For each category; Category Template.
 2. Focus Area Pages: For each Focus Area; Focus Area Template.
@@ -63,14 +63,14 @@ There are four page templates:
 
 These templates connect to these spreadsheets:
 
-![spreadsheet publish settings](/readme-imgs/spreadsheet-threads.png)
+![spreadsheet publish settings](readme-imgs/spreadsheet-threads.png)
 
 ### Spreadsheet
 1. Budget, nice round numbers, stays mostly static
 2. Actuals, updated each month
 
 Generally, a page template gets it content sources like this:
-![spreadsheet publish settings](/readme-imgs/content-sources.png)
+![spreadsheet publish settings](readme-imgs/content-sources.png)
 
 
 ## PAGE TEMPLATES
