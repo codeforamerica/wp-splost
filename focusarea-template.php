@@ -111,7 +111,6 @@ Template Name: Focus Area Template
       }(document,"script","twitter-wjs");</script>
     <g:plusone size="medium"></g:plusone>
     <div class="fb-like" data-send="true" data-layout="button_count" data-width="100" data-show-faces="false"></div>
-    <div class="printReport"><p>Print a Report of this page</p><img src="/wp-content/themes/wp-splost/report_icon.png" width="50px;"></div>
   </div>
 
   <!-- navigating between pages, uses plugin -->
