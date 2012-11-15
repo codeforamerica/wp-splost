@@ -13,7 +13,7 @@ If you want to set it up, you'll need someone on hand who understands HTML/CSS a
 # Set it Up
 
 ### Install Wordpress
-Install the latest version of Wordpress and follow Wordpress's installation instructions. Once you've installed the file system, you'll download this git repo, which is the theme. Unzip the file once it's downloaded and move that unzipped folder into your Wordpress Themes folder. This is usually at `../wp-content/themes/`. Now when you login into the Wordpress (`yoursite.com/wp-admin`) you'll see this as a theme option. Click *Activate* to start using this theme.
+Install the latest version of Wordpress and follow Wordpress's installation instructions. Once you've installed the file system, you'll download [this git repo](https://github.com/codeforamerica/wp-splost), which is the theme. Unzip the file and move that unzipped folder into your Wordpress Themes folder. This is usually at `../wp-content/themes/`. Now when you login into the Wordpress (`yoursite.com/wp-admin`) you'll see this as a theme option. Click *Activate* to start using this theme.
 
 ### Using Wordpress with Heroku and S3
 If you don't anticipate high, high traffic, Heroku and Amanzon S3 make great free and cheap cloud-based solutions for hosting your site. Two great tutorials on setting up a Wordpress:
@@ -21,8 +21,8 @@ If you don't anticipate high, high traffic, Heroku and Amanzon S3 make great fre
 * [Running Wordpress on Heroku](http://www.mick.im/2012/05/26/wordpress-heroku/) by CfA Alum [Mick Thompson](https://twitter.com/dthompson/)
 
 ### Customize Theme
-You'll want to open up the theme files (`../wp-content/themes/seepennywork/`) in your favorite text editor and customize the colors and project names and categories to fit your project, this can all be done through basic HTML/CSS with the `sidebar.php`, `header.php`, `footer.php`, `style.css` files and so forth. Customize the style to your hearts content. Match your Category colors in your style.css and hexcolor column in the spreadsheet.
-![match colors](https://github.com/codeforamerica/wp-splost/raw/master/readme-imgs/publish-spreadsheet.png)
+You'll want to open up the theme files (`../wp-content/themes/wp-splost/`) in your favorite text editor and customize the colors and project names and categories to fit your project, this can all be done through basic HTML/CSS with the `sidebar.php`, `header.php`, `footer.php`, `style.css` files and so forth. Customize the style to your heart's content. Match your Category colors in your style.css and hexcolor column in the spreadsheet.
+![match colors](https://github.com/codeforamerica/wp-splost/raw/master/readme-imgs/colors.png)
 
 ### Customize Spreadsheet and Javascript
 Have a look at the [spreadsheets Macon](https://docs.google.com/a/codeforamerica.org/spreadsheet/ccc?key=0Aj3c4mZCQQaMdGE2TVphOWlXMUMyclRXa2Z1c0g5MGc#gid=1) is using and see how their information compares to the information you'd like to present. 	
@@ -43,7 +43,7 @@ Once your spreadsheet is linked to your Wordpress instance you're ready to start
 See Penny Work is a Wordpress theme that interacts with other elements of the site (such as blog posts) as well as making use of Javascript on each page to connect to your spreadsheet and generate the visualizations. 
 
 For reference, the diagram below explains the basic layout of pages and what I call those parts.
-![spreadsheet publish settings](https://raw.github.com/codeforamerica/wp-splost/master/readme-imgs/page-structure.png)
+![page structure](https://raw.github.com/codeforamerica/wp-splost/master/readme-imgs/page-structure.png)
 
 ## Componets
 
@@ -75,7 +75,7 @@ Main content is the heart of the project and different depending on the page you
 
 ### Page Templates
 There are four page templates:
-![spreadsheet publish settings](https://raw.github.com/codeforamerica/wp-splost/master/readme-imgs/templates.png)
+![templates](https://raw.github.com/codeforamerica/wp-splost/master/readme-imgs/templates.png)
 
 1. **Category Overviews**: For each category; Category Template.
 2. **Focus Area Pages**: For each Focus Area; Focus Area Template.
@@ -84,14 +84,14 @@ There are four page templates:
 
 These templates connect the *main content* to the spreadsheets and fill the page with visuals.
 
-![spreadsheet publish settings](https://github.com/codeforamerica/wp-splost/raw/master/readme-imgs/spreadsheet-threads.png)
+![site connecting to spreadsheets](https://github.com/codeforamerica/wp-splost/raw/master/readme-imgs/spreadsheet-threads.png)
 
 ### Spreadsheet
 1. **Budget**, nice round numbers, stays mostly static
 2. **Actuals**, updated each month
 
 Generally, a page template has content sources like this:
-![spreadsheet publish settings](https://raw.github.com/codeforamerica/wp-splost/master/readme-imgs/content-sources.png)
+![site content sources](https://raw.github.com/codeforamerica/wp-splost/master/readme-imgs/content-sources.png)
 
 
 ## Page Templates
