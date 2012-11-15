@@ -20,48 +20,70 @@ If you don't anticipate high, high traffic, Heroku and Amanzon S3 make great clo
 You'll want to open up the theme files (../wp-content/themes/seepennywork/) in your favorite text editor and customize the colors and project names and categories to fit your project, this can all be done through basic HTML/CSS on the sidebar.php, header.php, footer.php, style.css and so forth. Customize the style to your hearts content.
 
 ### CUSTOMIZE JAVASCRIPT AND SPREADSHEETS
-Have a look at the [spreadsheets Macon]() is using and see how their information compares to the information you'd like to display. 	 
+Have a look at the [spreadsheets Macon]() is using and see how their information compares to the information you'd like to display. 	
 
-The javascript may do more than you want it to do so have a look and remove things you don't think you'll need. You may want to write your own functions as well, have at it. The javascript appears on each of the four page templates, you'll want to edit this as well as the functions provided in sheetsee.js.
+Link your spreadsheet to your Wordpress by opening your spreadsheet, clicking File > Publish to the Web and setting the window like so: 
+![spreadsheet publish settings](/readme-imgs/publish-spreadsheet.png)
+
+When it generates the URL in the bottom text box, you'll copy that URL and paste it into the URL variable at the top of sheetsee.js.
+![spreadsheet publish settings](/readme-imgs/sheetsee-url.png)
+
+## SHEETSEE.JS
+Sheetsee.js contains most of the javascript the filters the spreadsheet data and generates the charts, maps and tables. It is used on each of the project and overview templates. It may do more or less than you'll need for budget. You'll want to have someone who is famailiar with javascript go through it, take out parts you don't need and possible create more to suit your custom needs.
+
+Once your spreadsheet is linked to your Wordpress instance you're ready to start setting up the pages.
 
 
 # THE STRUCTURE
-See Penny Work is a Wordpress theme with custom javascript built in. This javascript links the Wordpress pages to a Google Spreadsheet and controls the visualizations.
+See Penny Work is a Wordpress theme that interacts with other elements of the site (such as blog posts) as well as making use of javascript on each page to connect to your spreadsheet and generate the visualizations. 
+
+For reference, the diagram below explains the basic layout of pages and what I call those parts.
+![spreadsheet publish settings](/readme-imgs/page-structure.png)
 
 ## COMPONENTS
-### Page Templates
-1. General pages: such as the about, press and contact pages.
-2. Blog: for related current events
-3. Category Overviews: For each category
-4. Project Pages: For each project
-5. Overview: For the entire budget
-6. Monthly Revenue: For tax revenue
+Some pages do not use templates and use Wordpress Defaults:
+1. General pages: such as the about, press and contact pages; No template.
+2. Blog: for related current events; no template.
 
-### Spreadsheet
-1. Budget
-2. Actuals
-
-## PAGE TEMPLATES
-
-### General Pages
-These pages are most like any other Wordpress page. All content is created within the WP CMS interface and no additional customization has been made. 
-
-### Blog
-The blog is also very straightforward and all content is created within the WP CMS interface.
+### General Pages, Blog, No Template
+These pages are like any other basic Wordpress page. All content is created within the WP CMS interface and no additional customization has been made. 
 
 **Tagging**
 Make sure to tag blog posts with the project name that they relate to, this will list the entry on that project's page.
 (see fig. a)
 
+### Page Templates
+There are four page templates:
+![spreadsheet publish settings](/readme-imgs/templates.png)
+
+1. Category Overviews: For each category; Category Template.
+2. Focus Area Pages: For each Focus Area; Focus Area Template.
+3. Overview: For the entire budget and all projects; Overview Template.
+3. Monthly Revenue: For tax revenue each month; Revenue Template.
+
+These templates connect to these spreadsheets:
+
+![spreadsheet publish settings](/readme-imgs/spreadsheet-threads.png)
+
+### Spreadsheet
+1. Budget, nice round numbers, stays mostly static
+2. Actuals, updated each month
+
+Generally, a page template gets it content sources like this:
+![spreadsheet publish settings](/readme-imgs/content-sources.png)
+
+
+## PAGE TEMPLATES
+
 ### Category Overview Page Template
 First, create a page for each of your Categories.
  
-Create a new page in Wordpress. Title the page the name of a Category exactly as you're calling it in your spreadsheets. Select "Category Overview" as your template type. Do not select a page parent. 
+Create a new page in Wordpress. Title the page the name of a Category *exactly* as you're using it in your spreadsheets. Select "Category Overview" as your template type. Do not select a page parent. 
 
 Write a description in the text-edit window and publish the page.
 
 ### Focus Area Page Template
-Create a new page. Title it the Focus Area title exactly as you're using it in your spreadsheet. Select the Focus Area template and the corresponding Parent page. 
+Create a new page. Title it the Focus Area title *exactly* as you're using it in your spreadsheet. Select the Focus Area template and the corresponding Category as the Parent page. 
 
 In the text-area, write a brief paragraph describing the project. 
 
