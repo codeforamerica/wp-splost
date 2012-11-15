@@ -276,6 +276,7 @@ td {min-width: 64px; vertical-align: middle; height: 28px; padding: 3px 0px 3px 
 .total {font-weight: 700; font-size: 12px;}
 tr {border-bottom: 1px dotted #acacac;}
 .tableheader {border: none;} 
+#table table {width: 100%;}
 #schedule table, #monthly table {width: 100%; margin-top: 20px;}
 /* **** Stats ***** */
 /* .statHighlight {background-color: #BCEDDC; padding: 4px; margin-right: 3px;} */

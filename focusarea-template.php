@@ -8,12 +8,12 @@ Template Name: Focus Area Template
 
 <?php get_header(); ?>
 
-<div id="maincontainer" class="projectPage" >
+<div id="maincontainer" class="projectPage">
 
-<?php the_post_thumbnail(); ?>
+<?php the_post_thumbnail(); ?><!-- this holds a spot for the featured image, should there be one -->
 <div class="articleHolder">
   <h3>Description</h3>
-   <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+   <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?><!-- Get the content -->
 
     <div class="content-text">
       <?php // this pulls out image tags from the_content so that only the text appears in this div
@@ -24,38 +24,37 @@ Template Name: Focus Area Template
       echo $postOutput;
       ?>
     </div>
-    <div id="entity"></div>
+    <div id="entity"></div><!-- holds spot to display if city or county are managing project -->
   </div><!-- end holder -->
               
   <div class="articleHolder">
     <h3>Location & Quick Stats</h3>
-      <div id="stats" ></div>
-      <div id="map" class="fullmap"><img class="spinner" src="/wp-content/themes/wp-splost/fbi_spinner.gif"></div>
+      <div id="stats" ></div><!-- holds spot for stats -->
+      <div id="map" class="fullmap"><img class="spinner" src="/wp-content/themes/wp-splost/fbi_spinner.gif"></div><!-- holds spot for map -->
       <div class="clear"></div>
   </div><!-- end holder -->
 
   <div class="articleHolder">
     <h3>Category Funding Comparison</h3>
       <p>Below, a funds comparison between the Foucs Areas in <?php echo get_the_title($post->post_parent) ?>.</p>
-      <div id="holder"></div>
+      <div id="holder"></div><!-- holds spot for bar chart -->
   </div><!-- end holder -->
 
   <div class="articleHolder">
     <h3>Funding Schedule</h3>
       <p>The projected dispersal of funds for <?php the_title(); ?>.</p>
-      <div id="table"></div>
+      <div id="table"></div><!-- holds spot for funding schedule -->
   </div><!-- end holder -->
 
-  <!-- only if this project has a report -->
   <div class="articleHolder">
-    <div id="monthly">
+    <div id="monthly"><!-- holds spot for monthly expenditures - only if focus area has any -->
       <h3>Monthly Expenditure Report</h3>
       <p>Nothing yet to report in <?php the_title(); ?>.</p>
     </div>
   </div><!-- end holder -->
 
   <div class="articleHolder">
-    <div id="pagePhotos">
+    <div id="pagePhotos"><!-- holds spot for photo gallery -->
       <?php // check if post has gallery, if so, display it
         if (strpos($post->post_content,'[gallery') === false){
         $gallery = 0;}
@@ -67,7 +66,7 @@ Template Name: Focus Area Template
         echo do_shortcode('[gallery option1="value1" columns="5"]'); }
       ?>
     
-    <div class="content-img">
+    <div class="content-img"><!-- if user placed images rather than gallery, they're filtered from the_content here -->
       <?php // if a photo is added not in a gallery
       preg_match_all("/(<img [^>]*>)/",get_the_content(),$matches,PREG_PATTERN_ORDER);
       for( $i=0; isset($matches[1]) && $i < count($matches[1]); $i++ ) {
@@ -82,7 +81,7 @@ Template Name: Focus Area Template
   <div class="wholemilk">
       <h3>Related News Posts</h3>
       <p>Any recent news entries about <?php the_title(); ?> will appear below. You can also subscribe to the <a href="http://www.splost.info/?tag=<?php echo the_slug() ?>&feed=rss2">RSS Feed</a> for updates on <?php the_title() ?>, or if you'd like, this <a href="http://www.splost.info/feed=rss2">RSS Feed</a> for all SPLOST updates.
-        <div id="relevantPosts">
+        <div id="relevantPosts"><!-- search through posts for matching tag -->
           <?php
           // The Query
           $page_title = the_slug();
@@ -99,10 +98,6 @@ Template Name: Focus Area Template
             // Reset Query
             wp_reset_query();?>
         </div>
-    <!-- incase you want to add a section for documents
-    <div class="halfmilk">
-      <h3>Relevant Documents</h3>
-         // what if docs were individual posts that didn't come up in feed but you can query? -->
     </div>
     </div><!-- end holder -->
 
@@ -116,6 +111,7 @@ Template Name: Focus Area Template
       }(document,"script","twitter-wjs");</script>
     <g:plusone size="medium"></g:plusone>
     <div class="fb-like" data-send="true" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+    <div class="printReport"><p>Print a Report of this page</p><img src="/wp-content/themes/wp-splost/report_icon.png" width="50px;"></div>
   </div>
 
   <!-- navigating between pages, uses plugin -->
@@ -138,7 +134,7 @@ Template Name: Focus Area Template
 
 </div><!-- end #maincontainer -->
 
-<script id="monthly" type="text/html">
+<script id="monthly" type="text/html">// format the project expenditure table
 <h3>Monthly Expenditure Report</h3>
   <p>Each month we publish a report on our expenses and tax/bond revenue with active projects. 
     If this project is active, the chart below will be populated with expenses related to <?php the_title(); ?> . 
@@ -159,15 +155,15 @@ Template Name: Focus Area Template
   </table>
 </script>
     
-<script id="entity" type="text/html">
+<script id="entity" type="text/html">// format managing entity
  <h6>Managing Entity: {{entity}}</h6>
 </script>
     
-<script id="stats" type="text/html">
+<script id="stats" type="text/html">// format stats
  <h5><?php the_title(); ?> has <span class="statHighlight">{{numberItemizedProjects}}</span> projects, <span class="statHighlight">{{numberInProgress}}</span> of which labeled in progress and <span class="statHighlight">{{completeProjects}}</span> are complete.</h5>
 </script>
   
-<script id="schedule" type="text/html">
+<script id="schedule" type="text/html">// format funding dispersal schedule
   <table>
   <thead>
   <tr class="tableheader">
@@ -180,7 +176,7 @@ Template Name: Focus Area Template
   </table>
 </script>
   
-<script type="text/javascript">    
+<script type="text/javascript"> // make all the good stuff!   
   document.addEventListener('DOMContentLoaded', function() {
      loadSpreadsheet(showInfo)
    })    
@@ -189,10 +185,10 @@ Template Name: Focus Area Template
      window.tabletopData = tabletop       
 
      accounting.settings.currency.precision = 0
-     var pageParent = "<?php echo get_the_title($post->post_parent) ?>"
-     var pageName = "<?php the_title(); ?>"
-     var thePageParent = getType(data, pageParent)
-     var thePageName  = getProject(data, pageName)
+     var pageParent = "<?php echo get_the_title($post->post_parent) ?>" // get Parent Page name which is Category
+     var pageName = "<?php the_title(); ?>" // get Page name which is Focus Area
+     var thePageParent = getType(data, pageParent) // Filter to array of Category
+     var thePageName  = getProject(data, pageName) // Filte to object of Focus Area
 
      // make map 
 
@@ -201,31 +197,17 @@ Template Name: Focus Area Template
        displayAddress(map, thePageName)
      })
 
-     // make bar chart
-
-     // function pushBits(element) {
-     //    values.push(parseInt(element.total))
-     //    labels.push(element.focusarea)
-     //    hexcolors.push(element.hexcolor)
-     //  }
-
-     //  var values = []
-     //  var labels = []
-     //  var hexcolors = []
-     //  thePageParent.forEach(pushBits)
-
 var noProjsInCat = thePageParent.length 
-
+// if user's browswer doesn't support SVG, tell them
 if (Modernizr.svg) renderGraph(thePageParent, noProjsInCat, "#holder") 
-else sorrySVG("#holder")
+  else sorrySVG("#holder")
 
 function sorrySVG(divTown) {
   $(divTown).text("Sorry, to see the chart you'll need to update your browser. <a href='https://www.google.com/intl/en/chrome/browser/'>Google Chrome</a> is great.")
 }
-
-
       // These define the tables 
 
+      // -- managing entity 
       var entity = ich.entity({
         "entity": thePageName[0].entity
       })
@@ -244,6 +226,7 @@ function sorrySVG(divTown) {
         "completeProjects": completeProjects
       })
 
+      // -- schedule table
       var schedule = ich.schedule({
         "rows": turnCurrency(thePageName)
       }) 
@@ -258,6 +241,7 @@ function sorrySVG(divTown) {
         "reportmonth": reportmonth
       })
 
+     // write these objects to the page
      $('#entity').html(entity)
      $('#stats').html(stats)
      $('#table').html(schedule)

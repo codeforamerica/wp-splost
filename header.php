@@ -16,42 +16,28 @@
 <!--[if IE 8 ]><html class="no-js ie8" lang="en"><![endif]--> 
 <!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <html <?php language_attributes(); ?>>
-<head>
-  
-<meta charset="<?php bloginfo( 'charset' ); ?>" />
-<title><?php
-  /*
-   * Print the <title> tag based on what is being viewed.
-   * We filter the output of wp_title() a bit -- see
-   * twentyten_filter_wp_title() in functions.php.
-   */
-  wp_title( '|', true, 'right' );
+  <head>
+    <meta charset="<?php bloginfo( 'charset' ); ?>" />
+    <title><?php wp_title( '|', true, 'right' ); ?></title>
 
-  ?></title>
+    <link href='http://fonts.googleapis.com/css?family=Arvo:400,700|Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link rel="profile" href="http://gmpg.org/xfn/11" />
+    <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); echo '?' . filemtime( get_stylesheet_directory() . '/style.css'); ?>" type="text/css" />
 
-<link href='http://fonts.googleapis.com/css?family=Arvo:400,700|Open+Sans:400' rel='stylesheet' type='text/css'>
-<link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); echo '?' . filemtime( get_stylesheet_directory() . '/style.css'); ?>" type="text/css" />
+    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+    <link rel="stylesheet" href="/wp-content/themes/wp-splost/leaflet.css" />
 
-<!-- <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" /> -->
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-<link rel="stylesheet" href="/wp-content/themes/wp-splost/leaflet.css" />
+    <script src="/wp-content/themes/wp-splost/sheetsee.js?0"></script>
+    <script type="text/javascript" src="/wp-content/themes/wp-splost/jquery-1.8.2.min.js"></script>
 
+    <script src="/wp-content/themes/wp-splost/tabletop.js" type="text/javascript"></script> 
+    <script src="/wp-content/themes/wp-splost/ICanHaz.js" type="text/javascript"></script> 
+    <script src="/wp-content/themes/wp-splost/accounting.js" type="text/javascript"></script>
+    <script src="/wp-content/themes/wp-splost/leaflet.js"></script>
 
-  <script src="/wp-content/themes/wp-splost/sheetsee.js?0"></script>
-  <script type="text/javascript" src="/wp-content/themes/wp-splost/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.6.0"></script>
+    <script type="text/javascript" src="/wp-content/themes/wp-splost/modernizr.custom.33965.js"></script>
 
- <script src="/wp-content/themes/wp-splost/tabletop.js" type="text/javascript"></script> 
- <script src="/wp-content/themes/wp-splost/ICanHaz.js" type="text/javascript"></script> 
- <script src="/wp-content/themes/wp-splost/accounting.js" type="text/javascript"></script>
- <script src="/wp-content/themes/wp-splost/leaflet.js"></script>
-
- <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.6.0"></script>
- <script type="text/javascript" src="/wp-content/themes/wp-splost/modernizr.custom.33965.js"></script>
-
-
- 
- 
 <?php
   /* We add some JavaScript to pages with the comment form
    * to support sites with threaded comments (when in use).
@@ -95,7 +81,7 @@
     </div><!-- #header END -->
 
      <div id="bread_box">
-      <div id="breadcrumbs">
+      <div id="breadcrumbs"><!-- changes the breadcrumbs depending on the page type -->
         <?php if (is_page()) :  ?>
           <div class="left"><p><?php
           $parent_title = get_the_title($post->post_parent);
@@ -127,8 +113,7 @@
              <div class="left"><p>SPLOST</p></div>
              <div class="right"><p>News</p></div>
         <?php endif; ?>
-        
-        
+ 
       </div><!-- #breadcrumbs END -->
      </div><!-- #bread_box END -->
 

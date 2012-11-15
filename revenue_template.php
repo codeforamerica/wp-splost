@@ -11,15 +11,17 @@ Template Name: Revenue Page Template
    <h3>Description</h3>
    <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-   					<?php if ( is_front_page() ) { ?>
-   						<!-- ><h2><?php the_title(); ?></h2> -->
-   					<?php } else { ?>	
-   					<!--	<h1><?php the_title(); ?></h1> -->
-   					<?php } ?>				
+					<?php if ( is_front_page() ) { ?>
+						<!-- ><h2><?php the_title(); ?></h2> -->
+					<?php } else { ?>	
+					<!--	<h1><?php the_title(); ?></h1> -->
+					<?php } ?>				
 
-   						<?php the_content(); ?>
+						<?php the_content(); ?>
+
   <h3>Quick Stats</h3>
     <div id="stats"></div>
+
   <h3>Revenue Received</h3>
 	  <div id="holder"></div>
 
@@ -38,6 +40,7 @@ Template Name: Revenue Page Template
     <g:plusone size="medium"></g:plusone>
     <div class="fb-like" data-send="true" data-layout="button_count" data-width="100" data-show-faces="false"></div>
   </div>
+
   <!--nextpage-->
   <div id="post-nav">
     <span class="prevPageNav">
@@ -56,10 +59,7 @@ Template Name: Revenue Page Template
 
    <?php endwhile; ?>
 </div><!-- end #maincontainer -->
-    
-    
-
-    
+     
 <script id="monthly" type="text/html">
   <h6 class="fleft">Monthly Report for:</h6> 
   <p><span class="statHighlight">  {{reportmonth}} / {{reportyear}}</span></p>
@@ -80,27 +80,25 @@ Template Name: Revenue Page Template
  <h5>Total Budgeted Revenue: <span class="statHighlight">{{totalBudgeted}}</span> vs Total Actual Revenue: <span class="statHighlight">{{totalActual}}</span></h5>
 </script>
 
-    
-    <script type="text/javascript">    
-      document.addEventListener('DOMContentLoaded', function() {
-         loadSpreadsheet(showInfo)
-       })    
+<script type="text/javascript">    
+  document.addEventListener('DOMContentLoaded', function() {
+     loadSpreadsheet(showInfo)
+   })    
 
-       function showInfo(data, tabletop) {
-               
-               
-       accounting.settings.currency.precision = 0
-       var pageParent = "<?php echo get_the_title($post->post_parent) ?>"
-       var pageName = "<?php the_title(); ?>"
-       var thePageParent = getType(data, pageParent)
-       var thePageName  = getProject(data, pageName)
+  function showInfo(data, tabletop) {
+          
+  accounting.settings.currency.precision = 0
+  var pageParent = "<?php echo get_the_title($post->post_parent) ?>"
+  var pageName = "<?php the_title(); ?>"
+  var thePageParent = getType(data, pageParent)
+  var thePageName  = getProject(data, pageName)
 
-       var monthlyrev = getActualsArea(tabletop.sheets("actuals").all(), pageName)
-       var dataLength = monthlyrev.length
+  var monthlyrev = getActualsArea(tabletop.sheets("actuals").all(), pageName)
+  var dataLength = monthlyrev.length
 
-       // monthly revenue stacked bar chart in d3 
+  // monthly revenue stacked bar chart in d3 
 
-function renderRevenueGraph(data, divTown) {
+  function renderRevenueGraph(data, divTown) {
 
   var margin = {top: 20, right: 20, bottom: 30, left: 70},
       width = 780 - margin.left - margin.right,
@@ -139,7 +137,6 @@ function renderRevenueGraph(data, divTown) {
     });
     d.total = d.ages[d.ages.length - 1].y1;
   });
-
 
   x.domain(data.map(function(d) { return d.State; }));
   y.domain([0, d3.max(data, function(d) { return d.total; })]);
@@ -232,13 +229,12 @@ var reformattedData = monthlyrev.map(function(i){
         "totalBudgeted": accounting.formatMoney(totalBudgeted),
         "totalActual": accounting.formatMoney(totalActual)
       })
-         $('#monthly').html(monthly)
-         $('#stats').html(stats)
+
+     $('#monthly').html(monthly)
+     $('#stats').html(stats)
 
        }
     </script>
-
-
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
