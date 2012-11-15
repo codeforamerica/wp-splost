@@ -22,6 +22,7 @@ If you don't anticipate high, high traffic, Heroku and Amanzon S3 make great fre
 
 ### Customize Theme
 You'll want to open up the theme files (`../wp-content/themes/wp-splost/`) in your favorite text editor and customize the colors and project names and categories to fit your project, this can all be done through basic HTML/CSS with the `sidebar.php`, `header.php`, `footer.php`, `style.css` files and so forth. Customize the style to your heart's content. Match your Category colors in your style.css and hexcolor column in the spreadsheet.
+
 ![match colors](https://github.com/codeforamerica/wp-splost/raw/master/readme-imgs/colors.png)
 
 ### Customize Spreadsheet and Javascript
@@ -30,11 +31,11 @@ Have a look at the [spreadsheets Macon](https://docs.google.com/a/codeforamerica
 Link your spreadsheet to your Wordpress by opening your spreadsheet, clicking File > Publish to the Web and setting the window like so: 
 ![spreadsheet publish settings](https://github.com/codeforamerica/wp-splost/raw/master/readme-imgs/publish-spreadsheet.png)
 
-When it generates the URL in the bottom text box, you'll copy that URL and paste it into the URL variable at the top of sheetsee.js.
+When it generates the URL in the bottom text box, you'll copy that URL and paste it into the URL variable at the top of `sheetsee.js`.
 ![set spreadsheet url](https://github.com/codeforamerica/wp-splost/raw/master/readme-imgs/sheetsee-url.png)
 
 ## Sheetsee.js
-Sheetsee.js contains most of the javascript that filters the spreadsheet data and generates the charts, maps and tables. It is used on each of the project and overview templates. It may do more or less than you'll need for your budget. You'll want to have someone who is famailiar with Javascript go through it, take out parts you don't need and possibly create more to suit your custom needs.
+`Sheetsee.js` contains most of the javascript that filters the spreadsheet data and generates the charts, maps and tables. It is used on each of the project and overview templates. It may do more or less than you'll need for your budget. You'll want to have someone who is famailiar with Javascript go through it, take out parts you don't need and possibly create more to suit your unique needs.
 
 Once your spreadsheet is linked to your Wordpress instance you're ready to start setting up the pages.
 
@@ -47,6 +48,9 @@ For reference, the diagram below explains the basic layout of pages and what I c
 
 ## Componets
 
+### Sidebar
+The side bar, which is custimized by you through HTML/CSS, illustrates the structure of the budget which is Categories and their Focus Areas. Inside each Focus Area page, projects are listed. Projects are the itemized elements from the revenue spreadsheet.
+
 ### Sub Nav
 These are created using default Wordpress templates and can links can be customized in the `header.php` file.
 
@@ -54,12 +58,12 @@ The pages that do not use templates and use Wordpress Defaults:
 1. General pages: such as the about, press and contact pages; No template.
 2. Blog: for related current events; no template.
 
-### General Pages, Blog, No Template
-These pages are like any other basic Wordpress page. All content is created within the WP CMS interface and no additional customization has been made. 
+### General Pages, Blog
+These pages are like any other basic Wordpress page. All content is created within the Wordpress CMS interface and no additional customization has been made. 
 
 **Tagging**
-Make sure to tag blog posts with the project name that they relate to, this will list the entry on that project's page.
-(see fig. a)
+Make sure to tag blog posts with the Focus Area name that they relate to, this will list the entry on that Focus Area's page.
+
 
 ### Breadcrumbs
 This lets the user know where they are within the site. The `header.php` file contains the PHP that customizes this.
@@ -75,7 +79,6 @@ Main content is the heart of the project and different depending on the page you
 
 ### Page Templates
 There are four page templates:
-![templates](https://raw.github.com/codeforamerica/wp-splost/master/readme-imgs/templates.png)
 
 1. **Category Overviews**: For each category; Category Template.
 2. **Focus Area Pages**: For each Focus Area; Focus Area Template.
@@ -87,14 +90,14 @@ These templates connect the *main content* to the spreadsheets and fill the page
 ![site connecting to spreadsheets](https://github.com/codeforamerica/wp-splost/raw/master/readme-imgs/spreadsheet-threads.png)
 
 ### Spreadsheet
-1. **Budget**, nice round numbers, stays mostly static
-2. **Actuals**, updated each month
+1. **Budget**, nice round numbers, lat and long, colors - stays mostly static
+2. **Actuals**, itemization of expenditures (called Projects) and revenue - updated each month
 
 Generally, a page template has content sources like this:
 ![site content sources](https://raw.github.com/codeforamerica/wp-splost/master/readme-imgs/content-sources.png)
 
 
-## Page Templates
+## Page Template Use
 
 ### Category Overview Page Template
 First, create a page for each of your Categories.
@@ -127,8 +130,11 @@ This page can be used to display the budgeted and actual numbers regarding reven
 
 # What else?
 
-## Questions/Comments
-Can come to me, Jessica Lord, I'm at: [jessica@codeforamerica.org](mailto:jessica@codeforamerica.org) and [@jllord](http://www.twitter.com/jllord).
+### Other Plans
+My fellowship is now over and my time will get focused elsewhere, but I still love and care about this project so expect that in my free time here and there I'll be cleaning up the code and making a more general theme file (versus this one which is exactly customized to Macon). I'm also hoping to round out sheetsee.js in a more general-use kind of way.
+
+### Contact
+I'm Jessica Lord: [jessica@codeforamerica.org](mailto:jessica@codeforamerica.org) and [@jllord](http://www.twitter.com/jllord).
 
 
 
