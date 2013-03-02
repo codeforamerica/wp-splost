@@ -17,7 +17,7 @@ Install the latest version of Wordpress and follow Wordpress's installation inst
 
 ### Using Wordpress with Heroku and S3
 If you don't anticipate high, high traffic, Heroku and Amanzon S3 make great free and cheap cloud-based solutions for hosting your site. Two great tutorials on setting up a Wordpress:
-* [Migrating Wordpress Blog to Heroku](blog.pardner.com/2012/04/migrating-a-wordpress-blog-to-heroku/) by Parner Wynn
+* [Migrating Wordpress Blog to Heroku](http://blog.pardner.com/2012/04/migrating-a-wordpress-blog-to-heroku/) by Parner Wynn
 * [Running Wordpress on Heroku](http://www.mick.im/2012/05/26/wordpress-heroku/) by CfA Alum [Mick Thompson](https://twitter.com/dthompson/)
 
 ### Customize Theme
