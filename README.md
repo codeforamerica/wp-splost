@@ -25,6 +25,9 @@ You'll want to open up the theme files (`../wp-content/themes/wp-splost/`) in yo
 
 ![match colors](https://github.com/codeforamerica/wp-splost/raw/master/readme-imgs/colors.png)
 
+## Install Plugins
+You'll also need to install a plugin called [Next Page, Not Next Post](http://wordpress.org/plugins/next-page-not-next-post/). Remember to activate it in the admin site.
+
 ### Customize Spreadsheet and Javascript
 Have a look at the [spreadsheets Macon](https://docs.google.com/a/codeforamerica.org/spreadsheet/ccc?key=0Aj3c4mZCQQaMdGE2TVphOWlXMUMyclRXa2Z1c0g5MGc#gid=1) is using and see how their information compares to the information you'd like to present. 	
 
